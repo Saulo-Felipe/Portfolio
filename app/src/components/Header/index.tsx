@@ -1,24 +1,24 @@
 import { 
-  HeaderContainer, 
-  Logo, 
-  CenterContainer, 
-  EndContainer,
-  Option
+  Container,
+  Option,
+  Logo,
+  LogoContainer,
+  OptionsContainer
 } from "./styles"
 
-export const Header = () => {
+export function Header() {
 
   return ( 
-    <HeaderContainer>
-      <Logo></Logo>
+    <Container>
+      <LogoContainer>
+        <Logo src={"/logo.png"} width={"100%"} height={"100%"} />
+      </LogoContainer>
 
-      <CenterContainer>
-        <Option>Sobre</Option>
-        <Option>Não sei</Option>
-        <Option>Teste</Option>
-      </CenterContainer>
-      
-      <EndContainer></EndContainer>
-    </HeaderContainer>
+      <OptionsContainer>
+        <Option>Home</Option>
+        <Option>Projetos</Option>
+        <Option>Contato</Option>
+      </OptionsContainer>
+    </Container>
   );
 }

@@ -1,25 +1,35 @@
 import styled from "styled-components";
+import Image from "next/image";
 
-export const HeaderContainer = styled.header`
-  border: solid 1px #ff0000;
-  height: 4rem;
+// #d7e2f8
+
+export const Container = styled.header`
+  background-color: ${({theme}) => theme.background};
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
-export const Logo = styled.section``; 
-
-export const CenterContainer = styled.section`
+export const OptionsContainer = styled.div`
+  border: solid 1px red;
   display: flex;
-  border: solid 1px #ff0000;
-  flex: 1;
-  height: 100%;
+  align-items: center;
+  
 `;
 
 export const Option = styled.div`
-  border-bottom: solid 2px blue;
-  border: solid 1px #ff9111;
-  vertical-align: ;
+  border: solid 1px red;
+  padding: 0 0.5rem;
+  margin: 0 0.2rem;
+  color: white;
 `;
 
-export const EndContainer = styled.section``
+export const Logo = styled(Image)`
+
+`;
+
+export const LogoContainer = styled.div`
+  height: 3rem;
+  width: 3rem;
+  border: solid 1px red;
+`;
