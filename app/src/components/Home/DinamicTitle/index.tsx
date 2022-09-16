@@ -13,7 +13,7 @@ export function DinamicTitle() {
   var words: Word[] = [
     { text: "Bem Vindo 👋", isCurrent: true, isBack: false, pos: 0 },
     { text: "Web Development", isCurrent: false, isBack: false, pos: 0 },
-    { text: "Javascript -> React && Node", isCurrent: false, isBack: false, pos: 0 },
+    { text: "Javascript ❤️", isCurrent: false, isBack: false, pos: 0 },
   ];
   const TitleRef = useRef<HTMLDivElement | null>(null);
   const mousePos = onMouseMove();
@@ -52,20 +52,8 @@ export function DinamicTitle() {
   }
 
   useEffect(() => {
-    console.log("Chamou title");
     changeText();
   }, []);
-
-  function teste() {
-    const x = ((1-(mousePos.x*(1/(window.innerWidth/2)));
-    const y = ((1-(mousePos.y*(1/(window.innerHeight/2)));
-
-    return (
-      "X: "+(50/100*Number(x)+Number(x)).toFixed(4)
-      +
-      "Y: "+y
-    )
-  }
 
   return (
     <TitleContainer>
@@ -74,9 +62,6 @@ export function DinamicTitle() {
         mousePos={mousePos} 
       />
       <WelcomePointer />
-      <div style={{color: "#fff", fontSize: "3rem", zIndex: 99, position: "absolute", top: 0}}>
-        {teste()}
-      </div>
     </TitleContainer>
   );
 }

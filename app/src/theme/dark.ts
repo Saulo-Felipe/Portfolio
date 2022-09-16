@@ -1,6 +1,10 @@
 export default {
   color: "#06080d",
+  color_opacity: "rgba(6, 8, 13, 0.35)",
   background: "#06080d",
+
+  color_200: "#090e18",
+  color_300: "#0f131d",
   
   defaultFontColor: "#fff",
 

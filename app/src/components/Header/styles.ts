@@ -16,14 +16,15 @@ export const Container = styled.header<ContainerProps>`
   top: 0;
   z-index: 99;
   transition: all 500ms;
-  padding: 0.5rem;
+  padding: 0.75rem;
   position: fixed;
+
+  backdrop-filter: blur(15px);
   
   ${
     ({fixedHeader, theme}) => fixedHeader ? `
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      padding: 0rem;
-      background-color: ${theme.background};
+      padding: 0.3rem;
+      background-color: ${theme.color_opacity};
     ` : ""
   }
 `;
