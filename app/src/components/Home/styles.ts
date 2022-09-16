@@ -1,16 +1,17 @@
 import styled from "styled-components";
-
+import { IoIosArrowDown } from "react-icons/io";
 
 export const Container = styled.div`
   ${({theme}) => `
-    background-image: radial-gradient(${theme.gradient1}, ${theme.gradient2}, ${theme.color}, ${theme.color});
+    background-image: radial-gradient(${theme.gradient1}, ${theme.gradient2}, ${theme.color}, ${theme.color}, ${theme.color}, ${theme.color});
     background-color: ${theme.background};
   `};
   display: flex;
+  flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   width: 100%;
-  height: inherit;
+  height: 100vh;
   position: relative;
 
   padding: 2rem;
@@ -27,32 +28,32 @@ export const Container = styled.div`
   }
 `;
 
-export const Welcome = styled.div`
-  color: ${({theme}) => theme.defaultFontColor};
-  font-size: 4rem;
-  font-weight: bold;
+export const ArrowAnimated = styled(IoIosArrowDown)`
+  color: #fff;
+  font-size: 1.7rem;
   z-index: 1;
-  display: inline-block;
-`;
+  transition: all 300ms;
+  position: absolute;
+  bottom: 3rem;
+  cursor: pointer;
 
-export const WelcomePointer = styled.span`
-  width: 5px;
-  height: 4rem;
-  background-color: #b4b4b4;
-  margin-left: 0.5rem;
-  transition: all 0.3s;
+  animation: Icon infinite 3s ease;
 
-  animation-name: Cursor;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  z-index: 1;
-
-  @keyframes Cursor {
+  @keyframes Icon {
     0% {
-      opacity: 0;
+      margin-bottom: 0rem;
     }
-    80% {
-      opacity: 1;
+    10% {
+      margin-bottom: -1rem;
+    }
+    20% {
+      margin-bottom: 0rem;
+    }
+    30% {
+      margin-bottom: -1rem;
+    }
+    40% {
+      margin-bottom: 0rem;
     }
   }
 `;
