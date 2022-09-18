@@ -100,7 +100,7 @@ export const Card3D = styled.div<Card3DProps>`
   &:hover {
     transform:
       perspective(800px)
-      rotateY(${({side}) => side == "left" ? "-15deg" : "15deg"})
+      rotateY(${({side}) => side == "left" ? "-15deg" : "5deg"})
       translateY(${({side}) => side == "left" ? "-50px" : "50px"})
       rotateX(10deg)
       scale(1);
@@ -121,6 +121,9 @@ export const Card3D = styled.div<Card3DProps>`
   }
   .brackets {
     color: #fff;
+  }
+  .function {
+    color: #2b7f43;
   }
 
   ${({theme, pos, side}) => `

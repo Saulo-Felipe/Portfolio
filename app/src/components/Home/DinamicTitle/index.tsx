@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { TitleContainer, Welcome, WelcomePointer } from "./styles";
-import { onMouseMove } from "../MousePosition";
+import { useEffect, useRef } from "react";
+import { TitleContainer, Welcome, WelcomePointer, SubTitle } from "./styles";
 
 interface Word {
   text: string;
@@ -16,7 +15,6 @@ export function DinamicTitle() {
     { text: "Javascript ❤️", isCurrent: false, isBack: false, pos: 0 },
   ];
   const TitleRef = useRef<HTMLDivElement | null>(null);
-  const mousePos = onMouseMove();
 
   function changeText() {
     let current: any;
@@ -57,11 +55,13 @@ export function DinamicTitle() {
 
   return (
     <TitleContainer>
-      <Welcome 
-        ref={TitleRef} 
-        mousePos={mousePos} 
-      />
-      <WelcomePointer />
+      <SubTitle>{"<Hi! I'am Saulo Felipe />"}</SubTitle>
+      <div style={{display: "flex"}}>
+        <Welcome 
+          ref={TitleRef} 
+        />
+        <WelcomePointer />
+      </div>
     </TitleContainer>
   );
 }

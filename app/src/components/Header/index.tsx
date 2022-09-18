@@ -13,8 +13,6 @@ export function Header() {
 
   useEffect(() => {
     window?.addEventListener("scroll", (scroll: any) => {
-      console.log(window.pageYOffset);
-      console.log(fixedHeaderRef.current)
       if (window.pageYOffset == 0 && fixedHeaderRef.current) {
         setFixedHeader(false);
       } else if (!fixedHeaderRef.current) {

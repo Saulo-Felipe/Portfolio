@@ -1,38 +1,14 @@
 import styled from "styled-components";
 
 
-interface WelcomeProps {
-  mousePos: {
-    x: number;
-    y: number;
-  }
-}
-
-
 export const TitleContainer = styled.div`
   z-index: 1;
   display: flex;
+  flex-direction: column;
 `;
 
-function calcValue(value: number, mousePos: { x: number, y: number }) {
-  if (typeof window != "undefined") { 
-    const x = ((value-(mousePos.x*(value/(window.innerWidth/2)))));
-    const y = ((value-(mousePos.y*(value/(window.innerHeight/2)))));
 
-    const resultX = (100/100*Number(x)+Number(x)).toFixed(2);
-    const resultY = (100/100*Number(y)+Number(y)).toFixed(2);
-
-    return {
-      x: Number(resultX) > 1 || Number(resultX) < 0 ? 1 : resultX,
-      y: Number(resultY) > 1 ? 1 : resultY
-    };
-  }
-  else {
-    return {x: 0, y: 0}
-  }
-}
-
-export const Welcome = styled.div<WelcomeProps>`
+export const Welcome = styled.div`
   color: ${({theme}) => theme.defaultFontColor};
   font-size: 6rem;
   font-weight: bold;
@@ -58,4 +34,13 @@ export const WelcomePointer = styled.span`
     0% { opacity: 0; }
     80% { opacity: 1; }
   }
+`;
+
+export const SubTitle = styled.div`
+  background: -webkit-linear-gradient(right, ${({theme}) => "white,"+theme.defaultColorTheme+",white,"+theme.defaultColorTheme});
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.1rem;
+  transition: all 400ms;
+  width: max-content;
 `;
