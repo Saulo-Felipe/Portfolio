@@ -11,22 +11,26 @@ export function Stacks() {
 
       preload() {
         this.load.image("javascript", "/images/javascript.png");
+				this.load.image("click-here", "/images/click-here.png");
+
+        this.load.atlas("languages", "/collisionAssets/sprites.png", "/collisionAssets/sprites.json");
+        this.load.json("physics", "/collisionAssets/physics.json");
+				
       }
 
       create() {
-        let sprite = this.add.image(100, 100, "javascript");
-        sprite.setScale(0.1);
+        this.matter.world.setBounds();
+				this.add.image(140, 140, "click-here").setRotation(-0.5).alpha = 0.3;
+        const spritePhysics = this.cache.json.get("physics");
 
-        // sprite.setCollideWorldBounds(true);
-        // sprite.setBounce(0.4, 0.4);
-        sprite.setInteractive();
+        this.matter.add.mouseSpring({ length: 1, stiffness: 0.6 });
 
-        this.input.setDraggable(sprite);
 
-        this.input.on("drag", (pointer: any, gameObject: any, dragX: any, dragY: any) => {
-          gameObject.x = dragX;
-          gameObject.y = dragY;
-        });
+				this.input.on("pointerdown", (pointer: any) => {
+					const sortLanguage = Object.keys(spritePhysics)[Math.floor(Math.random()*9)];
+					console.log("sorted: ", sortLanguage);
+					this.matter.add.sprite(pointer.x, pointer.y, "languages", sortLanguage, { shape: spritePhysics[sortLanguage] }).setOrigin(0.5, 0.5).setScale(0.3);
+				});
       }
 
       update() {
@@ -34,22 +38,20 @@ export function Stacks() {
       }
     }
 
-    const gameConfig = {
+    new Phaser.Game({
       type: Phaser.CANVAS,
-      width: "100%",
-      height: window.innerHeight,
+      width: window.innerWidth-100,
+      height: window.innerHeight-100,
       canvas: canvasRef.current as HTMLCanvasElement,
+			backgroundColor: "#0c101a",
       physics: {
-        default: "arcade",
-        arcade: {
-          debug: true,
-          gravity: { y: 300 }
-        },
+        default: "matter",
+        matter: {
+          // debug: true
+        }
       },
       scene: MyGame
-    }
-
-    new Phaser.Game(gameConfig);
+    });
 
   }
 
@@ -62,7 +64,7 @@ export function Stacks() {
   return (
     <Container>
       <canvas
-        id="canvasElement"
+        id={"canvasElement"}
         ref={canvasRef}
       ></canvas>
     </Container>
