@@ -2,6 +2,11 @@ import { Container } from "./styles";
 import { useEffect, useRef } from "react";
 
 
+interface Bullet {
+  bullet: Phaser.Physics.Matter.Image;
+  life: number;
+}
+
 export function Stacks() {
   const canvasRef = useRef<HTMLCanvasElement>({} as HTMLCanvasElement);
 
@@ -18,10 +23,10 @@ export function Stacks() {
 
         this.life = 60;
         this.language = matter.add.image(
-          pointer.x, 
-          pointer.y, 
-          "languages", 
-          sortLanguage, 
+          pointer.x,
+          pointer.y,
+          "languages",
+          sortLanguage,
           { shape: spritePhysics[sortLanguage], mass: 1, ignorePointer: true }).setOrigin(0.5, 0.5).setScale(0.3)
 
         this.isDead = false;
@@ -42,43 +47,23 @@ export function Stacks() {
     }
 
     class MyGame extends Phaser.Scene {
-      spaceShip: Phaser.Physics.Matter.Image;
-      cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+      private spaceShip: Phaser.Physics.Matter.Image;
+      private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
-      preload() {
-        this.load.image("javascript", "/images/javascript.png");
+      private bullets: Bullet[];
+      private shotDelay: number;
+      private shotReleased: boolean;
 
-        this.load.atlas("languages", "/collisionAssets/sprites.png", "/collisionAssets/sprites.json");
-        this.load.json("physics", "/collisionAssets/physics.json");
+    	private minimap: Phaser.Cameras.Scene2D.Camera;
 
-        this.load.image("sun", "/images/sun2.png");
-        // this.load.image("background", "/images/background.jpg");
-
-        this.load.image("space-ship", "/images/space-ship.png");
-        this.load.json("space-ship-physics", "/collisionAssets/space-ship.json");
-
-        // Particles
-        this.load.atlas("space-ship-particle", "/particles/space-ship.png", "/particles/space-ship.json");
-
-        this.load.image("bullet", "/collisionAssets/bullet.png");
-      }
-
-      create() {
-        // Space ship
-        this.spaceShip = this.matter.add.image(300, 300, "space-ship", undefined, {
-          shape: this.cache.json.get("space-ship-physics")["space-ship"]
-        });
-
-        this.spaceShip.setFrictionAir(0.05);
-        this.spaceShip.setMass(30);
-        this.spaceShip.setDepth(2);
-
-        this.cursors = this.input.keyboard.createCursorKeys();
+      private background: Phaser.GameObjects.TileSprite;
+      private bgIter: number;
 
 
-        const particles = this.add.particles("space-ship-particle");
+      createSpaceShipParticles() {
+        const particle = this.add.particles("space-ship-particle");
 
-        const emitter = particles.createEmitter({
+        const emitterParticle = particle.createEmitter({
           frame: "blue",
           speed: {
             onEmit: () => {
@@ -100,47 +85,177 @@ export function Stacks() {
         });
 
 
-        emitter.startFollow(this.spaceShip);
+        emitterParticle.startFollow(this.spaceShip);
+      }
+
+      createSpaceShip() {
+        this.spaceShip = this.matter.add.image(300, 300, "space-ship", undefined, {
+          shape: this.cache.json.get("space-ship-physics")["space-ship"]
+        });
+
+        this.spaceShip.setFrictionAir(0.05);
+        this.spaceShip.setMass(30);
+        this.spaceShip.setDepth(2);
+
+        this.shotDelay = 0;
+        this.shotReleased = false;
+        this.bullets = [];
+      }
+
+      createBullet() {
+        this.shotReleased = false;
+
+        const newBullet: Bullet = {
+          bullet: this.matter.add.image(
+            this.spaceShip.x, 
+            this.spaceShip.y, 
+            "bullet", 
+            undefined, 
+            { isSensor: true, label: "bullet" }),
+          life: 50,
+        }
+
+        newBullet.bullet.setAngle(this.spaceShip.angle);
+        newBullet.bullet.thrust(0.06);
+
+        this.bullets.push(newBullet);
+      }
+
+      updateBullets() {
+        for (let c = 0; c < this.bullets.length; c++) {
+          this.bullets[c].life--;
+
+          if (this.bullets[c].life == 0) {
+            this.bullets[c].bullet.setActive(false);
+            this.bullets[c].bullet.destroy();
+            this.bullets.splice(c, 1);
+          }
+        }
+
+        if (this.shotDelay == 0) {
+          this.shotDelay = 10;
+          this.shotReleased = true;
+        } else {
+          this.shotDelay--;
+        }
+      }
+
+      updateKeysAction() {
+        const { left, right, up, down, space } = this.cursors;
+
+        if (left.isDown) {
+          this.spaceShip.setAngle(this.spaceShip.angle - 3);
+        }
+        else if (right.isDown) {
+          this.spaceShip.setAngle(this.spaceShip.angle + 3);
+        }
+        else { // RESET VELOCITY
+          this.spaceShip.setAngularVelocity(0);
+        }
+
+        if (up.isDown) {
+          this.spaceShip.thrust(0.1);
+        } 
+        else if (down.isDown) {
+          this.spaceShip.thrust(-0.1);
+        }
+
+        if (space.isDown && this.shotReleased) {
+          this.createBullet()
+        }        
+      }
+
+      preload() {
+        // Sprites and shape of languages
+        this.load.atlas("languages", "/collisionAssets/sprites.png", "/collisionAssets/sprites.json");
+        this.load.json("physics", "/collisionAssets/physics.json");
+
+        this.load.image("sun", "/images/sun.png"); // Sun Image
+        this.load.image("marte", "/images/marte.png"); // Sun Image
+
+        this.load.image("background", "/images/background.png");
+
+        this.load.image(
+          "space-ship", 
+          "/images/space-ship.png"
+        ); // spaceship image
+
+        this.load.json(
+          "space-ship-physics", 
+          "/collisionAssets/space-ship.json"
+        ); // spaceship shape
+
+        this.load.atlas(
+          "space-ship-particle", 
+          "/particles/space-ship.png", 
+          "/particles/space-ship.json"
+        ); // Particles
+
+        this.load.image("bullet", "/collisionAssets/bullet.png"); // Bullet image
+      }
+      sun: Phaser.Physics.Matter.Image
+      create() {
+        this.background = this.add.tileSprite(1500, 1500, 3000, 3000, "background");
+        this.matter.world.setBounds(0, 0, 3000, 3000);
+
+        this.createSpaceShip();
+        this.createSpaceShipParticles();
+
+        this.cameras.main.startFollow(this.spaceShip).setName("main");
+        this.cameras.main.setBounds(0, 0, 3000, 3000);
+
+        this.minimap = this.cameras.add(0, 0, 200, 200).setName("mini-map").setZoom(0.1).setBackgroundColor("red");
+        this.minimap.startFollow(this.spaceShip);
+        this.minimap.inputEnabled = false;
+
+        // Planets
+        // this.sun = this.matter.add.image(200, 200, "sun", undefined, { shape: "circle" }).setScale(0.8)
+        var planet1 = this.matter.add.image(200, 200, "marte", undefined, { shape: "circle" }).setScale(0.8)
+        var planet2 = this.matter.add.image(200, 200, "marte", undefined, { shape: "circle" }).setScale(0.8)
 
 
 
 
-        const spritePhysics = this.cache.json.get("physics");
 
         // this.matter.add.mouseSpring({ length: 1, stiffness: 0.6 });
+        
+        this.sun = this.matter.add.image(200, 200, "sun", undefined, {
+          shape: "circle",
+          plugin: {
+            attractors: [
+              (bodyA: any, bodyB: any) => {
+                // bodyB is the sun
+                const x1 = bodyA.position.x
+                const y1 = bodyA.position.y
+
+                const x2 = bodyB.position.x
+                const y2 = bodyB.position.y
+
+                // d=√((x2 – x1)² + (y2 – y1)²).
+
+                const distance = Math.sqrt((x2 - x1)**2 + (y2 - y1)**2);
 
 
-        // this.matter.add.image(200, 200, "sun", undefined, {
-        //   shape: spritePhysics.javascript,
-        //   plugin: {
-        //     attractors: [
-        //       (bodyA: any, bodyB: any) => {
-        //         // bodyB is the sun
-        //         const x1 = bodyA.position.x
-        //         const y1 = bodyA.position.y
+                if (distance < 1000) {
+                  if (distance > 500) {
+                    return {
+                      x: (bodyA.position.x - bodyB.position.x) * 0.00002,
+                      y: (bodyA.position.y - bodyB.position.y) * 0.00002
+                    };
+                  } else {
+                    return {
+                      x: (bodyB.position.x - bodyA.position.x) * 0.00002,
+                      y: (bodyB.position.y - bodyA.position.y) * 0.00002
+                    };
+                  }
+  
+                }
+              }
+            ]
+          }
+        }).setScale(0.75).thrust(2);
 
-        //         const x2 = bodyB.position.x
-        //         const y2 = bodyB.position.y
-
-        //         // d=√((x2 – x1)² + (y2 – y1)²).
-
-        //         const distance = Math.sqrt((x2 - x1)**2 + (y2 - y1)**2);
-
-        //         if (distance > 300) {
-        //           return {
-        //             x: (bodyA.position.x - bodyB.position.x) * 0.00002,
-        //             y: (bodyA.position.y - bodyB.position.y) * 0.00002
-        //           };
-        //         } else {
-        //           return {
-        //             x: (bodyB.position.x - bodyA.position.x) * 0.00002,
-        //             y: (bodyB.position.y - bodyA.position.y) * 0.00002
-        //           };
-        //         }
-        //       }
-        //     ]
-        //   }
-        // }).setScale(0.75);
+        this.sun.setBounce(1)
 
 
         // this.allLanguages = [];
@@ -149,33 +264,22 @@ export function Stacks() {
         //   const language = new Language(spritePhysics, this.matter, pointer)
         //   this.allLanguages.push(language);
 				// });
+      
+        this.cursors = this.input.keyboard.createCursorKeys();
       }
 
       update() {
         // Keys
-        if (this.cursors.left.isDown) {
-          this.spaceShip.setAngle(this.spaceShip.angle - 3);
-        }
-        else if (this.cursors.right.isDown) {
-          this.spaceShip.setAngle(this.spaceShip.angle + 3);
-        }
-        else {
-          this.spaceShip.setAngularVelocity(0);
-        }
+        this.updateKeysAction();
 
-        if (this.cursors.up.isDown) {
-          this.spaceShip.thrust(0.1);
-        } else if (this.cursors.down.isDown) {
-          this.spaceShip.thrust(-0.1);
-        }
+        this.updateBullets();
 
-        if (this.cursors.space.isDown) {
-          const bullet = this.matter.add.image(this.spaceShip.x, this.spaceShip.y, "bullet");
-          bullet.setAngle(this.spaceShip.angle);
-          bullet.thrust(0.15);
-        }
+        // this.background.tilePositionX = Math.cos(this.bgIter) * 10;
+        // this.background.tilePositionY = Math.sin(this.bgIter) * 10;
 
+        this.bgIter+=0.01;
 
+        this.sun.setRotation(this.sun.rotation+=0.005)
 
         // this.allLanguages = this.allLanguages.filter(element => {
         //   element.update();
