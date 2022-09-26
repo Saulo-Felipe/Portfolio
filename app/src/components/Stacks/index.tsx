@@ -14,44 +14,20 @@ export function Stacks() {
   async function Init() {
     const Phaser = await import("phaser");
 
-    class Language {
-      language: Phaser.Physics.Matter.Image;
-
-      constructor(world: Phaser.Scene, pointer: any) {
-        const spritePhysics = world.cache.json.get("physics");
-        const sortLanguage = Object.keys(spritePhysics)[Math.floor(Math.random()*9)];
-
-        console.log("Matter: ", world.matter);
-        this.language = world.matter.add.image(
-          pointer.x,
-          pointer.y,
-          "languages",
-          sortLanguage,
-          { 
-            shape: spritePhysics[sortLanguage], 
-            mass: 1, 
-            ignorePointer: true,
-          }).setOrigin(0.5, 0.5).setScale(0.3);
-
-      }
-
-      dead() {
-        this.language.destroy();
-        this.language.setActive(false);
-      }
-    }
 
     class MyGame extends Phaser.Scene {
       private spaceShip: Phaser.Physics.Matter.Image;
       private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
-      private bullets: Bullet[];
       private shotDelay: number;
       private shotReleased: boolean;
 
     	private minimap: Phaser.Cameras.Scene2D.Camera;
 
-      private allLanguages: Language[];
+      private allLanguages: Phaser.GameObjects.Group;
+      private allBullets: Phaser.GameObjects.Group;
+
+      sun: Phaser.Physics.Matter.Image;
 
 
       createSpaceShipParticles() {
@@ -78,7 +54,6 @@ export function Stacks() {
           blendMode: "ADD"
         });
 
-
         emitterParticle.startFollow(this.spaceShip);
       }
 
@@ -86,7 +61,7 @@ export function Stacks() {
         this.spaceShip = this.matter.add.image(300, 300, "space-ship", undefined, {
           shape: this.cache.json.get("space-ship-physics")["space-ship"],
           label: "space-ship"
-        });
+        } as any);
 
         this.spaceShip.setFrictionAir(0.05);
         this.spaceShip.setMass(30);
@@ -94,57 +69,65 @@ export function Stacks() {
 
         this.shotDelay = 0;
         this.shotReleased = false;
-        this.bullets = [];
       }
 
       createBullet() {
+
+        let bullet = this.matter.add.image(this.spaceShip.x, this.spaceShip.y, "bullet", undefined, { 
+          isSensor: true, 
+          label: "bullet", 
+        }).setAngle(this.spaceShip.angle)//.thrust(0.06),
+
+        this.allBullets.add(
+
+          this.physics.velocityFromRotation()
+        );
+
         this.shotReleased = false;
 
-        const newBullet: Bullet = {
-          bullet: this.matter.add.image(
-            this.spaceShip.x, 
-            this.spaceShip.y, 
-            "bullet", 
-            undefined, 
-            { isSensor: true, label: "bullet", id: uuid()}),
-          life: 50,
-        }
+        // const newBullet: Bullet = {
+        //   bullet: this.matter.add.image(
+        //     this.spaceShip.x, 
+        //     this.spaceShip.y, 
+        //     "bullet", 
+        //     undefined, 
+        //     { isSensor: true, label: "bullet", id: uuid() }),
+        //   life: 50,
+        // }
 
-        newBullet.bullet.setAngle(this.spaceShip.angle);
-        newBullet.bullet.thrust(0.06);
+        // newBullet.bullet.setAngle(this.spaceShip.angle);
+        // newBullet.bullet.thrust(0.06);
 
-        this.bullets.push(newBullet);
+        // this.bullets = [...this.bullets, newBullet];
       }
 
-      destroyBullet(bullet: Phaser.Physics.Matter.Image | undefined, index: number | undefined) {
-        if (index) {
-          console.log("removing from index");
-          this.bullets[index].bullet.setActive(false);
-          this.bullets[index].bullet.destroy();
-          this.bullets.splice(index, 1);
-        } else {
-          for (let c = 0; c < this.bullets.length; c++) {
-            if (this.bullets[c].bullet.id === bullet?.id) {
-              console.log("id: ", this.bullets[c].bullet);
-              console.log("bullet: ", bullet);
+      createLanguage(pointer: {x: number, y: number}) {
+        const spritePhysics = this.cache.json.get("physics");
+        const sortLanguage = Object.keys(spritePhysics)[Math.floor(Math.random()*9)];
 
-              // this.bullets[c].bullet.setActive(false);
-              this.bullets[c].bullet.destroy();
-              this.bullets.splice(c, 1);
-              break;
-            }
-          }
-        }
+        this.allLanguages.add(
+          this.matter.add.image(pointer.x, pointer.y, "languages", sortLanguage, {
+            shape: spritePhysics[sortLanguage],
+            mass: 100
+          } as any).setOrigin(0.5).setScale(0.3)
+        );
       }
 
       updateBullets() {
-        for (let c = 0; c < this.bullets.length; c++) {
-          if (this.bullets[c].life == 0) {
-            this.destroyBullet(undefined, c);
-            break;
+        const bullets: Phaser.Physics.Matter.Image[] = this.allBullets.getChildren() as Phaser.Physics.Matter.Image[];
+        for (let c = 0; c < bullets.length; c++) {
+          let { x, y } = this.spaceShip;
+          if (
+            bullets[c].x > x+window.innerWidth/2 || 
+            bullets[c].x < x-window.innerWidth/2 ||
+            bullets[c].y < y-window.innerHeight/2 ||
+            bullets[c].y > y+window.innerHeight/2
+          ) {
+            console.log("Saiu da tela! old: ", this.allBullets);
+            this.allBullets.remove(bullets[c], true, true);
+            // this.allBullets.kill(bullets[c]);
+            console.log("new: ", this.allBullets);
           }
-
-          this.bullets[c].life--;
         }
 
         if (this.shotDelay == 0) {
@@ -176,7 +159,7 @@ export function Stacks() {
         }
 
         if (space.isDown && this.shotReleased) {
-          this.createBullet()
+          this.createBullet();
         }        
       }
 
@@ -209,7 +192,6 @@ export function Stacks() {
         this.load.image("bullet", "/collisionAssets/bullet.png"); // Bullet image
       }
       
-      sun: Phaser.Physics.Matter.Image;
 
       create() {
         this.add.tileSprite(1500, 1500, 3000, 3000, "background");
@@ -225,16 +207,14 @@ export function Stacks() {
         this.minimap.startFollow(this.spaceShip);
         this.minimap.inputEnabled = false;
 
+        this.allLanguages = this.add.group();
+        this.allBullets = this.add.group();
         // Planets
         // this.sun = this.matter.add.image(200, 200, "sun", undefined, { shape: "circle" }).setScale(0.8)
         // var planet1 = this.matter.add.image(200, 200, "marte", undefined, { shape: "circle" }).setScale(0.8)
         // var planet2 = this.matter.add.image(200, 200, "marte", undefined, { shape: "circle" }).setScale(0.8)
 
-
-
         // Collisions
-
-
         function isLanguage(label: string) {
           return ["javascript", "next", "postgre", "css", "html", "node", "react", "native"].indexOf(label) !== -1;
         }
@@ -244,12 +224,10 @@ export function Stacks() {
           const labelB = bodyB.label;
 
           if (labelA === "bullet" && isLanguage(labelB)) {
-            console.log("destroing: ", bodyA);
-            this.destroyBullet(bodyA, undefined);
+            console.log("detect A: ", bodyA);
 
           } else if (labelB === "bullet" && isLanguage(labelA)) {
-            console.log("destroing: ", bodyB);
-            this.destroyBullet(bodyB, undefined);
+            console.log("detect B: ", bodyB);
           }
           
 
@@ -295,17 +273,17 @@ export function Stacks() {
         this.sun.thrust(0.1);
         this.sun.setMass(20);
 
-        this.allLanguages = [];
-
 				this.input.on("pointerdown", (pointer: any) => {
-          const language = new Language(this, pointer)
-          this.allLanguages.push(language);
+          this.createLanguage(pointer);
 				});
       
         this.cursors = this.input.keyboard.createCursorKeys();
       }
 
-      update() {
+      update(time: any, delta: any) {
+
+        // console.log("time: ", time);
+        // console.log("delta: ", delta);
         // Keys
         this.updateKeysAction();
 
