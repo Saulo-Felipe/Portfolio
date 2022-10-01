@@ -1,0 +1,16 @@
+{
+  "sun": {
+		"type": "fromPhysicsEditor",
+		"fixtures": [
+			{
+				"label": "sun",
+				"isSensor": false,
+				"circle": {
+					"x": 902,
+					"y": 753,
+					"radius": 450
+				}
+			}
+		]
+	}
+}

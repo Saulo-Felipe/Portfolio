@@ -1,0 +1,125 @@
+{
+	"textures": [
+		{
+			"image": "sprite-0.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 2003,
+				"h": 1852
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "moon",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 500,
+						"h": 500
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 500,
+						"h": 500
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 500,
+						"h": 500
+					}
+				},
+				{
+					"filename": "earth",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 750,
+						"h": 750
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 742,
+						"h": 748
+					},
+					"frame": {
+						"x": 503,
+						"y": 1,
+						"w": 742,
+						"h": 748
+					}
+				},
+				{
+					"filename": "mars",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 750,
+						"h": 750
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 749,
+						"h": 750
+					},
+					"frame": {
+						"x": 1247,
+						"y": 1,
+						"w": 749,
+						"h": 750
+					}
+				},
+				{
+					"filename": "jupiter",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 900,
+						"h": 900
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 899,
+						"h": 900
+					},
+					"frame": {
+						"x": 1,
+						"y": 751,
+						"w": 899,
+						"h": 900
+					}
+				},
+				{
+					"filename": "sun",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1100,
+						"h": 1100
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 2,
+						"w": 1100,
+						"h": 1098
+					},
+					"frame": {
+						"x": 902,
+						"y": 753,
+						"w": 1100,
+						"h": 1098
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:c5762748579c0b5323045fb3852027f2:376e7ba5b05c4660a784bedfc738d62b:c7dd2a51203734ff9cfb8f536e70fbec$"
+	}
+}
