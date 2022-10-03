@@ -12,5 +12,19 @@
 				}
 			}
 		]
+	},
+	"mars": {
+		"type": "fromPhysicsEditor",
+		"fixtures": [
+			{
+				"label": "mars",
+				"isSensor": false,
+				"circle": {
+					"x": 1247,
+					"y": 1,
+					"radius": 400
+				}
+			}
+		]
 	}
 }
