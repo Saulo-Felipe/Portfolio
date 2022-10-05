@@ -1,0 +1,84 @@
+{"frames": [
+
+{
+	"filename": "css",
+	"frame": {"x":405,"y":1,"w":94,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":0,"w":94,"h":100},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "html",
+	"frame": {"x":501,"y":1,"w":93,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":93,"h":100},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "javascript",
+	"frame": {"x":1,"y":1,"w":100,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "native",
+	"frame": {"x":693,"y":1,"w":88,"h":96},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":88,"h":96},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "next",
+	"frame": {"x":103,"y":1,"w":100,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "node",
+	"frame": {"x":307,"y":1,"w":96,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":96,"h":100},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "postgre",
+	"frame": {"x":596,"y":1,"w":95,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":95,"h":98},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "react",
+	"frame": {"x":783,"y":1,"w":100,"h":94},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":3,"w":100,"h":94},
+	"sourceSize": {"w":100,"h":100}
+},
+{
+	"filename": "typescript",
+	"frame": {"x":205,"y":1,"w":100,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
+	"sourceSize": {"w":100,"h":100}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "languages.png",
+	"format": "RGBA8888",
+	"size": {"w":884,"h":102},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f2b5228a358a01e6f636bfe916007381:32aece1bce5bae527146b8a25993e683:3ea849f1b406b8e1a57996cfbfed793a$"
+}
+}
