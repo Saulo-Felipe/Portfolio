@@ -1,7 +1,7 @@
-import { 
-  Container, 
-  MiniMap, 
-  DestroyedLanguages, 
+import {
+  Container,
+  MiniMap,
+  DestroyedLanguages,
   Option,
   Css, Html, Javascript, Node, Postgre, React, ReactNative, Typescript,
   Title
@@ -26,45 +26,40 @@ export function Stacks() {
   async function Init() {
     const Phaser = await import("phaser");
 
-
     class MyGame extends Phaser.Scene {
-      private spaceShip: Phaser.Physics.Matter.Image;
-      private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+      cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+      shotDelay: number;
+      shotReleased: boolean;
+    	minimap: Phaser.Cameras.Scene2D.Camera;
+      particles: Phaser.GameObjects.Particles.ParticleEmitterManager;
+      languagePhysics: any;
+      health: HealthBar;
 
-      private shotDelay: number;
-      private shotReleased: boolean;
-
-    	private minimap: Phaser.Cameras.Scene2D.Camera;
-
-      private allLanguages: Phaser.Physics.Matter.Image[];
-
-      private particles: Phaser.GameObjects.Particles.ParticleEmitterManager;
-
-      private languagePhysics: any;
-
-      private sun: Phaser.Physics.Matter.Image;
-      private mars: Phaser.Physics.Matter.Image;
-      private moon: Phaser.Physics.Matter.Image;
-      private earth: Phaser.Physics.Matter.Image;
-      private jupiter: Phaser.Physics.Matter.Image;
+      allLanguages: Phaser.Physics.Matter.Image[];
+      spaceShip: Phaser.Physics.Matter.Image;
+      sun: Phaser.Physics.Matter.Image;
+      mars: Phaser.Physics.Matter.Image;
+      moon: Phaser.Physics.Matter.Image;
+      earth: Phaser.Physics.Matter.Image;
+      jupiter: Phaser.Physics.Matter.Image;
 
 
       createSpaceShip() {
         this.spaceShip = this.matter.add.image(300, 300, "space-ship", undefined, {
-          shape: this.cache.json.get("space-ship-physics")["space-ship"],
+          // shape: this.cache.json.get("space-ship-physics")["space-ship"],
           label: "space-ship"
         } as any);
 
         this.spaceShip.setFrictionAir(0.05);
         this.spaceShip.setMass(50);
         this.spaceShip.setDepth(3);
-        this.spaceShip.setScale(0.8); 
+        this.spaceShip.setScale(0.8);
+
+        // this.spaceShip.setRotation(-90)
 
         this.shotDelay = 0;
         this.shotReleased = true;
 
-        this.square = this.add.rectangle(this.spaceShip.x, this.spaceShip.y-this.spaceShip.height/2, 80, 10, 0xff0000)
-        
         this.particles.createEmitter({
           frame: "blue",
           speed: {
@@ -85,6 +80,8 @@ export function Stacks() {
           scale: { start: 1.0, end: 0 },
           blendMode: "ADD"
         }).startFollow(this.spaceShip);
+
+        this.health = new HealthBar(this, this.spaceShip);
       }
 
       isLanguage(label: string) {
@@ -182,7 +179,7 @@ export function Stacks() {
 
       updateLanguagePoints(label: any) {
         destroyedLanguagesRef.current[label] += 1;
-        
+
         setDestroyedLanguages({ ...destroyedLanguagesRef.current });
       }
 
@@ -290,6 +287,12 @@ export function Stacks() {
               bodyB.destroy(true);
             }
           }
+
+          if (bodyA?.parent?.label === "space-ship") {
+            if (this.isLanguage(bodyB.label)) {
+              this.health.lostLife();
+            }
+          }
         });
 
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -322,6 +325,8 @@ export function Stacks() {
       }
 
       update() {
+        this.sun.setRotation(this.sun.rotation+=0.005)
+
         Phaser.Actions.RotateAroundDistance([this.jupiter], { x: 3000/2, y: 3000/2 }, 0.002, 1200);
 
         Phaser.Actions.RotateAroundDistance([this.mars], { x: 3000/2, y: 3000/2 }, 0.002, 850);
@@ -333,6 +338,7 @@ export function Stacks() {
         Phaser.Actions.RotateAroundDistance([this.moon], { x: this.earth.x, y: this.earth.y }, 0.01, 350);
         this.moon.setRotation(this.earth.rotation+0.002);
 
+        this.health.update(this.spaceShip);
 
         for (let c = 0; c < this.allLanguages.length; c++) {
           if (this.allLanguages[c].y < this.spaceShip.y) {
@@ -362,8 +368,6 @@ export function Stacks() {
           this.shotDelay--;
         }
 
-        this.sun.setRotation(this.sun.rotation+=0.005)
-
       }
     }
 
@@ -380,18 +384,77 @@ export function Stacks() {
             x: 0,
             y: 0
           },
-          debug: true
+          debug: false
         }
       },
       scene: MyGame
     });
 
+
+    class HealthBar {
+      value: number;
+      scene: Phaser.Scene;
+      width: number;
+      height: number;
+
+      bg: Phaser.GameObjects.Graphics;
+      bar: Phaser.GameObjects.Graphics;
+      shadow: Phaser.GameObjects.Graphics;
+
+      constructor(scene: Phaser.Scene, spaceShip: Phaser.Physics.Matter.Image) {
+        this.value = 100;
+        this.scene = scene;
+        this.height = 15;
+        this.width = spaceShip.width;
+
+        this.bg = scene.add.graphics();
+        this.bar = scene.add.graphics();
+        this.shadow = scene.add.graphics();
+      }
+
+      getX(spaceShip: Phaser.Physics.Matter.Image): number {
+        return spaceShip.x-spaceShip.width/2;
+      }
+
+      getY(spaceShip: Phaser.Physics.Matter.Image): number {
+        return spaceShip.y-spaceShip.height/2;
+      }
+
+      lostLife(): boolean {
+        this.value -= 5;
+
+        if (this.value < 5) this.value = 5;
+
+        return this.value === 5;
+      }
+
+      update(spaceShip: Phaser.Physics.Matter.Image) {
+        this.bg.clear();
+        this.bg.fillStyle(0x2b2b2b);
+        this.bg.fillRoundedRect(this.getX(spaceShip), this.getY(spaceShip), this.width, this.height, 4);
+
+        this.bar.clear();
+        if (this.value > 60) {
+          this.bar.fillStyle(0x88e060);
+
+        } else if (this.value > 30) {
+          this.bar.fillStyle(0xe3cc00);
+        } else {
+          this.bar.fillStyle(0xe00000);
+        }
+        this.bar.fillRoundedRect(this.getX(spaceShip)+2, this.getY(spaceShip)+2, this.width/100*this.value-4, this.height-4, 4);
+
+        // this.shadow.clear();
+        // this.shadow.fillStyle(0x63b43d);
+        // this.shadow.fillRoundedRect(this.getX(spaceShip)+3, this.getY(spaceShip)+6, this.width/100*this.value-6, (this.height-4)/2, 1);
+      }
+    }
   }
 
   useEffect(() => {
     Init();
   }, []);
-  
+
   useEffect(() => {
     destroyedLanguagesRef.current = destroyedLanguages;
   }, [destroyedLanguages]);
@@ -468,7 +531,7 @@ export function Stacks() {
             <div className={"title"}>Typescript</div>
           </div>
           <div className={"count"}>{destroyedLanguages.typescript}</div>
-        </Option>        
+        </Option>
       </DestroyedLanguages>
     </Container>
   );

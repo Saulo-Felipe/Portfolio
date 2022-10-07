@@ -9,10 +9,10 @@ export default function Index() {
   
   return (
     <>
-      {/* <Header /> */}
-      {/* <Home /> */}
+      <Header />
+      <Home />
       <Stacks />
-      {/* <Projects /> */}
+      <Projects />
     </>
   )
 }
