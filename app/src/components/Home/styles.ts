@@ -9,8 +9,8 @@ interface Card3DProps {
 
 export const Container = styled.div`
   ${({theme}) => `
-    background-image: radial-gradient(${theme.gradient1}, ${theme.gradient2}, ${theme.color}, ${theme.color}, ${theme.color}, ${theme.color});
-    background-color: ${theme.background};
+    background-image: radial-gradient(${theme.blue_200}, ${theme.blue_300}, ${theme.black_100}, ${theme.black_100}, ${theme.black_100}, ${theme.black_100});
+    background-color: ${theme.black_100};
   `};
   display: flex;
   flex-direction: column;
@@ -32,6 +32,7 @@ export const Container = styled.div`
     filter: blur(20px);
     backdrop-filter: blur(5rem);
   }
+
 `;
 
 export const ArrowAnimated = styled(IoIosArrowDown)`
@@ -127,7 +128,7 @@ export const Card3D = styled.div<Card3DProps>`
   }
 
   ${({theme, pos, side}) => `
-    background-image: linear-gradient(120deg, ${theme.color_200}, ${theme.color_300});    
+    background-image: linear-gradient(120deg, ${theme.black_200}, ${theme.black_200});    
     ${
       side === "left" 
       ? `right: ${pos}; bottom: ${pos};`

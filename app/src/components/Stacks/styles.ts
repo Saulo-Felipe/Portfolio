@@ -6,7 +6,7 @@ import { TbBrandReactNative } from "react-icons/tb";
 
 export const Container = styled.section`
   height: 100vh;
-  background-color: ${({theme}) => theme.color};
+  background-color: ${({theme}) => theme.black_100};
   border: solid 1px red;
 
   display: flex;

@@ -2,9 +2,7 @@ import { Container, ArrowAnimated, Card3D } from "./styles";
 import { DinamicTitle } from "./DinamicTitle";
 
 export function Home() {
-  function teste() {
 
-  }
   
   return (
     <Container>

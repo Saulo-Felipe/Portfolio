@@ -9,12 +9,13 @@ export const TitleContainer = styled.div`
 
 
 export const Welcome = styled.div`
-  color: ${({theme}) => theme.defaultFontColor};
+  color: #fff;
   font-size: 6rem;
   font-weight: bold;
   display: inline-block;
 
   text-shadow: 10px 10px 10px black;
+  font-weight: 900;
 
 `;
 
@@ -37,7 +38,7 @@ export const WelcomePointer = styled.span`
 `;
 
 export const SubTitle = styled.div`
-  background: -webkit-linear-gradient(right, ${({theme}) => "white,"+theme.defaultColorTheme+",white,"+theme.defaultColorTheme});
+  background: -webkit-linear-gradient(right, ${({theme}) => "white,"+theme.blue_100+",white,"+theme.blue_100});
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.1rem;

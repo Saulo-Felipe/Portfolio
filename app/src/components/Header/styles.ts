@@ -24,7 +24,7 @@ export const Container = styled.header<ContainerProps>`
   ${
     ({fixedHeader, theme}) => fixedHeader ? `
       padding: 0.3rem;
-      background-color: ${theme.color_opacity};
+      background-color: ${theme.black_100_opacity};
     ` : ""
   }
 `;

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 
-export const Container = styled.div`
-  height: 100%;
+export const Container = styled.section`
   display: flex;
-  flex-direction: column;
-  border: solid 1px red;
 `;

@@ -1,15 +1,13 @@
 export default {
-  color: "#06080d",
-  color_opacity: "rgba(6, 8, 13, 0.35)",
-  background: "#06080d",
+  black_100: "#06080d",
+  black_200: "#0f131d",
 
-  color_200: "#090e18",
-  color_300: "#0f131d",
-  
-  defaultFontColor: "#fff",
 
-  defaultColorTheme: "#00538C",
+  blue_100: "#00538C",
+  blue_200: "#00548c4d",
+  blue_300: "#00416a1a",
+  blue_400: "#0096f3c7",
 
-  gradient1: "rgba(0, 84, 140, 0.3)",
-  gradient2: "rgba(0, 65, 106, 0.1)",
+  purple_100: "#3e0070",
+  purple_200: "#7300a8",
 }

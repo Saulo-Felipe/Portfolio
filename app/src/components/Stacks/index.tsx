@@ -340,6 +340,7 @@ export function Stacks() {
 
         this.health.update(this.spaceShip);
 
+
         for (let c = 0; c < this.allLanguages.length; c++) {
           if (this.allLanguages[c].y < this.spaceShip.y) {
             this.allLanguages[c].y++;
