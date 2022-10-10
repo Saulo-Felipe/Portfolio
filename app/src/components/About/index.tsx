@@ -8,6 +8,7 @@ import {
   AroundAnimation,
   SeeProjectsBtn
 } from "./styles";
+import { HiOutlineArrowDown } from "react-icons/hi";
 
 
 export function About() {
@@ -39,7 +40,7 @@ export function About() {
             </p>
 
             <SeeProjectsBtn>
-              Ver Projetos
+              Ver Projetos <HiOutlineArrowDown />
             </SeeProjectsBtn>
           </div>
         </AboutContentContainer>

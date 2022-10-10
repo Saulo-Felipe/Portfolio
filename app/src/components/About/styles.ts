@@ -22,7 +22,7 @@ export const Container = styled.div`
       hr {
         border: solid 1px #fff;
         opacity: 0.8;
-        width: 45%;
+        width: 40%;
       }
     }
   }
@@ -75,10 +75,13 @@ export const AboutContentContainer = styled.div`
 
     p {
       padding: 0.5rem 0;
-      font-size: 1.1rem;
-      line-height: 1.5rem;
+      font-size: 1rem;
+      line-height: 150%;
       text-indent: 1.5rem;
-      color: #c4c4c4;
+      color: ${({theme}) => theme.gray_100};
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      opacity: 0.75;
     }
   }
 `;
@@ -128,7 +131,7 @@ export const AroundAnimation = styled.div`
     }
 
     12% {
-      width: 4rem;
+      width: 8rem;
       height: 2px;
       left: 50%;
       top: 0%;
@@ -142,7 +145,7 @@ export const AroundAnimation = styled.div`
 
     37% {
       width: 2px;
-      height: 2rem;
+      height: 8rem;
       top: 50%;
       left: 100%;
     }
@@ -154,7 +157,7 @@ export const AroundAnimation = styled.div`
     }
 
     62% {
-      width: 4rem;
+      width: 8rem;
       height: 2px;
       top: 100%;
       left: 50%;
@@ -168,7 +171,7 @@ export const AroundAnimation = styled.div`
 
     87% {
       width: 2px;
-      height: 4rem;
+      height: 8rem;
       top: 50%;
       left: 0%;
     }
@@ -183,18 +186,27 @@ export const AroundAnimation = styled.div`
 
 export const SeeProjectsBtn = styled.button`
   display: block;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  padding: 0.8rem 2.2rem;
+  padding: 1rem 2.5rem;
   position: relative;
   background-color: transparent;
-  /* border: solid 1px #fff; */
   z-index: 1;
   color: #fff;
   border: none;
   border-radius: 0.2rem;
   width: max-content;
   transition: all 300ms;
+  font-family: 'Montserrat', sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-left: 0.2rem;
+  }
+
 
   &:focus {
     outline: none;
@@ -221,11 +233,7 @@ export const SeeProjectsBtn = styled.button`
     height: 100%;
     left: 0;
     top: 0;
-    /* background-image: linear-gradient(-45deg, #0067c7, #0035c7, #2400c7, #5d00c7); */
-    ${({theme: {blue_100, blue_200, blue_300, blue_400}}) => 
-    `background-image: linear-gradient(-45deg, ${blue_400}, ${blue_100}, ${blue_200}, ${blue_300});`
-    }
-    /* background-image: linear-gradient(-45deg, #0067c7, #0035c7, #2400c7, #5d00c7); */
+    background-image: linear-gradient(to right, #2b5876, #4e4376);
     border-radius: 0.2rem;
     z-index: -2;
   }
