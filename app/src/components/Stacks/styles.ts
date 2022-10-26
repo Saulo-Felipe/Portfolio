@@ -32,7 +32,7 @@ export const Container = styled.section`
 export const LangsCarousel = styled.div<CarouselPros>`
   display: -webkit-box;
   transition: all 300ms;
-  animation: carouselAnimated ${({delay}) => delay ? "25s" : "20s"} infinite linear;
+  animation: carouselAnimated ${({delay}) => delay ? "25s" : "20s"} infinite ease-in;
   margin-bottom: 2rem;
   ${({delay}) => `animation-delay: ${delay}s;`}
 
@@ -253,7 +253,7 @@ export const GameContainer = styled.div`
 
   canvas {
     box-shadow: 0 0 20px black;
-    opacity: 0;
+    /* opacity: 0; */
   }
 
 `;

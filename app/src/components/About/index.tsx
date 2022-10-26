@@ -18,7 +18,7 @@ export function About() {
       <Division />
       <div className={"box"}>
         <ImageContainer>
-          <img src={"/images/profile.jpg"} />
+          <img src={"https://th.bing.com/th/id/OIP.zxgaZvcIYMxFwVtDmH8O-gHaHO?pid=ImgDet&rs=1"} />
         </ImageContainer>
 
         <AboutContentContainer>

@@ -19,8 +19,6 @@ import {
 } from "react-icons/bs";
 
 export function Stacks() {
-  const [gameStarted, setGameStarted] = useState<boolean>(true);
-
 
   return (
     <Container>
@@ -213,7 +211,7 @@ export function Stacks() {
           para mover e girar sua nave
         </Info>
 
-        { gameStarted ? <Game /> : ""}
+        <Game />
       </PlayGameContainer>
     </Container>
   );

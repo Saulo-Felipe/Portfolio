@@ -4,12 +4,17 @@ import {
   Option,
   Logo,
   LogoContainer,
-  OptionsContainer
+  OptionsContainer,
+  SelectedOption
 } from "./styles"
 
 export function Header() {
   const [fixedHeader, setFixedHeader] = useState(false);
   const fixedHeaderRef = useRef(false);
+  const [selectedOption, setSelectedOptions] = useState({
+    start: 0,
+    width: 0,
+  });
 
   useEffect(() => {
     window?.addEventListener("scroll", (scroll: any) => {
@@ -25,17 +30,24 @@ export function Header() {
     fixedHeaderRef.current = fixedHeader;
   }, [fixedHeader]);
 
+  function changeOption(e: HTMLDivElement) {
+    setSelectedOptions({ 
+      start: e.getBoundingClientRect().x, 
+      width: e.getBoundingClientRect().width
+    });
+  }
+
   return ( 
     <Container fixedHeader={fixedHeader}>
       <LogoContainer>
-        <Logo src={"/logo.png"} width={"100%"} height={"100%"} />
       </LogoContainer>
 
       <OptionsContainer>
-        <Option>Home</Option>
-        <Option>Sobre</Option>
-        <Option>Projetos</Option>
-        <Option>Contato</Option>
+        <Option onClick={(e: any) => changeOption(e.target)}>Home</Option>
+        <Option onClick={(e: any) => changeOption(e.target)}>Sobre</Option>
+        <Option onClick={(e: any) => changeOption(e.target)}>Projetos</Option>
+        <Option onClick={(e: any) => changeOption(e.target)}>Contato</Option>
+        <SelectedOption start={selectedOption.start} width={selectedOption.width} />
       </OptionsContainer>
     </Container>
   );

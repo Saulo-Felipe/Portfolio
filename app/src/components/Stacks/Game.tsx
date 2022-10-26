@@ -22,6 +22,8 @@ export function Game() {
     typescript: 0
   });
   const destroyedLanguagesRef: any = useRef(destroyedLanguages);
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
+
 
   async function Init() {
     const Phaser = await import("phaser");
@@ -69,12 +71,12 @@ export function Game() {
           },
           lifespan: {
             onEmit: () => {
-              return Phaser.Math.Percent(this.spaceShip.body.speed as number, 0, 300) * 6000;
+              return Phaser.Math.Percent(this.spaceShip.body.speed, 0, 300) * 6000;
             }
           },
           alpha: {
             onEmit: () => {
-              return Phaser.Math.Percent(this.spaceShip.body.speed as number, 0, 300) * 100000
+              return Phaser.Math.Percent(this.spaceShip.body.speed, 0, 300) * 100000
             }
           },
           scale: { start: 1.0, end: 0 },
@@ -443,8 +445,8 @@ export function Game() {
 
     new Phaser.Game({
       type: Phaser.CANVAS,
-      width: window.innerWidth-50,
-      height: window.innerHeight-50,
+      width: document.getElementById("game-container")?.offsetWidth,
+      height: document.getElementById("game-container")?.offsetHeight,
       canvas: canvasRef.current as HTMLCanvasElement,
 			backgroundColor: "black",
       physics: {
@@ -462,88 +464,98 @@ export function Game() {
   }
 
   useEffect(() => {
-    Init();
-  }, []);
-
-  useEffect(() => {
     destroyedLanguagesRef.current = destroyedLanguages;
   }, [destroyedLanguages]);
 
+  useEffect(() => {
+    if (gameStarted) {
+      Init();
+    }
+  }, [gameStarted])
+
+  
   return (
-    <GameContainer>
+    <GameContainer id="game-container">
       <canvas
         id={"canvasElement"}
         ref={canvasRef}
       ></canvas>
+      {
+        gameStarted ? (
+          <>
+            <MiniMap></MiniMap>
 
-      <MiniMap></MiniMap>
+            <DestroyedLanguages>
+              <LangTitle>Linguagens destruídas</LangTitle>
+              <Option>
+                <div className={"label-info"}>
+                  <Javascript />
+                  <div className={"title"}>Javascript</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.javascript}</div>
+              </Option>
 
-      <DestroyedLanguages>
-        <LangTitle>Linguagens destruídas</LangTitle>
-        <Option>
-          <div className={"label-info"}>
-            <Javascript />
-            <div className={"title"}>Javascript</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.javascript}</div>
-        </Option>
+              <Option>
+                <div className={"label-info"}>
+                  <React />
+                  <div className={"title"}>React</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.react}</div>
+              </Option>
 
-        <Option>
-          <div className={"label-info"}>
-            <React />
-            <div className={"title"}>React</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.react}</div>
-        </Option>
+              <Option>
+                <div className={"label-info"}>
+                  <Node />
+                  <div className={"title"}>Node</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.node}</div>
+              </Option>
 
-        <Option>
-          <div className={"label-info"}>
-            <Node />
-            <div className={"title"}>Node</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.node}</div>
-        </Option>
+              <Option>
+                <div className={"label-info"}>
+                  <Html />
+                  <div className={"title"}>HTML</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.html}</div>
+              </Option>
 
-        <Option>
-          <div className={"label-info"}>
-            <Html />
-            <div className={"title"}>HTML</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.html}</div>
-        </Option>
+              <Option>
+                <div className={"label-info"}>
+                  <Css />
+                  <div className={"title"}>CSS</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.css}</div>
+              </Option>
 
-        <Option>
-          <div className={"label-info"}>
-            <Css />
-            <div className={"title"}>CSS</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.css}</div>
-        </Option>
+              <Option>
+                <div className={"label-info"}>
+                  <ReactNative />
+                  <div className={"title"}>React Native</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.native}</div>
+              </Option>
 
-        <Option>
-          <div className={"label-info"}>
-            <ReactNative />
-            <div className={"title"}>React Native</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.native}</div>
-        </Option>
+              <Option>
+                <div className={"label-info"}>
+                  <Postgre />
+                  <div className={"title"}>PostgreSQL</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.postgre}</div>
+              </Option>
 
-        <Option>
-          <div className={"label-info"}>
-            <Postgre />
-            <div className={"title"}>PostgreSQL</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.postgre}</div>
-        </Option>
-
-        <Option>
-          <div className={"label-info"}>
-            <Typescript />
-            <div className={"title"}>Typescript</div>
-          </div>
-          <div className={"count"}>{destroyedLanguages.typescript}</div>
-        </Option>
-      </DestroyedLanguages>
+              <Option>
+                <div className={"label-info"}>
+                  <Typescript />
+                  <div className={"title"}>Typescript</div>
+                </div>
+                <div className={"count"}>{destroyedLanguages.typescript}</div>
+              </Option>
+            </DestroyedLanguages>          
+          </>
+        ) : (
+          <button onClick={() => setGameStarted(gameStarted == false)}>Pla this game : D</button>
+        )
+      }
     </GameContainer>
   );
 }
