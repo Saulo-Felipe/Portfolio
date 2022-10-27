@@ -9,5 +9,7 @@ export default {
   blue_200: "#00548c4d",
   blue_300: "#00416a1a",
 
-  gray_100: "#c4c4c4"
+  gray_100: "#c4c4c4",
+  gray_200: "#c4c4c485",
+  gray_300: "#c4c4c4a4",
 }

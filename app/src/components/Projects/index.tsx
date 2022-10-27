@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import { Container, SubContainer, Options, Option, Carousel, CarouselElement } from "./styles";
+import { Container, SubContainer, Options, Option, Carousel, CarouselElement, AboutProject, OptionsContainer } from "./styles";
 import { Title } from "../Stacks/styles";
-import { FaGamepad } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa";
+import { BiStoreAlt } from "react-icons/bi";
+import { MdManageAccounts } from "react-icons/md";
+import { GiGamepad } from "react-icons/gi";
+import { BsShareFill } from "react-icons/bs";
 
 
 export function Projects() {
@@ -9,79 +13,85 @@ export function Projects() {
     {
       about: "1111111epson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sç",
       imgUrl: "/test.png",
-      name: "Game",
-      icon: <FaGamepad />,
-      selected: true
+      name: "Sistema de Gestão",
+      icon: <MdManageAccounts />,
     },
     {
-      about: "22222222epson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sç",
+      about: "wsdsd",
       imgUrl: "/test.png",
-      name: "Ecommerce",
-      icon: <FaGamepad />,
-      selected: false
+      name: "E-Commerce",
+      icon: <BiStoreAlt />,
     },
     {
       about: "3333333333epson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sç",
       imgUrl: "/test.png",
-      name: "jogo em python",
-      icon: <FaGamepad />,
-      selected: false
+      name: "The Best Hero",
+      icon: <GiGamepad />,
+    },
+    {
+      about: "4444444444epson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sç",
+      imgUrl: "/test.png",
+      name: "To do List",
+      icon: <FaClipboardList />,
+    },
+    {
+      about: "5555555555epson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sçepson dslkdls çkd sç",
+      imgUrl: "/test.png",
+      name: "Rede Social",
+      icon: <BsShareFill />,
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  function returnIndex(index: number) {
-    if (index < 0) {
-      return projects.length-1;
+  function changeIndex(index: number) {
+    if (index-1 == currentIndex) { // right
+      setCurrentIndex(currentIndex+1);
+    } else if (index+1 == currentIndex) { // left
+      setCurrentIndex(currentIndex-1);
     }
-    else if (index > projects.length-1) {
-      return 0;
-    }
-
-    return index;
   }
 
-  useEffect(() => {
-    (async() => {
-
-    })();
-  }, []);
   return (
     <Container>
       <Title style={{margin: "0.5rem 2rem"}}>Projetos</Title>
 
       <SubContainer>
-        <Options>
+        <OptionsContainer>
           {
-            projects.map(item => 
-              <Option selected={item.selected}>
-                {item.icon}
-                <div>{item.name}</div>
-              </Option>
+            projects[currentIndex].about 
+            ? <AboutProject>{projects[currentIndex].about}</AboutProject>
+            : ""
+          }
+          
+
+          <Options>
+            {
+              projects.map((item, i) =>
+                <Option selected={i == currentIndex} onClick={() => setCurrentIndex(i)}>
+                  {item.icon}
+                  <div>{item.name}</div>
+                </Option>
+              )
+            }
+          </Options>
+        </OptionsContainer>
+
+        <Carousel>
+          {
+            projects.map((item, i) =>
+              (
+                <CarouselElement
+                  src={item.imgUrl}
+                  left={currentIndex == i+1}
+                  right={currentIndex == i-1}
+                  onClick={() => changeIndex(i)}
+                />
+              )
             )
           }
-        </Options>
-          
-        <Carousel>
-          <CarouselElement 
-            src={projects[returnIndex(currentIndex-1)].imgUrl} 
-            left 
-            onClick={() => setCurrentIndex(currentIndex-1)}
-          />
-          <CarouselElement 
-            src={projects[returnIndex(currentIndex)].imgUrl} 
-            selected 
-          />
-          <CarouselElement 
-            src={projects[returnIndex(currentIndex+1)].imgUrl} 
-            right  
-            onClick={() => setCurrentIndex(currentIndex+1)}
-          />
         </Carousel>
       </SubContainer>
-
-      <div style={{color: "#fff"}}>{projects[returnIndex(currentIndex-1)].about}</div>
     </Container>
   );
 }
