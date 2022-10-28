@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import { Projects } from "../components/Projects";
 import { Stacks } from "../components/Stacks";
 import { About } from "../components/About";
+import { Footer } from "../components/Footer";
 
 
 export default function Index() {
@@ -15,6 +16,7 @@ export default function Index() {
       <About />
       <Stacks />
       <Projects />
+      <Footer />
     </>
   )
 }
