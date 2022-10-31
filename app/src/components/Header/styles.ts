@@ -23,13 +23,20 @@ export const Container = styled.header<ContainerProps>`
   padding: 0.3rem;  
   position: fixed;
 
-  backdrop-filter: blur(15px);
-
   ${
     ({fixedHeader, theme}) => !fixedHeader ? `
       padding: 0.75rem 0.3rem;
       background-color: ${theme.black_100};
     ` : ""
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: blue;
   }
 `;
 

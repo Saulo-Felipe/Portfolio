@@ -53,7 +53,7 @@ export const AboutContentContainer = styled.div`
     padding: 0.5rem 0;
     display: flex;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
 
     img {
       margin-left: 0.3rem;

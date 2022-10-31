@@ -6,7 +6,9 @@ import {
   LogoContainer,
   OptionsContainer,
   SelectedOption
-} from "./styles"
+} from "./styles";
+
+import { useScroll } from "../../context/useScroll";
 
 export function Header() {
   const [fixedHeader, setFixedHeader] = useState(false);
@@ -15,6 +17,8 @@ export function Header() {
     start: 0,
     width: 0,
   });
+  const containerRef = useRef(null);
+  const { sections } = useScroll();
 
   useEffect(() => {
     window?.addEventListener("scroll", (scroll: any) => {
@@ -37,8 +41,13 @@ export function Header() {
     });
   }
 
+  if (containerRef?.current) {
+    console.log("salvando")
+    sections.current.about = containerRef.current;
+  }
+  
   return ( 
-    <Container fixedHeader={fixedHeader}>
+    <Container fixedHeader={fixedHeader} ref={containerRef}>
       <LogoContainer>
       </LogoContainer>
 

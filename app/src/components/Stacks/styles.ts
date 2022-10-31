@@ -42,7 +42,7 @@ export const LangsCarousel = styled.div<CarouselPros>`
     }
 
     100% {
-      transform: translateX(calc((10vw + 2rem) * -10));
+      transform: translateX(calc((7rem + 2rem) * -10));
     }
   }
 
@@ -52,8 +52,8 @@ export const LangsCarousel = styled.div<CarouselPros>`
 `;
 
 export const LangContainer = styled.div<LanguageNameProps>`
-  width: 10vw;
-  height: 10vw;
+  width: 7rem;
+  height: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;

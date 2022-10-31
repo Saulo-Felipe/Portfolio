@@ -1,8 +1,9 @@
 import { Container, ArrowAnimated, Card3D } from "./styles";
 import { DinamicTitle } from "./DinamicTitle";
+import { useScroll } from "../../context/useScroll";
 
 export function Home() {
-
+  const { scrollToAbout } = useScroll();
   
   return (
     <Container>
@@ -35,7 +36,7 @@ export function Home() {
         </code>
       </Card3D>
 
-      <ArrowAnimated />
+      <ArrowAnimated onClick={scrollToAbout} />
     </Container>
   );
 }
