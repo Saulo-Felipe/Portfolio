@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
+import { motion } from "framer-motion";
 
 
 interface Card3DProps {
@@ -65,15 +66,8 @@ export const ArrowAnimated = styled(IoIosArrowDown)`
   }
 `;
 
-function concatenateColors(colors: string[]) {
-  let allColors = "";
-
-  colors.forEach(e => allColors += ", "+e);
-
-  return allColors;
-}
-
-export const Card3D = styled.div<Card3DProps>`
+export const Card3D = styled.div<Card3DProps>
+`
   transform: 
     perspective(500px)
     rotateY(${({side}) => side == "right" ? "25deg" : "-25deg"}) 

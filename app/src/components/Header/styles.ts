@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-
+import { motion, Variants } from "framer-motion";
 
 interface ContainerProps {
   fixedHeader: boolean;
@@ -10,6 +10,11 @@ interface SelectedOptionProps {
   start: number;
   width: number;
 }
+
+
+const itemVariants: Variants = {
+ 
+};
 
 export const Container = styled.header<ContainerProps>`
   background-color: ${({theme}) => theme.black_300};
@@ -40,10 +45,30 @@ export const Container = styled.header<ContainerProps>`
   }
 `;
 
-export const OptionsContainer = styled.div`
+export const OptionsContainer = styled(motion.div).attrs({
+  initial: "closed",
+  animate: "open",
+  variants: {
+    open: {
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.7,
+        delayChildren: 0.5,
+        staggerChildren: 0.05
+      }
+    },
+    closed: {
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.3
+      }
+    }
+  }
+})`
   display: flex;
   align-items: center;
-  /* position: relative; */
 `;
 
 export const SelectedOption = styled.span<SelectedOptionProps>`
@@ -57,7 +82,16 @@ export const SelectedOption = styled.span<SelectedOptionProps>`
   border-radius: 0.5rem;
 `;
 
-export const Option = styled.div`
+export const Option = styled(motion.div).attrs({
+  variants: {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 }
+    },
+    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+  }
+})`
   padding: 0 0.5rem;
   margin: 0 0.2rem;
   color: white;
@@ -71,7 +105,10 @@ export const Logo = styled(Image)`
 
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(motion.div).attrs({
+  initial: { x: -200, opacity: 0 },
+  animate: { x: 0, opacity: 1}
+})`
   height: 3rem;
   width: 6rem;
   background-image: url("/logo.png");

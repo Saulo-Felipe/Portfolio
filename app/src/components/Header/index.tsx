@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { 
+import {
   Container,
   Option,
   Logo,
@@ -17,15 +17,16 @@ export function Header() {
     start: 0,
     width: 0,
   });
-  const containerRef = useRef(null);
-  const { sections } = useScroll();
+  const { scrollToAbout, scrollToHome, scrollToProjects, scrollToStacks, scrollToFooter } = useScroll();
 
   useEffect(() => {
     window?.addEventListener("scroll", (scroll: any) => {
       if (window.pageYOffset == 0 && fixedHeaderRef.current) {
         setFixedHeader(false);
+        changeOption(true);
       } else if (!fixedHeaderRef.current) {
         setFixedHeader(true);
+        changeOption(document?.getElementById("firstHeaderOption") as HTMLDivElement);
       }
     });
   }, []);
@@ -34,28 +35,34 @@ export function Header() {
     fixedHeaderRef.current = fixedHeader;
   }, [fixedHeader]);
 
-  function changeOption(e: HTMLDivElement) {
-    setSelectedOptions({ 
-      start: e.getBoundingClientRect().x, 
-      width: e.getBoundingClientRect().width
-    });
+  function changeOption(e: HTMLDivElement | boolean) {
+    if (typeof e == "boolean") {
+      setSelectedOptions({
+        start: 0,
+        width: 0
+      });      
+    } else {
+      setSelectedOptions({
+        start: e.getBoundingClientRect().x,
+        width: e.getBoundingClientRect().width
+      });
+    }
   }
 
-  if (containerRef?.current) {
-    console.log("salvando")
-    sections.current.about = containerRef.current;
-  }
-  
-  return ( 
-    <Container fixedHeader={fixedHeader} ref={containerRef}>
+  return (
+    <Container fixedHeader={fixedHeader}>
       <LogoContainer>
       </LogoContainer>
 
       <OptionsContainer>
-        <Option onClick={(e: any) => changeOption(e.target)}>Home</Option>
-        <Option onClick={(e: any) => changeOption(e.target)}>Sobre</Option>
-        <Option onClick={(e: any) => changeOption(e.target)}>Projetos</Option>
-        <Option onClick={(e: any) => changeOption(e.target)}>Contato</Option>
+        <Option
+          onClick={(e: any) => { changeOption(e.target); scrollToHome(); }}
+          id={"firstHeaderOption"}
+        >Home</Option>
+        <Option onClick={(e: any) => { changeOption(e.target); scrollToAbout(); }}>Sobre</Option>
+        <Option onClick={(e: any) => { changeOption(e.target); scrollToStacks(); }}>Habilidades</Option>
+        <Option onClick={(e: any) => { changeOption(e.target); scrollToProjects(); }}>Projetos</Option>
+        <Option onClick={(e: any) => { changeOption(e.target); scrollToFooter(); }}>Contato</Option>
         <SelectedOption start={selectedOption.start} width={selectedOption.width} />
       </OptionsContainer>
     </Container>

@@ -12,6 +12,7 @@
     "@splinetool/loader": "^0.9.123",
     "@splinetool/react-spline": "^2.2.3",
     "@splinetool/runtime": "^0.9.123",
+    "framer-motion": "^7.6.2",
     "next": "12.2.0",
     "phaser": "3.55.2",
     "react": "18.2.0",

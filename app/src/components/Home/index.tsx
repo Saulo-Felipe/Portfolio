@@ -1,12 +1,23 @@
 import { Container, ArrowAnimated, Card3D } from "./styles";
 import { DinamicTitle } from "./DinamicTitle";
 import { useScroll } from "../../context/useScroll";
+import { motion } from "framer-motion";
+
+
+function Teste() {
+
+  return (
+    <motion.div
+      animate={{ left: 200 }}
+    >ola</motion.div>
+  )
+}
 
 export function Home() {
   const { scrollToAbout } = useScroll();
   
   return (
-    <Container>
+    <Container id={"home"}>
       <DinamicTitle />
       <Card3D pos={"50px"} side={"left"}>
         <code>

@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { TextGradient } from "../../styles/utils";
 import {
   Container,
@@ -10,13 +10,22 @@ import {
 } from "./styles";
 import { HiOutlineArrowDown } from "react-icons/hi";
 
+import { motion } from "framer-motion";
+
 
 export function About() {
 
   return (
-    <Container>
+    <Container 
+      id={"about"} 
+    >
       <Division />
-      <div className={"box"}>
+      <motion.div 
+        className={"box"} 
+        initial={{ left: "-50%", opacity: 0 }}
+        whileInView={{left: 0, opacity: 1 }}
+        transition={{ type: "tween", duration: 0.1 }}
+      >
         <ImageContainer>
           <img src={"https://th.bing.com/th/id/OIP.zxgaZvcIYMxFwVtDmH8O-gHaHO?pid=ImgDet&rs=1"} />
         </ImageContainer>
@@ -34,10 +43,14 @@ export function About() {
 
           <hr />
           <div className={"content"}>
-            <p>
+            <motion.p
+              initial={{ marginTop: -100, opacity: 0 }}
+              whileInView={{ marginTop: 0, opacity: 1 }}
+              transition={{ type: "tween", duration: 0.1, delay: 0.5 }}
+            >
               Bem vindo ao meu Portfólio, me chamo Saulo e atualmente estudo Ciência da Computação pela UEPB {"(Universidade Estadual da Paraíba)"}.
               Estou imerso no mundo da programaçã á 3 anos e desde la já desenvolvi alguns projetos.
-            </p>
+            </motion.p>
 
             <SeeProjectsBtn>
               Ver Projetos <HiOutlineArrowDown />
@@ -46,7 +59,7 @@ export function About() {
         </AboutContentContainer>
 
         <AroundAnimation />
-      </div>
+      </motion.div>
     </Container>
   );
 }

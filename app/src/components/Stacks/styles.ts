@@ -24,7 +24,7 @@ export const Container = styled.section`
     font-family: serif;
     font-weight: bold;
     position: absolute;
-    top: 0rem;
+    top: -1rem;
     left: 5rem;
   }
 `
@@ -32,7 +32,7 @@ export const Container = styled.section`
 export const LangsCarousel = styled.div<CarouselPros>`
   display: -webkit-box;
   transition: all 300ms;
-  animation: carouselAnimated ${({delay}) => delay ? "25s" : "20s"} infinite ease-in;
+  animation: carouselAnimated ${({delay}) => delay ? "25s" : "20s"} infinite linear;
   margin-bottom: 2rem;
   ${({delay}) => `animation-delay: ${delay}s;`}
 
@@ -127,7 +127,6 @@ export const LangContainer = styled.div<LanguageNameProps>`
 
 export const Carousel = styled.div`
   position: relative;
-  /* border: solid 1px green; */
 
   &::after {
     content: '';
@@ -153,31 +152,36 @@ export const Carousel = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 3.5rem;
-  color: #fff;
-  font-weight: bold;
-  margin: 2rem;
-  width: max-content;
-  position: relative;
-  z-index: 1;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #c6e2ff;
+    animation: neon .08s ease-in-out infinite alternate;
+    margin: 3rem;
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1.5rem;
-    background-color: #00416a;
-    bottom: 0.25rem;
-    left: 0;
-    z-index: -1;
-    transform: skewX(-32deg);
+  @keyframes neon {
+    from {
+      text-shadow:
+      0 0 6px rgba(202,228,225,0.92),
+      0 0 30px rgba(202,228,225,0.34),
+      0 0 12px rgba(30,132,242,0.52),
+      0 0 21px rgba(30,132,242,0.92),
+      0 0 34px rgba(30,132,242,0.78),
+      0 0 54px rgba(30,132,242,0.92);
+    }
+    to {
+      text-shadow:
+      0 0 6px rgba(202,228,225,0.98),
+      0 0 30px rgba(202,228,225,0.42),
+      0 0 12px rgba(30,132,242,0.58),
+      0 0 22px rgba(30,132,242,0.84),
+      0 0 38px rgba(30,132,242,0.88),
+      0 0 60px rgba(30,132,242,1);
+    }
   }
 `;
 
 export const PlayGameContainer = styled.div`
-  /* border: solid 1px red; */
-  /* display: flex; */
-  /* height: 100vh; */
+  border: solid 1px red;
 `;
 
 export const HorizontalLineContainer = styled.div`
@@ -185,7 +189,6 @@ export const HorizontalLineContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: solid 1px blue; */
 
   span {
     background-color: rgb(255, 255, 255, 0.2);
@@ -222,7 +225,6 @@ export const Info = styled.div`
   opacity: 0.5;
 
   svg {
-    /* font-size: 1rem; */
     margin: 0 0.2rem;
   }
 `;
@@ -253,7 +255,6 @@ export const GameContainer = styled.div`
 
   canvas {
     box-shadow: 0 0 20px black;
-    /* opacity: 0; */
   }
 
 `;

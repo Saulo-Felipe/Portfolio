@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
-
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme.black_100};
@@ -107,8 +106,7 @@ export const AroundAnimation = styled.div`
   border-radius: 50%;
   top: 0;
   left: 0;
-  /* transition: all 300ms ease; */
-  animation: animated linear 10s infinite;
+  animation: animated linear 50s infinite;
 
   opacity: 0.5;
 
@@ -184,7 +182,11 @@ export const AroundAnimation = styled.div`
   }
 `;
 
-export const SeeProjectsBtn = styled.button`
+export const SeeProjectsBtn = styled(motion.button).attrs({
+  initial: { marginBottom: -100, opacity: 0 },
+  whileInView: { marginBottom: 0, opacity: 1 },
+  transition: { type: "spring", duration: 0.1, delay: 0.2 }
+})`
   display: block;
   font-size: 0.9rem;
   cursor: pointer;
@@ -194,7 +196,6 @@ export const SeeProjectsBtn = styled.button`
   z-index: 1;
   color: #fff;
   border: none;
-  border-radius: 0.2rem;
   width: max-content;
   transition: all 300ms;
   font-family: 'Montserrat', sans-serif;
