@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { TextGradient } from "../../styles/utils";
 import {
   Container,
@@ -9,16 +8,16 @@ import {
   SeeProjectsBtn
 } from "./styles";
 import { HiOutlineArrowDown } from "react-icons/hi";
-
+import { useScroll } from "../../context/useScroll";
 import { motion } from "framer-motion";
 
-
 export function About() {
+  const { scrollToProjects, setCurrentPageScrollSection } = useScroll();
 
   return (
     <Container 
       id={"about"} 
-    >
+      >
       <Division />
       <motion.div 
         className={"box"} 
@@ -44,15 +43,16 @@ export function About() {
           <hr />
           <div className={"content"}>
             <motion.p
-              initial={{ marginTop: -100, opacity: 0 }}
-              whileInView={{ marginTop: 0, opacity: 1 }}
+              initial={{ left: -100, opacity: 0 }}
+              whileInView={{ left: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.1, delay: 0.5 }}
+              onViewportEnter={() => setCurrentPageScrollSection("about")}
             >
               Bem vindo ao meu Portfólio, me chamo Saulo e atualmente estudo Ciência da Computação pela UEPB {"(Universidade Estadual da Paraíba)"}.
               Estou imerso no mundo da programaçã á 3 anos e desde la já desenvolvi alguns projetos.
             </motion.p>
 
-            <SeeProjectsBtn>
+            <SeeProjectsBtn onClick={scrollToProjects}>
               Ver Projetos <HiOutlineArrowDown />
             </SeeProjectsBtn>
           </div>

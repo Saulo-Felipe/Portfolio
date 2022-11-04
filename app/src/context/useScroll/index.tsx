@@ -5,66 +5,48 @@ interface UseScrollProps {
 }
 
 interface ScrollProviderContext {
-  scrollToAbout: () => void;
-  scrollToHome: () => void;
-  scrollToStacks: () => void;
-  scrollToProjects: () => void;
-  scrollToFooter: () => void;
+  scrollToAbout(): void;
+  scrollToHome(): void;
+  scrollToStacks(): void;
+  scrollToProjects(): void;
+  scrollToFooter(): void;
+  currentPageScrollSection: CurrentPageScrollSection;
+  setCurrentPageScrollSection(arg: CurrentPageScrollSection): void;
 }
+
+export type CurrentPageScrollSection = "home" | "about" | "stacks" | "projects" | "footer";
 
 const Context = createContext<ScrollProviderContext>({} as ScrollProviderContext);
 
-export function ScrollProvider({children}: UseScrollProps) {
+export function ScrollProvider({ children }: UseScrollProps) {
+
+  const [currentPageScrollSection, setCurrentPageScrollSection] = useState<CurrentPageScrollSection>("home");
 
   function scrollToAbout() {
     document.querySelector("#about")?.scrollIntoView();
+    setCurrentPageScrollSection("about");
   }
 
   function scrollToHome() {
     document.querySelector("#home")?.scrollIntoView();
+    setCurrentPageScrollSection("home");
   }
 
   function scrollToStacks() {
     document.querySelector("#stacks")?.scrollIntoView();
+    setCurrentPageScrollSection("stacks");
   }
 
   function scrollToProjects() {
     document.querySelector("#projects")?.scrollIntoView();
+    setCurrentPageScrollSection("projects");
   }
 
   function scrollToFooter() {
     document.querySelector("#footer")?.scrollIntoView();
+    setCurrentPageScrollSection("footer");
   }
 
-
-  function itIsVisible(e: HTMLElement) {
-    window?.pageYOffset
-  }
-
-  // useEffect(() => {
-  //   if (typeof window != "undefined") {
-  //     window.addEventListener("scroll", () => {
-  //       let element = document.querySelector("#about > div.box") as HTMLElement;
-  //       let { y, bottom, top, height } = element?.getBoundingClientRect() as DOMRect;
-  //       let formula = (window.innerHeight-top)*100 / height;
-
-  //       if (formula >= 50 && formula <= 150) {
-  //         let scale = 1/(100/formula);
-  //         element.style.transform = `scale(${scale <= 1 ? scale : 1})`;
-  //         console.log(scale+"%");
-  //       }
-        
-  //       // console.log("element", top);
-  //       // console.log("Scroll: ", window.pageYOffset);
-  //       // console.log("PageHeight: ", window.innerHeight);
-  
-  //       // console.log("Value: ", window.innerHeight-top);
-  //       // console.log("elementHeight: ", height);
-  //     })
-  //   }
-  // }, []);
-
-  // fora da page: Se o elementTOP for maior ou negativo do que a page scroll
 
   return (
     <Context.Provider value={{
@@ -72,7 +54,9 @@ export function ScrollProvider({children}: UseScrollProps) {
       scrollToHome,
       scrollToStacks,
       scrollToProjects,
-      scrollToFooter
+      scrollToFooter, 
+      currentPageScrollSection,
+      setCurrentPageScrollSection
     }}>
       {children}
     </Context.Provider>

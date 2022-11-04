@@ -9,61 +9,70 @@ import {
 } from "./styles";
 
 import { useScroll } from "../../context/useScroll";
+import { CurrentPageScrollSection } from "../../context/useScroll"; 
 
 export function Header() {
-  const [fixedHeader, setFixedHeader] = useState(false);
-  const fixedHeaderRef = useRef(false);
-  const [selectedOption, setSelectedOptions] = useState({
-    start: 0,
-    width: 0,
+  const {
+    scrollToAbout,
+    scrollToHome,
+    scrollToProjects,
+    scrollToStacks,
+    scrollToFooter,
+    currentPageScrollSection,
+    setCurrentPageScrollSection
+  } = useScroll();
+
+  const [optionsPositions, setOptionsPositions] = useState({
+    home: { width: 0, start: 0 },
+    about: { width: 0, start: 0 },
+    stacks: { width: 0, start: 0 },
+    projects: { width: 0, start: 0 },
+    footer: { width: 0, start: 0 }
   });
-  const { scrollToAbout, scrollToHome, scrollToProjects, scrollToStacks, scrollToFooter } = useScroll();
+
+  const [isFixedMenu, setIsFixedMenu] = useState<boolean>(false);
+
+  const optionsContainerRef = useRef<any>(null);
 
   useEffect(() => {
-    window?.addEventListener("scroll", (scroll: any) => {
-      if (window.pageYOffset == 0 && fixedHeaderRef.current) {
-        setFixedHeader(false);
-        changeOption(true);
-      } else if (!fixedHeaderRef.current) {
-        setFixedHeader(true);
-        changeOption(document?.getElementById("firstHeaderOption") as HTMLDivElement);
+    let optionsElement = optionsContainerRef.current.childNodes;
+    let optionsStateKeys = Object.keys(optionsPositions) as CurrentPageScrollSection[];
+    let newPos = { ...optionsPositions }
+
+    for (let c = 0; c < optionsStateKeys.length; c++) {
+      newPos[optionsStateKeys[c]].width = optionsElement[c].getBoundingClientRect().width;
+      newPos[optionsStateKeys[c]].start = optionsElement[c].getBoundingClientRect().x;
+    }
+
+    setOptionsPositions({ ...newPos });
+
+    window?.addEventListener("scroll", (e) => {
+      if (window.pageYOffset === 0) {
+        setIsFixedMenu(false);
+      } else if (window.pageYOffset !== 0) {
+        setIsFixedMenu(true);
       }
     });
   }, []);
 
-  useEffect(() => {
-    fixedHeaderRef.current = fixedHeader;
-  }, [fixedHeader]);
-
-  function changeOption(e: HTMLDivElement | boolean) {
-    if (typeof e == "boolean") {
-      setSelectedOptions({
-        start: 0,
-        width: 0
-      });      
-    } else {
-      setSelectedOptions({
-        start: e.getBoundingClientRect().x,
-        width: e.getBoundingClientRect().width
-      });
-    }
-  }
-
   return (
-    <Container fixedHeader={fixedHeader}>
+    <Container fixedHeader={isFixedMenu}>
       <LogoContainer>
       </LogoContainer>
 
-      <OptionsContainer>
+      <OptionsContainer ref={optionsContainerRef}>
         <Option
-          onClick={(e: any) => { changeOption(e.target); scrollToHome(); }}
+          onClick={() => { setCurrentPageScrollSection("home"); scrollToHome(); }}
           id={"firstHeaderOption"}
         >Home</Option>
-        <Option onClick={(e: any) => { changeOption(e.target); scrollToAbout(); }}>Sobre</Option>
-        <Option onClick={(e: any) => { changeOption(e.target); scrollToStacks(); }}>Habilidades</Option>
-        <Option onClick={(e: any) => { changeOption(e.target); scrollToProjects(); }}>Projetos</Option>
-        <Option onClick={(e: any) => { changeOption(e.target); scrollToFooter(); }}>Contato</Option>
-        <SelectedOption start={selectedOption.start} width={selectedOption.width} />
+        <Option onClick={() => { setCurrentPageScrollSection("about"); scrollToAbout(); }}>Sobre</Option>
+        <Option onClick={() => { setCurrentPageScrollSection("stacks"); scrollToStacks(); }}>Habilidades</Option>
+        <Option onClick={() => { setCurrentPageScrollSection("projects"); scrollToProjects(); }}>Projetos</Option>
+        <Option onClick={() => { setCurrentPageScrollSection("footer"); scrollToFooter(); }}>Contato</Option>
+        <SelectedOption 
+          start={optionsPositions[currentPageScrollSection].start} 
+          width={optionsPositions[currentPageScrollSection].width} 
+        />
       </OptionsContainer>
     </Container>
   );

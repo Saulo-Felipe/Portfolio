@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
 
@@ -87,16 +88,34 @@ export const Option = styled.div<SelectedCarouselElement>`
   ${({selected, theme}) => selected ?
   `
     background-color: ${theme.black_300};
-    // border: solid 1px rgb(255, 255, 255, 0.5);
-    box-shadow: 0px 0px 5px ${theme.blue_100}, 0px 0px 10px ${theme.blue_100}, 0px 0px 10px ${theme.blue_100},
     0px 0px 20px ${theme.blue_100};
     border-radius: 0.25rem;
     transform: scale(0.9);
+    animation: selectedAnimated infinite 1s ease;
   `
   : ""};
+
+
+  @keyframes selectedAnimated {
+    0% {
+      box-shadow: 0px 0px 5px #00538C, 0px 0px 10px #00538C, 0px 0px 10px #00538C;
+    }
+
+    50% {
+      box-shadow: 0px 0px 10px #00538C, 0px 0px 15px #00538C, 0px 0px 15px #00538C;
+    }
+
+    100% {
+      box-shadow: 0px 0px 5px #00538C, 0px 0px 10px #00538C, 0px 0px 10px #00538C;
+    }
+  }
 `;
 
-export const AboutProjectTitle = styled.h1<AboutProjetTitle>`
+export const AboutProjectTitle = styled(motion.h1).attrs({
+  initial: { left: -100, opacity: 0 },
+  whileInView: { left: 0, opacity: 1 },
+  transition: { type: "spring", bounce: 0.5, duration: 1 }
+})<AboutProjetTitle>`
   font-size: 4rem;
   position: relative;
   display: flex;
@@ -352,7 +371,11 @@ export const AboutProject = styled.div`
 
 `;
 
-export const Carousel = styled.div`
+export const Carousel = styled(motion.div).attrs({
+  initial: { right: -100, opacity: 0 },
+  whileInView: { right: 0, opacity: 1 },
+  transition: { bounce: 0.5, type: "spring", duration: 0.75 }
+})`
   flex: 0.6;
   display: flex;
   align-items: center;

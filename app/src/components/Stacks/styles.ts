@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SiJavascript, SiHtml5, SiCss3, SiNodedotjs, SiReact, SiPostgresql, SiTypescript } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 
 interface CarouselPros {
@@ -32,17 +33,23 @@ export const Container = styled.section`
 export const LangsCarousel = styled.div<CarouselPros>`
   display: -webkit-box;
   transition: all 300ms;
-  animation: carouselAnimated ${({delay}) => delay ? "25s" : "20s"} infinite linear;
+  animation: carouselAnimated ${({delay}) => delay ? "35s" : "30s"} infinite ease;
   margin-bottom: 2rem;
   ${({delay}) => `animation-delay: ${delay}s;`}
+  width: max-content;
 
   @keyframes carouselAnimated {
     0% {
       transform: translateX(0);
     }
 
-    100% {
+    50% {
       transform: translateX(calc((7rem + 2rem) * -10));
+      /* transform: translateX(100%); */
+    }
+
+    100% {
+      transform: translateX(0);
     }
   }
 
@@ -67,6 +74,10 @@ export const LangContainer = styled.div<LanguageNameProps>`
   user-select: none;
 
   box-shadow: 0 0 1rem rgb(0, 0, 0, 0.5);
+
+  &:hover {
+    transform: scale(1.1) !important;
+  }
 
   &::after {
     content: '';
@@ -151,12 +162,15 @@ export const Carousel = styled.div`
   }
 `;
 
-export const Title = styled.div`
-    font-size: 4rem;
-    font-weight: bold;
-    color: #c6e2ff;
-    animation: neon .08s ease-in-out infinite alternate;
-    margin: 3rem;
+export const Title = styled(motion.div).attrs({
+  initial: { opacity: 0, marginLeft: "-50%" },
+  whileInView: { opacity: 1, marginLeft: "2rem" },
+})`
+  font-size: 4rem;
+  font-weight: bold;
+  color: #c6e2ff;
+  animation: neon .08s ease-in-out infinite alternate;
+  margin: 3rem;
 
   @keyframes neon {
     from {
@@ -181,7 +195,7 @@ export const Title = styled.div`
 `;
 
 export const PlayGameContainer = styled.div`
-  border: solid 1px red;
+
 `;
 
 export const HorizontalLineContainer = styled.div`
@@ -215,7 +229,10 @@ export const HorizontalLineContainer = styled.div`
   }
 `;
 
-export const Info = styled.div`
+export const Info = styled(motion.div).attrs({
+  initial: { opacity: 0, scale: 0.1 },
+  whileInView: { opacity: 1, scale: 1 },
+})`
   display: flex;
   color: ${({theme}) => theme.gray_100};
   font-size: 1.3rem;

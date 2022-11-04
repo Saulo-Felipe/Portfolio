@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+
 export const Container = styled.div`
   background-color: ${(props) => props.theme.black_100};
   border: solid 1px #06080d;
@@ -81,6 +82,7 @@ export const AboutContentContainer = styled.div`
       font-family: 'Montserrat', sans-serif;
       font-weight: bold;
       opacity: 0.75;
+      position: relative;
     }
   }
 `;
@@ -183,9 +185,9 @@ export const AroundAnimation = styled.div`
 `;
 
 export const SeeProjectsBtn = styled(motion.button).attrs({
-  initial: { marginBottom: -100, opacity: 0 },
-  whileInView: { marginBottom: 0, opacity: 1 },
-  transition: { type: "spring", duration: 0.1, delay: 0.2 }
+  initial: { right: -100, opacity: 0 },
+  whileInView: { right: 0, opacity: 1 },
+  transition: { type: "spring", bounce: 0.5, duration: 0.1 }
 })`
   display: block;
   font-size: 0.9rem;

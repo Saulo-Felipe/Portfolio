@@ -4,20 +4,13 @@ import { useScroll } from "../../context/useScroll";
 import { motion } from "framer-motion";
 
 
-function Teste() {
-
-  return (
-    <motion.div
-      animate={{ left: 200 }}
-    >ola</motion.div>
-  )
-}
-
 export function Home() {
-  const { scrollToAbout } = useScroll();
-  
+  const { scrollToAbout, setCurrentPageScrollSection } = useScroll();  
+
   return (
-    <Container id={"home"}>
+    <Container 
+      id={"home"}
+    >
       <DinamicTitle />
       <Card3D pos={"50px"} side={"left"}>
         <code>
@@ -47,7 +40,9 @@ export function Home() {
         </code>
       </Card3D>
 
-      <ArrowAnimated onClick={scrollToAbout} />
+      <ArrowAnimated 
+        onClick={scrollToAbout} 
+      />
     </Container>
   );
 }

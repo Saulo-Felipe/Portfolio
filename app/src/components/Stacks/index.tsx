@@ -17,8 +17,61 @@ import {
   BsFillArrowUpCircleFill, 
   BsFillArrowDownCircleFill 
 } from "react-icons/bs";
+import { motion } from "framer-motion";
+import { useScroll } from "../../context/useScroll";
+
+interface stacksBody {
+  imgUrl: string;
+  name: string;
+  invert?: boolean;
+}
 
 export function Stacks() {
+
+  const primaryStacks: stacksBody[] = [
+    { name: "Javascript", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "Typescript", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "React-Native", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "React", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" },
+    { name: "HTML5", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: "CSS3", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "PostgreSQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { name: "NodeJS", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "NextJS", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg", invert: true },
+    { name: "Bootstrap", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+  ]
+
+  const secondaryStacks: stacksBody[] = [
+    { name: "C", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    { name: "Python", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Java", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { name: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" },
+    { name: "C", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    { name: "Python", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Java", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { name: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" },
+    { name: "Java", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { name: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" }
+  ]
+
+  const MotionStackCard = motion(LangContainer);
+  const MotionPlayGameContainer = motion(PlayGameContainer);
+
+  const { setCurrentPageScrollSection } = useScroll();
+
+  function getElement(element: stacksBody, i: number) {
+    return (
+      <MotionStackCard 
+        key={i} 
+        name={element.name}
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.05*i }}
+      >
+        <img className={element.invert ? `invert-color` : ""} src={element.imgUrl} />
+      </MotionStackCard>
+    );
+  }
 
   return (
     <Container id={"stacks"}>
@@ -27,175 +80,17 @@ export function Stacks() {
 
       <Carousel>
         <LangsCarousel>
-
-          <LangContainer name={"Javascript"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Typescript"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"React-Native"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"React"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"HTML5"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"CSS3"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"PostgreSQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"NodeJS"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"NextJS"}>
-              <img className={"invert-color"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Bootstrap"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />
-          </LangContainer>
-
-
-          <LangContainer name={"Javascript"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Typescript"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"React-Native"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"React"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"HTML5"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"CSS3"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"PostgreSQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"NodeJS"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"NextJS"}>
-              <img className={"invert-color"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Bootstrap"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />
-          </LangContainer>
-
-
+          { primaryStacks.map(getElement) }
+          { primaryStacks.map(getElement) }
         </LangsCarousel>
 
         <LangsCarousel delay={1}>
-          <LangContainer name={"C"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Python"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Java"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"MySQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"C"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Python"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Java"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"MySQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Java"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"MySQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"C"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Python"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Java"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"MySQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"C"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Python"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Java"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"MySQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
-          </LangContainer>
-
-          <LangContainer name={"Java"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-          </LangContainer>
-
-          <LangContainer name={"MySQL"}>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
-          </LangContainer>
+          { secondaryStacks.map(getElement) }
+          { secondaryStacks.map(getElement) }
         </LangsCarousel>
       </Carousel>
 
-      <PlayGameContainer>
+      {/* <MotionPlayGameContainer onViewportEnter={() => setCurrentPageScrollSection("stacks")} >
         <HorizontalLineContainer>
           <span></span>
           <IoGameControllerOutline />
@@ -212,7 +107,7 @@ export function Stacks() {
         </Info>
 
         <Game />
-      </PlayGameContainer>
+      </MotionPlayGameContainer> */}
     </Container>
   );
 }

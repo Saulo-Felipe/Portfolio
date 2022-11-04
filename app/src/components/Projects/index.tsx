@@ -8,6 +8,9 @@ import { BsShareFill,BsArrowUpRight } from "react-icons/bs";
 import { GiBattleTank } from "react-icons/gi";
 import { SiSharp } from "react-icons/si";
 import { BsCalculator } from "react-icons/bs";
+import { motion } from "framer-motion";
+import { v4 as uuid } from "uuid";
+import { useScroll } from "../../context/useScroll";
 
 interface ProjectBody {
   title: string;
@@ -23,24 +26,6 @@ interface ProjectBody {
 export function Projects() {
   const projects: ProjectBody[] = [
     {
-      title: "Sistema de Gestão",
-      about: "O sistema de gestão consiste em auxiliar as lojas/empresas na organização de compras, vendas e clientes. É possível realizar cadastros para clientes e produtos e, posteriormente, realizar vendas relacionando ambos. (senha: 123)",
-      imgUrl: "/images/carousel/sistema-gestao.png",
-      icon: <MdManageAccounts />,
-      github: "https://github.com/Saulo-Felipe/Sistema-de-Gestao",
-      preview: "https://sistema-gestao-frontend.herokuapp.com/login",
-      top: true,
-      usedLanguages: [
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-bootstrap-plain colored"></i>,
-        <i className="devicon-nodejs-plain colored"></i>,
-        <i className="devicon-react-original colored"></i>,
-        <i className="devicon-postgresql-plain colored"></i>
-      ]
-    },
-    {
       title: "E-Commerce",
       about: `Loja virtual com layout totalmente responsivo. O ecommerce possui a maioria das funcionalidades, como: criar, editar e remover produtos, sistema de autenticação, comentários e avaliações, pesquisar produtos, acesso privado para admins e etc.`,
       imgUrl: "/images/carousel/ecommerce.png",
@@ -49,13 +34,31 @@ export function Projects() {
       github: "https://github.com/Saulo-Felipe/eCommerce-ReactJS-NodeJS",
       top: true,
       usedLanguages: [
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-bootstrap-plain colored"></i>,
-        <i className="devicon-nodejs-plain colored"></i>,
-        <i className="devicon-react-original colored"></i>,
-        <i className="devicon-postgresql-plain colored"></i>
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-bootstrap-plain colored"></i>,
+        <i key={uuid()} className="devicon-nodejs-plain colored"></i>,
+        <i key={uuid()} className="devicon-react-original colored"></i>,
+        <i key={uuid()} className="devicon-postgresql-plain colored"></i>
+      ]
+    },
+    {
+      title: "Sistema de Gestão",
+      about: "O sistema de gestão consiste em auxiliar as lojas/empresas na organização de compras, vendas e clientes. É possível realizar cadastros para clientes e produtos e, posteriormente, realizar vendas relacionando ambos. (senha: 123)",
+      imgUrl: "/images/carousel/sistema-gestao.png",
+      icon: <MdManageAccounts />,
+      github: "https://github.com/Saulo-Felipe/Sistema-de-Gestao",
+      preview: "https://sistema-gestao-frontend.herokuapp.com/login",
+      top: true,
+      usedLanguages: [
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-bootstrap-plain colored"></i>,
+        <i key={uuid()} className="devicon-nodejs-plain colored"></i>,
+        <i key={uuid()} className="devicon-react-original colored"></i>,
+        <i key={uuid()} className="devicon-postgresql-plain colored"></i>
       ]
     },
     {
@@ -67,13 +70,13 @@ export function Projects() {
       github: "https://github.com/Saulo-Felipe/to-do-list",
       top: true,
       usedLanguages: [
-        <i className="devicon-typescript-plain colored"></i>,
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-nodejs-plain colored"></i>,
-        <i className="devicon-react-original colored"></i>,
-        <i className="devicon-postgresql-plain colored"></i>
+        <i key={uuid()} className="devicon-typescript-plain colored"></i>,
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-nodejs-plain colored"></i>,
+        <i key={uuid()} className="devicon-react-original colored"></i>,
+        <i key={uuid()} className="devicon-postgresql-plain colored"></i>
       ]
     },
     {
@@ -85,16 +88,16 @@ export function Projects() {
       github: "https://github.com/Saulo-Felipe/rede-social",
       top: true,
       usedLanguages: [
-        <i className="devicon-typescript-plain colored"></i>,
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-sass-original colored"></i>,
-        <i className="devicon-nextjs-original-wordmark"></i>,
-        <i className="devicon-socketio-original"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-nodejs-plain colored"></i>,
-        <i className="devicon-react-original colored"></i>,
-        <i className="devicon-postgresql-plain colored"></i>
+        <i key={uuid()} className="devicon-typescript-plain colored"></i>,
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-sass-original colored"></i>,
+        <i key={uuid()} className="devicon-nextjs-original-wordmark"></i>,
+        <i key={uuid()} className="devicon-socketio-original"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-nodejs-plain colored"></i>,
+        <i key={uuid()} className="devicon-react-original colored"></i>,
+        <i key={uuid()} className="devicon-postgresql-plain colored"></i>
       ]
     },
     {
@@ -105,9 +108,9 @@ export function Projects() {
       preview: "https://saulo-felipe.github.io/Futebol-One-Page/",
       github: "https://github.com/Saulo-Felipe/Futebol-One-Page",
       usedLanguages: [
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
       ]
     },
     {
@@ -118,10 +121,10 @@ export function Projects() {
       preview: "https://multiplayer-game-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
       usedLanguages: [
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-nodejs-plain colored"></i>,
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-nodejs-plain colored"></i>,
       ]
     },
     {
@@ -133,7 +136,7 @@ export function Projects() {
       github: "https://github.com/Saulo-Felipe/The-Best-Hero",
       usedLanguages: [
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />,
-        <i className="devicon-postgresql-plain colored"></i>
+        <i key={uuid()} className="devicon-postgresql-plain colored"></i>
       ]
     },
     {
@@ -144,10 +147,10 @@ export function Projects() {
       preview: "https://jogo-da-velha-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/TicTacToe",
       usedLanguages: [
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-react-original colored"></i>,
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-react-original colored"></i>,
       ]
     },
     {
@@ -158,15 +161,16 @@ export function Projects() {
       preview: "https://calculadora-react-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/Calculadora-Com-React",
       usedLanguages: [
-        <i className="devicon-javascript-plain colored"></i>,
-        <i className="devicon-html5-plain colored"></i>,
-        <i className="devicon-css3-plain colored"></i>,
-        <i className="devicon-react-original colored"></i>,
+        <i key={uuid()} className="devicon-javascript-plain colored"></i>,
+        <i key={uuid()} className="devicon-html5-plain colored"></i>,
+        <i key={uuid()} className="devicon-css3-plain colored"></i>,
+        <i key={uuid()} className="devicon-react-original colored"></i>,
       ]
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { setCurrentPageScrollSection } = useScroll();
 
   function changeIndex(index: number) {
     if (index-1 == currentIndex) { // right
@@ -175,14 +179,9 @@ export function Projects() {
       setCurrentIndex(currentIndex-1);
     }
   }
-
-  useEffect(() => {
-    console.log(currentIndex);
-  }, []);
-
+  
   return (
     <Container id={"projects"}>
-
       <SubContainer>
         <OptionsContainer>
           <AboutProject>
@@ -191,28 +190,51 @@ export function Projects() {
               {projects[currentIndex].title}
               <span id={"cut-line"}></span>
             </AboutProjectTitle>
-            <div className={"about"}>{projects[currentIndex].about}</div>
 
-            <div className={"stacks"}>
+            <motion.div
+              className={"about"}
+              initial={{ marginLeft: -100, opacity: 0 }}
+              whileInView={{ marginLeft: 0, opacity: 1 }}
+            >{projects[currentIndex].about}</motion.div>
+
+            <motion.div className={"stacks"}
+              onViewportEnter={() => setCurrentPageScrollSection("projects")}
+            >
               { 
                 projects[currentIndex].usedLanguages.map(
-                  (item, i) => <span key={i}>{item}</span>
+                  (item, i) => 
+                    <motion.span 
+                      key={i}
+                      initial={{ borderRadius: 0, opacity: 0 }}
+                      whileInView={{ borderRadius: "50%", opacity: 1 }}
+                      transition={{ delay: i/10, duration: 0.15, type: "spring", bounce: 0.5 }}
+                    >{item}</motion.span>
                 ) 
               }
-            </div>
+            </motion.div>
 
             <div className={"action-btns"}>
               <a target={"_blank"} href={projects[currentIndex].github}>
-                <button className={"github"}>
-                  <span><i className="devicon-github-original colored"></i></span>
+                <motion.button 
+                  className={"github"}
+                  initial={{ bottom: -10, opacity: 0 }}
+                  whileInView={{ bottom: 0, opacity: 1 }}
+                  transition={{ bounce: 0.5, type: "spring" }}
+                >
+                  <span><i key={uuid()} className="devicon-github-original colored"></i></span>
                   {projects[currentIndex].title}
-                </button>
+                </motion.button>
               </a>
 
               <a target={"_blank"} href={projects[currentIndex].preview}>
-                <button className={"preview"}>
-                <span><BsArrowUpRight /></span> Visualizar
-                </button>
+                <motion.button 
+                  initial={{ bottom: -10, opacity: 0 }}
+                  whileInView={{ bottom: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, bounce: 0.5, type: "spring" }}
+                  className={"preview"}
+                >
+                  <span><BsArrowUpRight /></span> Visualizar
+                </motion.button>
               </a>
             </div>
           </AboutProject>

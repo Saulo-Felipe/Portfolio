@@ -11,11 +11,6 @@ interface SelectedOptionProps {
   width: number;
 }
 
-
-const itemVariants: Variants = {
- 
-};
-
 export const Container = styled.header<ContainerProps>`
   background-color: ${({theme}) => theme.black_300};
   display: flex;
@@ -74,7 +69,7 @@ export const OptionsContainer = styled(motion.div).attrs({
 export const SelectedOption = styled.span<SelectedOptionProps>`
   position: absolute;
   background: linear-gradient(to right, #0031a1, #6c0872);
-  left: calc(${({start}) => start}px + 0.1rem);
+  left: calc(${({start}) => start}px - 0.2rem);
   width: ${({start, width}) => width}px;
   height: 2px;
   bottom: 0;
