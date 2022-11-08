@@ -12,6 +12,9 @@
   --black-200: #060910;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 @media (max-width: 1080px) {
   html {
@@ -29,18 +32,18 @@ body {
   &::-webkit-scrollbar {
     width: 12px;
   }
-  
-  &::-webkit-scrollbar-thumb { 
+
+  &::-webkit-scrollbar-thumb {
     background-color: #0f131d ;
     background-clip: content-box;
     border-radius: 20px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background-color: #06080d;
   }
-  
-  
+
+
   background-color: var(--black-100);
   overflow-x: hidden;
 }
