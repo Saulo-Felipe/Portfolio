@@ -1,3 +1,5 @@
+@import "./_variables.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +8,6 @@
 }
 
 // "Roboto Mono"
-
-:root {
-  --black-100: #05080f;
-  --black-200: #060910;
-}
 
 html {
   scroll-behavior: smooth;
@@ -44,7 +41,7 @@ body {
   }
 
 
-  background-color: var(--black-100);
+  background-color: $black-100;
   overflow-x: hidden;
 }
 

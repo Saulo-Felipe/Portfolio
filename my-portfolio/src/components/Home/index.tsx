@@ -41,9 +41,18 @@ export function Home() {
   const sectionIsInView = useInView(sectionRef);
 
   useEffect(() => {
-    console.log("View");
-    document.body.scrollTo(0, 0);
+    if (sectionIsInView) {
+      document.body.style.overflowY = "hidden";      
+      window.scrollTo(0, 0);
+    }
   }, [sectionIsInView]);
+
+  function exitToHome() {
+    let aboutTopPos = document.getElementById("about")?.getBoundingClientRect().top || 0;
+    window.scrollTo(0, aboutTopPos+1);
+
+    document.body.style.overflowY = "auto";
+  }
 
   return (
     <motion.section 
@@ -55,13 +64,16 @@ export function Home() {
         ref={titleRef}
       ></h1> */}
 
-      <Spline 
+      {/* <Spline 
         onScroll={() => console.log("Scrolling")}
         id={"home-design"} 
         scene={"https://draft.spline.design/xIJvmi0Esy07kHWR/scene.splinecode"} 
-      />
+      /> */}
 
-      <div id="go-to-bottom">
+      <div 
+        id="go-to-bottom" 
+        onClick={exitToHome}
+      >
         <IoIosArrowDown />
       </div>
         

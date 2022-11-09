@@ -1,26 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./styles.scss";
 
 export function Header() {
 
+  const [isFixed, setIsFixed] = useState(false);
+
   useEffect(() => {
+
     window.addEventListener("scroll", () => {
-      if (window.scrollY == 0) {
-        document.querySelector("header")?.classList.add("no-fixed-header");
+      if (window.scrollY === 0) {
+        setIsFixed(false);
       } else {
-        document.querySelector("header")?.classList.remove("no-fixed-header");
+        setIsFixed(true);
       }
     });
   }, []);
 
   return (
-    <header id="header">
-      <section className="logo"><img src={"/logo512.png"}/></section>
+    <header 
+      id="header" 
+      className={isFixed ? "fixed-header" : ""}
+    >
+      <section className="logo-container">
+        <img src={"/logo512.png"} alt={"logotipo"} />
+      </section>
+
       <section className="options">
-        <div>Home</div>
-        <div>Sobre</div>
-        <div>Habilidades</div>
-        <div>Contato</div>
+        <div><a href="#home">Home</a></div>
+        <div><a href="#about">Sobre</a></div>
+        <div><a href="skills">Habilidades</a></div>
+        <div><a href="footer">Contato</a></div>
       </section>
     </header>
   );
