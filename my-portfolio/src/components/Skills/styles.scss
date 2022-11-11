@@ -3,21 +3,41 @@
   width: 100%;
   border: solid 1px red;
   position: relative;
+  padding: 5vw;
 
   &::before {
     content: 'Tecnologias';
-    font-size: 16rem;
     color: rgb(255, 255, 255, 0.02);
-    font-family: serif;
-    font-weight: bold;
     position: absolute;
     top: -1rem;
     left: 5rem;
 
     font: {
+      family: serif;
       weight: bold;
-      size: 14rem;
-    }    
+      size: 16rem;
+    }
+  }
 
+  .skills-title {
+    font-size: 3rem;
+    color: #fff;
+
+    &::after {
+      content: "";
+      display: inline-flex;
+      height: 2.5rem;
+      width: 0.2rem;
+      background-color: #fff;
+      margin-left: 0.4rem;
+      animation: cursosSkillsAnimated 1s ease infinite; 
+      border-radius: 0.2rem;
+
+      @keyframes cursosSkillsAnimated {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+    }
   }
 }
