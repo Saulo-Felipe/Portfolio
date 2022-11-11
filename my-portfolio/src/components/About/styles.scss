@@ -10,16 +10,9 @@
 
   .profile-img-container {
     width: 40vw;
-    position: relative;
-    border: solid 1px red;
-    overflow: hidden;
-
-    span {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      z-index: -1;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @function randomNum($min, $max) {
       $rand: random();
@@ -28,35 +21,57 @@
       @return $randomNum;
     }
 
-    @for $i from 1 through 5 {
-      span:nth-child(#{$i}) {
-        animation: animatedCube#{$i} randomNum(5, 15)+0s ease infinite;
-        background-color: lighten(blue, $i * 5%);
-        
-        $initTop: randomNum(0, 100);
-        $initLeft: randomNum(-50, -10);
+    .img {
+      width: 30vw;
+      height: 30vw;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      background-color: $black-300;
+      box-shadow: inset 0px 0px 20px;
 
-        @keyframes animatedCube#{$i} {
-          0% {
-            top: $initTop + 0%;
-            left: $initLeft + 0%; 
-          }
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-          50% {
-            top: randomNum(0, 100) + 0%;
-            left: randomNum(100, 150) + 0%;
-          }
+      span {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        z-index: -1;
+      }
 
-          100% {
-            top: $initTop + 0%;
-            left: $initLeft + 0%;
+      @for $i from 1 through 9 {
+        span:nth-child(#{$i}) {
+          animation: animatedCube#{$i} randomNum(5, 15)+0s ease infinite;
+          background-color: lighten(black, $i * 5%);
+          
+          $initTop: randomNum(0, 80);
+          $initLeft: randomNum(-50, -10);
+  
+          @keyframes animatedCube#{$i} {
+            0% {
+              top: $initTop + 0%;
+              left: $initLeft + 0%; 
+            }
+  
+            50% {
+              top: randomNum(0, 80) + 0%;
+              left: randomNum(100, 150) + 0%;
+            }
+  
+            100% {
+              top: $initTop + 0%;
+              left: $initLeft + 0%;
+            }
           }
         }
-      }
-    }    
+      }  
 
-    img {
-      width: 100%;
+      img {
+        width: 100%;
+        transform: scale(1.5);
+      }
     }
   }
 

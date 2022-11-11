@@ -1,4 +1,23 @@
 #skills {
   height: 100vh;
   width: 100%;
+  border: solid 1px red;
+  position: relative;
+
+  &::before {
+    content: 'Tecnologias';
+    font-size: 16rem;
+    color: rgb(255, 255, 255, 0.02);
+    font-family: serif;
+    font-weight: bold;
+    position: absolute;
+    top: -1rem;
+    left: 5rem;
+
+    font: {
+      weight: bold;
+      size: 14rem;
+    }    
+
+  }
 }

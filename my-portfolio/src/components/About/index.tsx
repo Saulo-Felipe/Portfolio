@@ -8,16 +8,19 @@ export function About() {
   return (
     <section id="about">
       <div className="profile-img-container">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <img alt={"profile"} src={"/profile.png"} />
+        <div className="img">
+          <img alt={"profile"} src={"/profile.png"} />
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
       <div className="about-content">
@@ -25,8 +28,8 @@ export function About() {
           Hello, i'm 
           <span>Saulo Felipe</span>
           <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b/512.gif" alt="👋" width="32" height="32" />
-        <span className="line"></span>
         </h1>
+        <span className="line"></span>
 
         <span className="tag">{"<p>"}</span>
         <div className="content">Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLorenLoren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLorenLoren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikf Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld </div>
