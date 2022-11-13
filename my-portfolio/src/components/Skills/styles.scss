@@ -1,7 +1,6 @@
 @import "../../styles/_variables.scss";
 
 #skills {
-  height: 100vh;
   width: 100%;
   position: relative;
 
@@ -20,7 +19,7 @@
   }
 
   .skills-title {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #fff;
     padding: 5vw 0 0 5vw;
 
@@ -49,7 +48,7 @@
     .carousel {
       display: -webkit-box;
       transition: all 300ms;
-      animation: carouselAnimated 35s infinite ease;
+      animation: carouselAnimated 60s infinite linear;
       margin-bottom: 2rem;
       width: max-content;
         
@@ -71,6 +70,9 @@
         }
       }
     }
+    .animate1 {
+      animation-duration: 50s;
+    }
 
     .lang {
       width: 7rem;
@@ -81,7 +83,7 @@
       justify-content: center;
 
       margin-right: 2rem;
-      background-color: $black-200;
+      background-color: $black-400;
       padding: 1rem;
       border-radius: 0.5rem;
       position: relative;
@@ -89,10 +91,14 @@
       cursor: pointer;
       user-select: none;
       z-index: 1;
+
+      box-shadow: 0.5rem 0.5rem 0px rgb(0, 0, 0, 0.2);
+      border: solid 1px rgba(0, 0, 0, 1);
     
     
       &:hover {
         transform: scale(1.1) !important;
+        width: 9rem;
 
         &::before {
           width: 100%;
@@ -144,7 +150,7 @@
         left: 0;
         width: 0%;
         height: 0.2rem;
-        background-image: linear-gradient(to right, blue, red);
+        background-image: linear-gradient(to right, $black-100, rgb(0, 140, 255));
         border-bottom-left-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
         z-index: 1;

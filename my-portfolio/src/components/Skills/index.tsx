@@ -35,7 +35,7 @@ export function Skills() {
       return setTimeout(() => createText(), 100);
     }
 
-    createText();
+    // createText();
   }, []);
 
   const primaryStacks: stacksBody[] = [
@@ -49,7 +49,7 @@ export function Skills() {
     { name: "NodeJS", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
     { name: "NextJS", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg", invert: true },
     { name: "Bootstrap", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-  ]
+  ];
 
   const secondaryStacks: stacksBody[] = [
     { name: "C", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
@@ -62,14 +62,11 @@ export function Skills() {
     { name: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" },
     { name: "Java", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
     { name: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" }
-  ]
+  ];
 
   function getElement(element: stacksBody, i: number) {
     return (
-      <div 
-        className="lang"
-        key={i} 
-      >
+      <div className="lang" key={i} >
         <div className="popup">
           {element.name}
         </div>
@@ -80,10 +77,9 @@ export function Skills() {
 
   return (
     <section id="skills">
-      <h1
-        className="skills-title"
-        ref={titleRef}
-      >Habilidades</h1>
+      <h1 className="skills-title" ref={titleRef}>
+        Habilidades
+      </h1>
 
       <section className="langs-container">
 
@@ -92,7 +88,7 @@ export function Skills() {
           { primaryStacks.map(getElement) }
         </div>
 
-        <div className="carousel">
+        <div className="carousel animate1">
           { secondaryStacks.map(getElement) }
           { secondaryStacks.map(getElement) }
         </div>

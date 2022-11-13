@@ -1,0 +1,275 @@
+@import "../../styles/variables.scss";
+
+#projects {
+  border: solid 1px red;
+  padding: 5vw;
+  width: 100%;
+
+  .blur-bg {
+    background-color: rgb(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 90;
+  }
+
+  .selected-container {
+    position: fixed;
+    background-color: $black-100;
+    padding: 3rem;
+    z-index: 91;
+    width: calc(100% - 3rem*2);
+    border-radius: 0.5rem;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .close-container {
+      font-size: 2rem;
+      color: #fff;
+      text-align: right;
+      padding: 0.5rem 0;
+      margin-top: -2rem;
+
+      svg {
+        cursor: pointer;
+      }
+    }
+
+    .secondary-contain {
+      display: flex;
+
+      .selected-content {
+        width: 40%;
+        color: #fff;
+        padding: 0 1rem 0 0;
+
+        .title {
+          font-size: 2.5rem;
+          position: relative;
+
+          &::before {
+            content: attr(content-title);
+            font-size: 2.5rem;
+            width: 100%;
+            position: absolute;
+            background-color: $black-100;
+            height: 50%;
+            overflow: hidden;
+            z-index: 1;
+            left: 0;
+            padding-left: 0.5rem;
+            margin-left: -0.5rem;
+
+            animation: titleCut ease 5s infinite;
+
+            @keyframes titleCut {
+
+              0% { left: 0px; }
+              30% { left: 0px; }
+              32% {left: -10px;}
+              33% { left: -6px; }
+              34% { left: -10px; }
+              35% { left: -4px; }
+              36% { left: -10px; }
+              49% { left: -10px; }
+              50% {
+                left: 0px;
+                text-shadow:
+                0px 0px 5px #00538C,
+                0px 0px 10px #00538C,
+                0px 0px 10px #00538C,
+                0px 0px 20px #00538C;
+              }
+              80% { left: 0px; }
+              82% { left: 10px; }
+              83% { left: 6px; }
+              84% { left: 10px; }
+              85% { left: 4px; }
+              86% { left: 10px; }
+              89% { left: 10px; }
+              90% { left: 0px; }
+            }
+          }
+        }
+
+        .description {
+          color: rgb(255, 255, 255, 0.8);
+        }
+
+        .used-languages {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 1rem;
+          padding-right: 1rem;
+
+          span {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: $black-200;
+            font-size: 2rem;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem 0.5rem 0 0 ;
+          }
+        }
+
+        .btns-container {
+          display: flex;
+          margin-top: 1.5rem;
+
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 3rem;
+            border-radius: 2.5rem;
+            padding-right: 0.5rem;
+            margin-right: 0.75rem;
+            border: none;
+            color: #fff;
+
+            span {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 50%;
+              margin-left: 0.2rem;
+              margin-right: 0.25rem;
+              box-shadow: 0 0 1rem black;
+              background-color: #fff;
+              color: #000;
+            }
+
+            svg, i {
+              font-size: 1.3rem;
+            }
+
+            &.view-project {
+              background: linear-gradient(45deg, blue, green);
+            }
+
+            &.btn-github {
+              background-color: #171a1d;
+              border: solid 1px rgb(255, 255, 255, 0.2);
+            }
+          }
+        }
+      }
+
+      img {
+        width: 60%;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.75rem black;
+        position: relative;
+
+        animation: loadImageAnimated ease 0.5s;
+
+        @keyframes loadImageAnimated {
+          0% {
+            right: -50%;
+            transform: scale(0.6);
+          }
+
+          100% {
+            right: 0%;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+  }
+
+  .main-title {
+    font-size: 4rem;
+    color: #fff;
+    margin: 0 0 1rem 0;
+    position: relative;
+    width: max-content;
+    padding: 0 0 0 0.5rem;
+
+    hr {
+
+    }
+  }
+
+  .container {
+    display: flex;
+    padding-top: 3rem;
+
+    .option {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      .img-container {
+        width: 20rem;
+
+        img {
+          transition: all 500ms ease;
+          border-radius: 0.75rem;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+
+      .option-line {
+        border-bottom: solid 0.2rem rgb(255, 255, 255, 0.2);
+        flex: 1;
+        text-align: center;
+        color: #fff;
+      }
+    }
+
+    .left-options {
+      flex: 1;
+      padding-left: 4.5rem;
+    }
+
+    .vertical-division {
+      width: 0.2rem;
+      background-color: rgb(255, 255, 255, 0.2);
+      background-image: linear-gradient(to bottom, $black-100, rgb(255, 255, 255, 0.2) 10%, rgb(255, 255, 255, 0.2) 90%, $black-100);
+    }
+
+    .right-options {
+      flex: 1;
+      padding-right: 4.5rem;
+
+      .option {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .mt {
+    margin-top: 5rem;
+  }
+
+  .exit-animation {
+    animation: exitAnimation 0.8s infinite ease;
+
+    @keyframes exitAnimation {
+      0% {
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      100% {
+        left: -100%;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+    }
+  }
+}
