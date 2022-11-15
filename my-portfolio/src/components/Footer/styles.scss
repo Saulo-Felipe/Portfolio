@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+
+#footer {
+  border: solid 1px red;
+  height: 100vh;
+  width: 100%;
+
+  background-color: $black-400;
+}

@@ -28,7 +28,7 @@ export function Projects() {
     {
       title: "E-Commerce",
       about: `Loja virtual com layout totalmente responsivo. O ecommerce possui a maioria das funcionalidades, como: criar, editar e remover produtos, sistema de autenticação, comentários e avaliações, pesquisar produtos, acesso privado para admins e etc.`,
-      imgUrl: "/images/carousel/ecommerce.png",
+      imgUrl: "/images/images/ecommerce.png",
       icon: <BiStoreAlt />,
       preview: "https://e-commerce-frontend-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/eCommerce-ReactJS-NodeJS",
@@ -46,7 +46,7 @@ export function Projects() {
     {
       title: "Sistema de Gestão",
       about: "O sistema de gestão consiste em auxiliar as lojas/empresas na organização de compras, vendas e clientes. É possível realizar cadastros para clientes e produtos e, posteriormente, realizar vendas relacionando ambos. (senha: 123)",
-      imgUrl: "/images/carousel/sistema-gestao.png",
+      imgUrl: "/images/images/sistema-gestao.png",
       icon: <MdManageAccounts />,
       github: "https://github.com/Saulo-Felipe/Sistema-de-Gestao",
       preview: "https://sistema-gestao-frontend.herokuapp.com/login",
@@ -64,7 +64,7 @@ export function Projects() {
     {
       title: "To-do List",
       about: "Salve e organize sua tarefas localmente ou na nuvem. Acesse suas tasks atualizadas em tempo real por qualquer dispositivo. Possui sistema de autenticação, categorias e sub-tarefas.",
-      imgUrl: "/images/carousel/to-do-list.png",
+      imgUrl: "/images/images/to-do-list.png",
       icon: <FaClipboardList />,
       preview: "https://todolist-saulo.herokuapp.com/categories",
       github: "https://github.com/Saulo-Felipe/to-do-list",
@@ -82,7 +82,7 @@ export function Projects() {
     {
       title: "Rede Social",
       about: "Social Midia desenvolvida utilizando Server-side rendering (SSR) com Next.js. Possui sistema de autenticação, criação, e remoção de publicações, comentários, perfil de usuário, customizações dinâmicas, chat e muito mais.",
-      imgUrl: "/images/carousel/rede-social.png",
+      imgUrl: "/images/images/rede-social.png",
       icon: <BsShareFill />,
       preview: "https://rede-social-saulo-felipe.vercel.app/",
       github: "https://github.com/Saulo-Felipe/rede-social",
@@ -103,7 +103,7 @@ export function Projects() {
     {
       title: "Futebol website",
       about: "Uma simples Landing Page/template com o tema focado em banca de apostas para times de Futebol.",
-      imgUrl: "/images/carousel/futebol.png",
+      imgUrl: "/images/images/futebol.png",
       icon: <FaRegFutbol />,
       preview: "https://saulo-felipe.github.io/Futebol-One-Page/",
       github: "https://github.com/Saulo-Felipe/Futebol-One-Page",
@@ -116,7 +116,7 @@ export function Projects() {
     {
       title: "Multiplayer Game",
       about: "Um jogo de batalha 2D entre tanques de guerra. O Game possui um sistema multiplayer, onde é possível batalhar em tempo real contra qualquer usuário. Atráves do ranking baseado em mortes, é possível deixar o game mais competitivo.",
-      imgUrl: "/images/carousel/multiplayer-game.png",
+      imgUrl: "/images/images/multiplayer-game.png",
       icon: <GiBattleTank />,
       preview: "https://multiplayer-game-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
@@ -130,7 +130,7 @@ export function Projects() {
     {
       title: "The Best Hero",
       about: "Um jogo para PC construído em python. O The Best Hero foi um projeto desenvolvido em grupo, onde é possível se aventurar com o personagem principal em 3 diferentes níveis (cenários).",
-      imgUrl: "/images/carousel/the-best-hero.png",
+      imgUrl: "/images/images/the-best-hero.png",
       icon: <FaGamepad />,
       preview: "https://github.com/Saulo-Felipe/The-Best-Hero",
       github: "https://github.com/Saulo-Felipe/The-Best-Hero",
@@ -142,7 +142,7 @@ export function Projects() {
     {
       title: "Jogo da Velha",
       about: "O clássico jogo da velha desenvolvido com Javascript. É possível jogar contra um amigo (em um único dispositivo) ou jogar contra a maquina. A maquina realizará jogadas inteligentes, e não deixará você vencer facilmente.",
-      imgUrl: "/images/carousel/tictactoe.png",
+      imgUrl: "/images/images/tictactoe.png",
       icon: <SiSharp />,
       preview: "https://jogo-da-velha-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/TicTacToe",
@@ -156,7 +156,7 @@ export function Projects() {
     {
       title: "Calculadora",
       about: "Essa é um simples calculadora comúm que realiza as 4 (quatro) operações fundamentais da matemática, a adição, subtração, multiplicação e divisão. É possível escolher entre o tema Dark ou Light.",
-      imgUrl: "/images/carousel/calculadora.png",
+      imgUrl: "/images/images/calculadora.png",
       icon: <BsCalculator />,
       preview: "https://calculadora-react-saulo.herokuapp.com/",
       github: "https://github.com/Saulo-Felipe/Calculadora-Com-React",

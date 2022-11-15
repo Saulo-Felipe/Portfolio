@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Saulo Felipe - Portfólio</title>
 
@@ -18,9 +18,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <link rel="stylesheet" href="./assets/loading.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div class="main-loading">
+      <h1>Aguarde um momento, carregando...</h1>
+      <img src="./assets/loading.svg" />
+    </div>
+
     <div id="root"></div>
+
+    <script>
+      const interval = setInterval(() => {
+        let canvas = document.querySelector("canvas").getAttribute("width");
+
+        if (canvas) {
+          let element = document.querySelector(".main-loading");
+          element.remove();
+          clearInterval(interval);
+        }
+      }, 1000);
+    </script>
   </body>
 </html>

@@ -35,7 +35,7 @@ export function Skills() {
       return setTimeout(() => createText(), 100);
     }
 
-    // createText();
+    createText();
   }, []);
 
   const primaryStacks: stacksBody[] = [

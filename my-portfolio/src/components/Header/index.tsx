@@ -22,14 +22,15 @@ export function Header() {
       className={isFixed ? "fixed-header" : ""}
     >
       <section className="logo-container">
-        <img src={"/logo512.png"} alt={"logotipo"} />
+        <img src={"/assets/logo512.png"} alt={"logotipo"} />
       </section>
 
       <section className="options">
         <div><a href="#home">Home</a></div>
         <div><a href="#about">Sobre</a></div>
-        <div><a href="skills">Habilidades</a></div>
-        <div><a href="footer">Contato</a></div>
+        <div><a href="#skills">Habilidades</a></div>
+        <div><a href="#projects">Projetos</a></div>
+        <div><a href="#footer">Contato</a></div>
       </section>
     </header>
   );
