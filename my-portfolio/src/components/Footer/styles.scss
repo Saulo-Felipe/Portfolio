@@ -1,9 +1,224 @@
 @import "../../styles/variables.scss";
 
 #footer {
-  border: solid 1px red;
-  height: 100vh;
-  width: 100%;
+  margin: 5rem 1rem 1rem 1rem;
+  border-radius: 0.75rem;
+  padding-bottom: 0rem;
 
-  background-color: $black-400;
+  background-color: #0000004a;
+
+  color: #fff;
+
+  .content {
+    display: flex;
+
+
+    .form-contact {
+      flex: 0.4 !important;
+
+      .form-control {
+        position: relative;
+        margin-top: 1rem;
+  
+        width: 100%;
+        height: max-content;
+  
+        background-color: $black-100;
+  
+        input, textarea {
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 1rem;
+          background: transparent;
+          height: 3rem;
+          padding-top: 1rem;
+          padding-left: 0.75rem;
+          color: #fff;
+  
+          &:focus + span {
+            top: calc(1rem / 2);
+            font-size: 0.8rem;
+            color: rgb(135, 126, 255);
+            font-weight: bold;
+          }
+        }
+  
+        textarea { 
+          min-height: 7rem; 
+        }
+  
+        .fixed-pos {
+          top: calc(1rem / 2);
+          font-size: 0.8rem;
+          color: rgb(135, 126, 255);
+          font-weight: bold;
+        }
+  
+        span {
+          position: absolute;
+          font-size: 1rem;
+          left: 0.75rem;
+          transition: all 300ms;
+          top: calc(3rem/2 - 1em/2);
+          line-height: 1;
+          color: rgba(255, 255, 255, 0.5);
+          background-color: $black-100;
+        }
+      }
+  
+      .submit-email {
+        border: none;
+        width: 10rem;
+        height: 2rem;
+        font-size: 1rem;
+        color: #fff;
+        margin-top: 1rem;
+        background: transparent;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        transition: all 200ms;
+
+        &:hover {
+          border: solid 2px #fff;
+        }
+      }
+    }
+
+    .contact {
+      flex: 0.3 !important;
+    }
+
+    .part {
+      flex: 0.2;
+      padding: 1.5rem;
+
+      .mini-title {
+        margin-bottom: 2rem;
+        border-radius: 0.1rem;
+        padding-left: 1rem;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 85%;
+          width: 2px;
+          background-color: $blue-100;
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      .quick-links {
+        display: flex;
+        flex-direction: column;
+        border-left: solid 1px rgba(255, 255, 255, 0.5);
+        padding-left: 1rem;
+
+
+        .quick-link {
+          color: rgba(255, 255, 255, 0.5);
+          transition: 150ms;
+
+          &:hover {
+            color: #fff;
+          }
+
+          & + .quick-link {
+            margin-top: 0.8rem;
+          }
+        }
+
+      }
+
+      .social-links {
+
+
+        .rounded-container {
+          display: flex;
+          flex-wrap: wrap;
+
+          .rounded-link {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 50%;
+            display: block;
+  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+  
+            border: solid 1px rgba(255, 255, 255, 0.5);
+  
+            box-shadow: 0.3rem 0.3rem 0.1rem black;
+  
+            & + a {
+              margin-left: 1rem;
+            }
+
+            svg {
+              transition: 300ms;
+            }
+
+            &:hover {
+              svg {
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+      }
+
+      .others {
+        margin-top: 2rem;
+        border-radius: 0.25rem;
+
+        .option {
+          background: $black-100;
+          padding: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+
+          .content {
+            display: flex;
+            align-items: center;
+          }
+
+          .icon {
+            width: 1.75rem;
+            height: 1.75rem;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+            border-radius: 0.5rem;
+            background-color: #0000004a;
+            display: block
+          }
+
+          & + .option {
+            margin-top: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .copyright {
+    color: rgba(255, 255, 255, 0.616);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: solid 2px $black-100;
+
+    span {
+      color: $blue-100;
+    }
+  }
+
 }

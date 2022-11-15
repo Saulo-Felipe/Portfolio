@@ -9,7 +9,7 @@ import "./styles.scss";
 
 export function Home() {
   const sectionRef = useRef<any>(null);
-  const sectionIsInView = useInView(sectionRef, {amount: 0.6, });
+  const sectionIsInView = useInView(sectionRef, { amount: 0.6 });
 
   useEffect(() => {
     if (sectionIsInView) {
@@ -33,11 +33,11 @@ export function Home() {
       ref={sectionRef}
     >
 
-      <Spline 
+      {/* <Spline 
         onScroll={() => console.log("Scrolling")}
         id={"home-design"} 
         scene={"https://draft.spline.design/xIJvmi0Esy07kHWR/scene.splinecode"} 
-      />
+      /> */}
 
       <div 
         id="go-to-bottom" 

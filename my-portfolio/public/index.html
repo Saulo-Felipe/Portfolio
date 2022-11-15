@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#111111" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="
+        Portfólio do desenvolvedor (programador) Web FullStack Saulo Felipe.
+        Exemplo de Portfólio, Design Portfólio, Portfólio backend, Portfólio Frontend, Template Portfólio,
+        Desenvolvedor Saulo Felipe
+        Programador Saulo Felipe
+        Projetos, e estrutura de Portfólio
+      "
     />
+
+    <link rel="icon" href="%PUBLIC_URL%/assets/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Saulo Felipe - Portfólio</title>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="./assets/start.css">
 
-    <link rel="stylesheet" href="./assets/loading.css">
+    <title>Saulo Felipe - Portfólio</title>
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div class="noscript">
+        <h1>Essa página não funciona sem o JavaScript.</h1>
+        <a href="https://support.google.com/adsense/answer/12654?hl=pt-BR" target="_blank">Como habilitar o Javascript?</a>
+      </div>
+    </noscript>
 
     <div class="main-loading">
       <h1>Aguarde um momento, carregando...</h1>
@@ -31,16 +44,7 @@
 
     <div id="root"></div>
 
-    <script>
-      const interval = setInterval(() => {
-        let canvas = document.querySelector("canvas").getAttribute("width");
-
-        if (canvas) {
-          let element = document.querySelector(".main-loading");
-          element.remove();
-          clearInterval(interval);
-        }
-      }, 1000);
-    </script>
+    <!-- <script src="./assets/start.js"></script> -->
   </body>
+
 </html>
