@@ -82,7 +82,6 @@ export function Skills() {
       </h1>
 
       <section className="langs-container">
-
         <div className="carousel">
           { primaryStacks.map(getElement) }
           { primaryStacks.map(getElement) }

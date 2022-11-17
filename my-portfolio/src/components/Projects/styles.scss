@@ -360,4 +360,37 @@
       }
     }
   }
+
+
+
+  @media (max-width: 1100px) {
+
+    .container {
+      display: block;
+
+      .vertical-division {
+        display: none;
+      }
+    }
+    .main-title {
+      font-size: 1.75rem;
+    }
+
+    .option {
+      position: relative;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+      flex-direction: column !important;
+      width: max-content !important;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .img-container {
+      }
+
+      .horizontal-division {
+        padding: 0.5rem;
+      }      
+    }
+  }
 }
