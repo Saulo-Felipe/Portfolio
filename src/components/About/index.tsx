@@ -9,7 +9,7 @@ export function About() {
     <section id="about">
       <div className="profile-img-container">
         <div className="img">
-          <img alt={"profile"} src={"/profile.png"} />
+          <img alt={"profile"} src={"/proile.png"} />
 
           <span></span>
           <span></span>
