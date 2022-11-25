@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 
 
@@ -9,7 +9,7 @@ interface stacksBody {
 }
 
 export function Skills() {
-  const text = "> Habilidades";
+  const text = '> Habilidades';
   const titleRef = useRef<any>(null);
 
   useEffect(() => {
@@ -36,6 +36,8 @@ export function Skills() {
     }
 
     createText();
+
+    insertDinamicKeyframes();
   }, []);
 
   const primaryStacks: stacksBody[] = [
@@ -75,6 +77,33 @@ export function Skills() {
     );
   }
 
+  function insertDinamicKeyframes() {
+    const style = `
+      @keyframes carouselAnimated {
+        0% {
+          transform: translateX(-0%);
+        }
+
+        50% {
+          transform: translateX(calc(-100% + ${window.innerWidth}px));
+        }
+
+        100% {
+          transform: translateX(-0%);
+        }
+      }
+    `;
+    const styleElement = document.createElement('style');
+    let styleSheet = null;
+  
+    document.head.appendChild(styleElement);
+  
+    styleSheet = styleElement.sheet as CSSStyleSheet;
+  
+    styleSheet.insertRule(style, styleSheet.cssRules.length);
+  }
+
+
   return (
     <section id="skills">
       <h1 className="skills-title" ref={titleRef}>
@@ -82,7 +111,17 @@ export function Skills() {
       </h1>
 
       <section className="langs-container">
-        <div className="carousel">
+        <div className="carousel" style={{
+          "@keyframes carouselAnimated": {
+            "0%": {
+              opacity: 0
+            },
+
+            "100%": {
+              opacity: 1
+            }
+          }
+        } as React.CSSProperties}>
           { primaryStacks.map(getElement) }
           { primaryStacks.map(getElement) }
         </div>

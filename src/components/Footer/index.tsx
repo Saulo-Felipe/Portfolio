@@ -5,11 +5,27 @@ import { AiOutlineMail } from "react-icons/ai";
 import { TiPhone } from "react-icons/ti";
 import { MdContentCopy } from "react-icons/md";
 import { FaTelegramPlane } from "react-icons/fa";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import emailJs from "@emailjs/browser";
 
-
+import 'react-toastify/dist/ReactToastify.css';
 import "./styles.scss";
 
+
 export function Footer() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [loading, setLoading] = useState(false);
+
+  const formRef = useRef(null as any);
+
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
 
   function handleActionForm({target: formControl}: any) {
     if (formControl.value.length === 0) {
@@ -31,8 +47,55 @@ export function Footer() {
     }
   }
 
+  async function handleSendEmail(e: FormEvent) {
+    e.preventDefault();
+    console.log(process.env);
+    let { email, message, name } = form;
+
+    if (email.length > 0 && message.length > 0 && name.length > 0) {
+      console.log(email.indexOf("@"))
+      if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        toast.error("Email inválido");
+      } else {
+
+        setLoading(true);
+        try {
+          await emailJs.sendForm(
+            "service_73p8kmp",  
+            "template_vo6w8ye", 
+            formRef.current, 
+            process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+          );
+
+          toast.success("E-mail enviado com sucesso!");
+          setForm({
+            name: "",
+            email: "",
+            message: ""
+          });
+        } catch(e) {
+          toast.error("Erro ao enviar E-mail, entre em contato com o suporte.");
+        }
+        setLoading(false);
+      } 
+    } else {
+      toast.warning("Confira se todos os campos estão preenchidos.");
+    }
+  }
+
   return (
     <footer id="footer">
+      <ToastContainer 
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <section className="content">
       
@@ -40,33 +103,44 @@ export function Footer() {
 
           <img src={"/assets/logo.png"} width="45%" />
 
-          <div className="form-control">
-            <input 
-              type={"text"} 
-              onFocus={handleActionForm}
-              onBlur={handleActionForm}
-            />
-            <span>Nome</span>
-          </div>
+          <form ref={formRef} onSubmit={handleSendEmail}>
+            <div className="form-control">
+              <input 
+                type={"text"} 
+                onFocus={handleActionForm}
+                onBlur={handleActionForm}
+                onChange={({target}) => setForm({ ...form, name: target.value })}
+                value={form.name}
+                name="user_name"
+              />
+              <span>Nome</span>
+            </div>
 
-          <div className="form-control">
-            <input 
-              type={"email"} 
-              onFocus={handleActionForm}
-              onBlur={handleActionForm}
-            />          
-            <span>E-mail</span>
-          </div>
+            <div className="form-control">
+              <input 
+                type={"email"} 
+                onFocus={handleActionForm}
+                onBlur={handleActionForm}
+                onChange={({target}) => setForm({ ...form, email: target.value })}
+                value={form.email}
+                name="user_email"
+              />          
+              <span>E-mail</span>
+            </div>
 
-          <div className="form-control">
-            <textarea
-              onFocus={handleActionForm}
-              onBlur={handleActionForm}
-            ></textarea>
-            <span>Mensagem</span>
-          </div>
+            <div className="form-control">
+              <textarea
+                onFocus={handleActionForm}
+                onBlur={handleActionForm}
+                onChange={({target}) => setForm({ ...form, message: target.value })}
+                value={form.message}
+                name="message"
+              ></textarea>
+              <span>Mensagem</span>
+            </div>
 
-          <button className="submit-email">Enviar</button>
+            <button disabled={loading} className="submit-email">Enviar</button>
+          </form>
         </div>
         
         <div className="flex">

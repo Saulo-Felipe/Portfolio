@@ -9,7 +9,8 @@ export function About() {
     <section id="about">
       <div className="profile-img-container">
         <div className="img">
-          <img alt={"profile"} src={"/proile.png"} />
+          {/* <img alt={"profile"} src={"/proile.png"} /> */}
+          <img alt={"profile"} src={"https://imagensemoldes.com.br/wp-content/uploads/2022/06/Imagem-Stumble-Guys-PNG.png"} />
 
           <span></span>
           <span></span>

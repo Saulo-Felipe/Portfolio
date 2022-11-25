@@ -90,13 +90,13 @@
       }
 
       .primary-container {
-        // border: solid 1px red;
         display: flex;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 3rem;
+        padding-top: 1.5rem;
 
         img {
           max-width: 40%;

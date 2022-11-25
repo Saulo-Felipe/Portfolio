@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  // overflow: hidden;
 }
 
 @media (max-width: 1080px) {
@@ -47,6 +48,10 @@ body {
 
 button {
   cursor: pointer
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 a {

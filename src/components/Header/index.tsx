@@ -14,7 +14,6 @@ export function Header() {
 
   useEffect(() => {
     function scrollPageDetect() {
-      console.log("Scroll")
       if (window.scrollY === 0) {
         setIsFixed(false);
       } else {
@@ -22,8 +21,9 @@ export function Header() {
       }
     }
 
-    window.addEventListener("scroll", scrollPageDetect);
-    window.addEventListener("touchmove", scrollPageDetect); // Mobile devices
+    window.addEventListener("wheel", scrollPageDetect, true);
+    window.addEventListener("touchmove", scrollPageDetect, true); // Mobile devices
+    window.addEventListener("scroll", scrollPageDetect, true); // Mobile devices
   }, []);
 
   return (

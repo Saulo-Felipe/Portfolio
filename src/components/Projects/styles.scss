@@ -195,6 +195,42 @@
       }
     }
 
+    @media (max-width: 1100px) {
+      width: 100%;
+      max-height: 100vh;
+      padding: 2rem 1.25rem;
+
+      .close-container {
+        margin-top: 0;
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        z-index: 99;
+      }
+
+      .secondary-contain {
+        flex-direction: column;
+
+        .selected-content {
+          width: 100%;
+          padding: 0;
+
+          .used-languages {
+            padding-right: 0;
+            justify-content: space-between;
+          }
+
+          .btns-container {
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+
+      img {
+        width: 100% !important;
+      }
+    }
+
   }
 
   .main-title {
@@ -364,6 +400,7 @@
 
 
   @media (max-width: 1100px) {
+    border: solid 1px red;
 
     .container {
       display: block;

@@ -34,9 +34,9 @@ export function Home() {
     >
 
       <Spline 
-        onScroll={() => console.log("Scrolling")}
         id={"home-design"} 
-        scene={"https://draft.spline.design/xIJvmi0Esy07kHWR/scene.splinecode"} 
+        scene="fhttps://prod.spline.design/u-3i6O3KTAH1TlyQ/scene.splinecode" 
+        width="100%"
       />
 
       <div 

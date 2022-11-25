@@ -259,6 +259,7 @@ export function Projects() {
             LeftOptions.map((e, i) => 
               <div 
                 className={`option ${i !== 0 ? "mt" : ""}`}
+                key={i}
               >
                 <motion.div 
                   className="img-container"
@@ -282,9 +283,10 @@ export function Projects() {
 
         <div className="right-options">
           {
-            RightOptions.map(e => 
+            RightOptions.map((e, i) => 
               <div 
-                className="option mt"
+                key={i}
+                className={"option mt"}
               >
                 <motion.div 
                   className="img-container"
