@@ -11,7 +11,93 @@
 
 html {
   scroll-behavior: smooth;
-  // overflow: hidden;
+  overflow-x: scroll !important;
+}
+
+main#main-root {
+  position: relative;
+
+  > #content {
+    display: flex;
+    width: 100%;
+
+    > #sections-controller {
+      width: 12.5%;
+      height: 300vh;
+      background-color: $black-100;
+      z-index: 1;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 3px;
+        height: 100%;
+        position: absolute;
+        background-color: $blue-100;
+        // box-shadow:
+        // 0 0 15px rgba(0, 127, 177, 0.65),
+        // 0 0 20px rgba(0, 127, 177, 0.4);
+        margin-right: 3rem;
+      }
+    }
+
+    > #partitions {
+      width: 87.5%;
+
+      .section-halt {
+        $default-size: 3rem;
+        left: calc((-100% / 12.5) - $default-size/2);
+        top: calc(50% - $default-size/2);
+        background-color: $black-100;
+        position: absolute;
+        z-index: 2;
+        width: $default-size;
+        height: $default-size;
+
+        font-size: 1.75rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        .box-shadow {
+          box-shadow:
+          0 0 1rem 1rem rgba(0, 95, 75, 0.3),
+          0 0 1.2rem 1.25rem rgba(0, 95, 75, 0.2),
+          0 0 1.5rem 1.5rem rgba(0, 95, 75, 0.1),
+          0 0 2rem 1.75rem rgba(0, 95, 75, 0.1);
+          width: 0.2rem;
+          height: 0.2rem;
+          border-radius: 50%;
+          position: absolute;
+          z-index: 2;
+        }
+
+        $pseudo-sizes: 1rem;
+
+        .before, .after {
+          content: "";
+          width: 4rem;
+          height: $pseudo-sizes;
+          background: $black-100;
+          z-index: 1;
+          position: absolute;
+          border-radius: 50%;
+        }
+
+        .before { top: -$pseudo-sizes }
+        .after { bottom: -$pseudo-sizes }
+
+        svg {
+          z-index: 3;
+        }
+      }
+    }
+  }
+
 }
 
 @media (max-width: 1080px) {

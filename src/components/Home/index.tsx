@@ -34,9 +34,9 @@ export function Home() {
     >
 
       <Spline 
+      width="100%"
         id={"home-design"} 
-        scene="fhttps://prod.spline.design/u-3i6O3KTAH1TlyQ/scene.splinecode" 
-        width="100%"
+        scene="shttps://prod.spline.design/u-3i6O3KTAH1TlyQ/scene.splinecode" 
       />
 
       <div 

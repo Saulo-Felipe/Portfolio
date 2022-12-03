@@ -1,3 +1,6 @@
+import { BsArrowRight } from "react-icons/bs";
+import { CiBoxList } from "react-icons/ci";
+
 import "./styles.scss";
 
 
@@ -7,9 +10,16 @@ export function About() {
 
   return (
     <section id="about">
-      <div className="profile-img-container">
-        <div className="img">
-          {/* <img alt={"profile"} src={"/proile.png"} /> */}
+
+      <div className="section-halt">
+        <span className="before"></span>
+        <span className="box-shadow"></span>
+        <CiBoxList />
+        <span className="after"></span>
+      </div>
+    
+      <div>
+        <div className="profile-img-container">
           <img alt={"profile"} src={"https://imagensemoldes.com.br/wp-content/uploads/2022/06/Imagem-Stumble-Guys-PNG.png"} />
 
           <span></span>
@@ -30,13 +40,13 @@ export function About() {
           <span>Saulo Felipe</span>
           <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b/512.gif" alt="👋" width="32" height="32" />
         </h1>
-        <span className="line"></span>
 
-        <span className="tag">{"<p>"}</span>
-        <div className="content">Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLorenLoren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLorenLoren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikf Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld </div>
-        <span className="tag">{"</p>"}</span>
+        <div className="about">Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLorenLoren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLorenLoren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikfLoren ifdifd ikf Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld Loren ifdifd ikfld </div>
 
-        <button className="see-projects">Ver Projetos</button>
+        <button className="see-projects-btn">
+          <BsArrowRight />
+          Ver projetos
+        </button>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { CiDatabase } from "react-icons/ci"; 
 import "./styles.scss";
 
 
@@ -106,6 +107,9 @@ export function Skills() {
 
   return (
     <section id="skills">
+
+
+
       <h1 className="skills-title" ref={titleRef}>
         Habilidades
       </h1>
@@ -125,7 +129,14 @@ export function Skills() {
           { primaryStacks.map(getElement) }
           { primaryStacks.map(getElement) }
         </div>
-
+        <div style={{position: "relative", marginLeft: "2.5rem"}}>
+          <div className="section-halt">
+            <span className="before"></span>
+            <span className="box-shadow"></span>
+            <CiDatabase />
+            <span className="after"></span>
+          </div>
+        </div>
         <div className="carousel animate1">
           { secondaryStacks.map(getElement) }
           { secondaryStacks.map(getElement) }

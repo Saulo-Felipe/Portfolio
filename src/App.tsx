@@ -4,7 +4,6 @@ import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
-import { useEffect } from "react";
 
 
 function App() {
@@ -12,10 +11,18 @@ function App() {
     <>
       <Header />
       <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Footer />
+
+      <section id="content">
+        <div id="sections-controller"></div>
+
+        <div id="partitions">
+          <About />
+          <Skills />
+          <Projects />
+          <Footer />
+        </div>
+      </section>
+
     </>
   );
 }
