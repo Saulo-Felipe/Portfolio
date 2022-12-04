@@ -10,7 +10,7 @@ interface stacksBody {
 }
 
 export function Skills() {
-  const text = '> Habilidades';
+  const text = 'Habilidades';
   const titleRef = useRef<any>(null);
 
   useEffect(() => {
@@ -108,11 +108,7 @@ export function Skills() {
   return (
     <section id="skills">
 
-
-
-      <h1 className="skills-title" ref={titleRef}>
-        Habilidades
-      </h1>
+      <h1 className="skills-title" ref={titleRef}></h1>
 
       <section className="langs-container">
         <div className="carousel" style={{
@@ -129,6 +125,7 @@ export function Skills() {
           { primaryStacks.map(getElement) }
           { primaryStacks.map(getElement) }
         </div>
+
         <div style={{position: "relative", marginLeft: "2.5rem"}}>
           <div className="section-halt">
             <span className="before"></span>
@@ -137,6 +134,7 @@ export function Skills() {
             <span className="after"></span>
           </div>
         </div>
+        
         <div className="carousel animate1">
           { secondaryStacks.map(getElement) }
           { secondaryStacks.map(getElement) }

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { AiOutlineHeart } from "react-icons/ai";
 
 import "./styles.scss";
+import { CiBoxes, CiDatabase } from "react-icons/ci";
 
 interface OptionBody {
   title: string;
@@ -20,8 +21,8 @@ interface OptionBody {
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<OptionBody | null>();
-  const selectedProjectRef = useRef<any>(null)
-;  
+  const selectedProjectRef = useRef<any>(null);
+    
   const LeftOptions: OptionBody[] = [
     { 
       title: "E-commerce", 
@@ -182,7 +183,7 @@ export function Projects() {
   }
 
   return (
-    <section id="projects">
+    <section id="projects">      
       { 
         selectedProject ? (
           <>
@@ -254,6 +255,14 @@ export function Projects() {
         
 
       <div className="container">
+      {/* <div style={{position: "relative", marginLeft: "calc(-5vw + 2.5rem)"}}> */}
+        <div className="section-halt">
+          <span className="before"></span>
+          <span className="box-shadow"></span>
+          <CiBoxes />
+          <span className="after"></span>
+        </div>
+      {/* </div>    */}
         <div className="left-options">
           {
             LeftOptions.map((e, i) => 
@@ -273,7 +282,7 @@ export function Projects() {
                   <img src={e.imgSrc} />
                 </motion.div>
                 
-                <span className="horizontal-division">{e.title}</span>
+                <span className="horizontal-division"></span>
               </div>
             )
           }
@@ -300,7 +309,7 @@ export function Projects() {
                   <img src={e.imgSrc} />
                 </motion.div>
                 
-                <span className="horizontal-division">{e.title}</span>
+                <span className="horizontal-division"></span>
               </div>
             )
           }

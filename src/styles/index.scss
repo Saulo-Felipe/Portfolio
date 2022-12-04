@@ -11,7 +11,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: scroll !important;
+  // overflow-x: scroll !important;
 }
 
 main#main-root {
@@ -23,7 +23,7 @@ main#main-root {
 
     > #sections-controller {
       width: 12.5%;
-      height: 300vh;
+      height: auto;
       background-color: $black-100;
       z-index: 1;
       display: flex;
@@ -36,9 +36,6 @@ main#main-root {
         height: 100%;
         position: absolute;
         background-color: $blue-100;
-        // box-shadow:
-        // 0 0 15px rgba(0, 127, 177, 0.65),
-        // 0 0 20px rgba(0, 127, 177, 0.4);
         margin-right: 3rem;
       }
     }

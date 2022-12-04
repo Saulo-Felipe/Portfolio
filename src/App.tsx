@@ -19,9 +19,10 @@ function App() {
           <About />
           <Skills />
           <Projects />
-          <Footer />
         </div>
       </section>
+      
+      <Footer />
 
     </>
   );
