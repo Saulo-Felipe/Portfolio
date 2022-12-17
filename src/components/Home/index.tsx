@@ -33,10 +33,14 @@ export function Home() {
       ref={sectionRef}
     >
 
+      {/* <Spline 
+        id={"home-design"} 
+        scene="https://prod.spline.design/u-3i6O3KTAH1TlyQ/scene.splinecode" 
+      /> */}
       <Spline 
       width="100%"
         id={"home-design"} 
-        scene="shttps://prod.spline.design/u-3i6O3KTAH1TlyQ/scene.splinecode" 
+        scene="dhttps://prod.spline.design/u-3i6O3KTAH1TlyQ/scene.splinecode" 
       />
 
       <div 

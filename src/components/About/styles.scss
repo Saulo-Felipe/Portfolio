@@ -12,57 +12,62 @@
   margin: 5rem 2.5rem 2.5rem 2.5rem;
   position: relative;
 
-  .profile-img-container {
-    border-radius: 50%;
-    height: 16rem;
-    width: 16rem;
-    border: solid 1px black;
-
-    background-color: $black-300;
-
-    box-shadow: inset 0 0 20px black;
-
+  .profile-image {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
 
-    img {
-      width: 100%;
-      top: 0;
-      transform: scale(0.7);
-    }
-
-    span {
-      position: absolute;
-      width: 2.5rem;
-      height: 2.5rem;
-      z-index: -1;
-    }
-
-    @for $i from 1 through 9 {
-      span:nth-child(#{$i}) {
-        animation: animatedCube#{$i} randomNum(5, 15)+0s ease infinite;
-        background-color: lighten(black, $i * 5%);
-
-        $initTop: randomNum(0, 80);
-        $initLeft: randomNum(-50, -10);
-
-        @keyframes animatedCube#{$i} {
-          0% {
-            top: $initTop + 0%;
-            left: $initLeft + 0%;
-          }
-
-          50% {
-            top: randomNum(0, 80) + 0%;
-            left: randomNum(100, 150) + 0%;
-          }
-
-          100% {
-            top: $initTop + 0%;
-            left: $initLeft + 0%;
+    .profile-img-container {
+      border-radius: 50%;
+      height: 16rem;
+      width: 16rem;
+      border: solid 1px black;
+  
+      background-color: $black-300;
+  
+      box-shadow: inset 0 0 20px black;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  
+      img {
+        width: 100%;
+        top: 0;
+        transform: scale(0.7);
+      }
+  
+      span {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        z-index: -1;
+      }
+  
+      @for $i from 1 through 6 {
+        span:nth-child(#{$i}) {
+          animation: animatedCube#{$i} randomNum(5, 15)+0s ease infinite;
+          background-color: lighten(black, $i * 5%);
+  
+          $initTop: randomNum(0, 80);
+          $initLeft: randomNum(-50, -10);
+  
+          @keyframes animatedCube#{$i} {
+            0% {
+              top: $initTop + 0%;
+              left: $initLeft + 0%;
+            }
+  
+            50% {
+              top: randomNum(0, 80) + 0%;
+              left: randomNum(100, 150) + 0%;
+            }
+  
+            100% {
+              top: $initTop + 0%;
+              left: $initLeft + 0%;
+            }
           }
         }
       }
@@ -133,7 +138,14 @@
     }
 
     .about {
+      span {
+        color: #0080b3;
+      }
 
+      ul {
+        margin-top: 0.5rem;
+        padding-left: 2rem;
+      }
     }
 
     .see-projects-btn {
@@ -150,7 +162,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      
+      z-index: 96;
+
+
       color: #fff;
 
       &:hover {
