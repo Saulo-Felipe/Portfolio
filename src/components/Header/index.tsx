@@ -5,10 +5,14 @@ import { AiOutlineUser } from "react-icons/ai";
 import { MdDashboard } from "react-icons/md";
 import { TbMessageCircle } from "react-icons/tb";
 
-
 import "./styles.scss";
 
-export function Header() {
+
+interface HeaderProps {
+  currentPos: string;
+}
+
+export function Header({currentPos}: HeaderProps) {
   const [isFixed, setIsFixed] = useState(false);
   const [menuMobileIsOpen, setMenuMobileIsOpen] = useState(false);
   const optionsRef = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -29,26 +33,31 @@ export function Header() {
     window.addEventListener("scroll", scrollPageDetect, true); // Mobile devices
 
 
-    window.addEventListener("hashchange", (e) => {
-      optionsRef.current.childNodes.forEach((child: any, i) => {
-        if (i <= 4) {
-          const classNames = String(child.getAttribute("class"));
-
-          if (classNames.indexOf("home") === -1) {
-            if (e.newURL.split("#")[1] === classNames.split(" ")[1]) {
-              let { width, x } = child.getBoundingClientRect();
-  
-              selectedLineRef.current.style.opacity = "1";
-              selectedLineRef.current.style.left = `${x}px`;
-              selectedLineRef.current.style.width = `${width}px`;
-            }
-          } else {
-            selectedLineRef.current.style.opacity = "0";
-          }
-        }
-      })
-    });
   }, []);
+  
+  function onChangeURL() {
+    optionsRef.current.childNodes.forEach((child: any, i) => {
+      if (i <= 4) {
+        const classNames = String(child.getAttribute("class"));
+
+        if (classNames.indexOf("home") === -1) {
+          if (currentPos.indexOf(classNames.split(" ")[1]) !== -1) {
+            let { width, x } = child.getBoundingClientRect();
+
+            selectedLineRef.current.style.opacity = "1";
+            selectedLineRef.current.style.left = `${x}px`;
+            selectedLineRef.current.style.width = `${width}px`;
+          }
+        } else {
+          selectedLineRef.current.style.opacity = "0";
+        }
+      }
+    })
+  }
+
+  useEffect(() => {
+    onChangeURL();
+  }, [currentPos]);
 
   return (
     <header 

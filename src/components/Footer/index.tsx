@@ -23,10 +23,6 @@ export function Footer() {
 
   const formRef = useRef(null as any);
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
-
   function handleActionForm({target: formControl}: any) {
     if (formControl.value.length === 0) {
       formControl.parentElement.childNodes[1].classList.remove("fixed-pos");    
@@ -49,11 +45,9 @@ export function Footer() {
 
   async function handleSendEmail(e: FormEvent) {
     e.preventDefault();
-    console.log(process.env);
     let { email, message, name } = form;
 
     if (email.length > 0 && message.length > 0 && name.length > 0) {
-      console.log(email.indexOf("@"))
       if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
         toast.error("Email inválido");
       } else {

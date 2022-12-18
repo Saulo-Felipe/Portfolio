@@ -1,20 +1,17 @@
 import { BsArrowRight } from "react-icons/bs";
-import { CiBoxList } from "react-icons/ci";
+import { CgTerminal } from "react-icons/cg";
 
 import "./styles.scss";
 
 
 export function About() {
-
-
-
   return (
     <section id="about">
 
       <div className="section-halt">
         <span className="before"></span>
         <span className="box-shadow"></span>
-        <CiBoxList />
+        <CgTerminal  />
         <span className="after"></span>
       </div>
     

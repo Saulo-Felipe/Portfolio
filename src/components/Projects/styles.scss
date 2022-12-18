@@ -196,7 +196,7 @@
       }
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 991px) {
       width: 100%;
       max-height: 100vh;
       padding: 2rem 1.25rem;
@@ -402,17 +402,19 @@
 
 
 
-  @media (max-width: 1100px) {
+  @media (max-width: 991px) {
     border: solid 1px red;
 
     .container {
       display: block;
+      padding-top: 1rem;
 
       .vertical-division {
         display: none;
       }
     }
     .main-title {
+      margin-top: 2rem;
       font-size: 1.75rem;
     }
 

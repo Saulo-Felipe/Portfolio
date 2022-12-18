@@ -9,8 +9,10 @@
 
 #about {
   display: flex;
-  margin: 5rem 2.5rem 2.5rem 2.5rem;
+  margin: 0rem 2.5rem 2.5rem 2.5rem;
+  padding-top: 5rem;
   position: relative;
+  border: solid 1px red;
 
   .profile-image {
     display: flex;
@@ -205,4 +207,33 @@
     }
   }
 
+  @media (max-width: 991px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    
+    .profile-image {
+    }
+    
+    .about-content {
+      .title {
+        text-align: center;
+      }
+
+      .about {
+
+        ul {
+          text-align: left;
+        }
+      }
+      
+      a {
+        display: flex;
+  
+        .see-projects-btn {
+        }
+      }
+
+    }
+  }
 }
