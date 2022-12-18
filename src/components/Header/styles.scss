@@ -37,6 +37,17 @@
     align-items: center;
     margin-right: 2rem;
 
+    .selected-bottom-line {
+      height: 3px;
+      background: #00538c;
+      width: 4rem;
+      position: absolute;
+      bottom: 0;
+      transition: 300ms;
+      border-top-left-radius: 4rem;
+      border-top-right-radius: 4rem;
+    }
+
     .option {
       height: max-content;
       color: #fff;

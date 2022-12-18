@@ -18,12 +18,6 @@ function App() {
         mouseCursorRef.current.style.top = `calc(${e.y}px - 2.5rem/2)`;
       }
     });
-
-    window.addEventListener("mouseover", (e: any) => {
-      let cursor = e.target.style.cursor;
-
-      console.log(cursor);
-    })
   }, []);
 
   return (

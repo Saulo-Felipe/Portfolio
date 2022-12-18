@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BiMenu, BiCrown, BiHomeAlt } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import { AiOutlineUser } from "react-icons/ai";
@@ -11,6 +11,9 @@ import "./styles.scss";
 export function Header() {
   const [isFixed, setIsFixed] = useState(false);
   const [menuMobileIsOpen, setMenuMobileIsOpen] = useState(false);
+  const optionsRef = useRef<HTMLDivElement>({} as HTMLDivElement);
+  const selectedLineRef = useRef<HTMLSpanElement>({} as HTMLSpanElement);
+  
 
   useEffect(() => {
     function scrollPageDetect() {
@@ -24,6 +27,27 @@ export function Header() {
     window.addEventListener("wheel", scrollPageDetect, true);
     window.addEventListener("touchmove", scrollPageDetect, true); // Mobile devices
     window.addEventListener("scroll", scrollPageDetect, true); // Mobile devices
+
+
+    window.addEventListener("hashchange", (e) => {
+      optionsRef.current.childNodes.forEach((child: any, i) => {
+        if (i <= 4) {
+          const classNames = String(child.getAttribute("class"));
+
+          if (classNames.indexOf("home") === -1) {
+            if (e.newURL.split("#")[1] === classNames.split(" ")[1]) {
+              let { width, x } = child.getBoundingClientRect();
+  
+              selectedLineRef.current.style.opacity = "1";
+              selectedLineRef.current.style.left = `${x}px`;
+              selectedLineRef.current.style.width = `${width}px`;
+            }
+          } else {
+            selectedLineRef.current.style.opacity = "0";
+          }
+        }
+      })
+    });
   }, []);
 
   return (
@@ -35,12 +59,13 @@ export function Header() {
         <img src={"/assets/logo.png"} alt={"logotipo"} />
       </section>
 
-      <section className="options">
-        <div className="option"><a href="#home">Home</a></div>
-        <div className="option"><a href="#about">Sobre</a></div>
-        <div className="option"><a href="#skills">Habilidades</a></div>
-        <div className="option"><a href="#projects">Projetos</a></div>
-        <div className="option"><a href="#footer">Contato</a></div>
+      <section className="options" ref={optionsRef}>
+        <div className="option home"><a href="#home">Home</a></div>
+        <div className="option about"><a href="#about">Sobre</a></div>
+        <div className="option skills"><a href="#skills">Habilidades</a></div>
+        <div className="option projects"><a href="#projects">Projetos</a></div>
+        <div className="option footer"><a href="#footer">Contato</a></div>
+        <span className="selected-bottom-line" ref={selectedLineRef}></span>
 
         <div className="menu-mobile">
           <BiMenu 
