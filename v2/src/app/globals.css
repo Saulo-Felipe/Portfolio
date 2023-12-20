@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+
+
+@layer utilities {
+  .animation-pause {
+    animation-play-state: paused;
+  }
+}
+
+
+
+/* animations */
+
+.pulse-animation-btn::before, .pulse-animation-btn::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 3px solid #183367;
+}
+
+@keyframes pulse-button {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 120%;
+    height: 150%;
+    opacity: 0;
+  }
+}
+
+.pulse-animated {
+  animation: 4s infinite;
+  background-image: radial-gradient(transparent,#183367);
+}
+
+@keyframes PulseAnimated {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 120%;
+    height: 120%;
+    opacity: 0;
+  }
+}
+
+
+
+.skills-animated {
+  animation: 55s infinite linear SkillsAnimated;
+}
+
+@keyframes SkillsAnimated {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+
+.animation-total-pulse {
+  animation: infinite linear TotalPulse 1.5s;
+}
+
+@keyframes TotalPulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
