@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 // import { Header } from "@/components/Header";
-import { UbuntuFont } from "@/Fonts";
+import { PoppinsFont } from "@/Fonts";
 import { twJoin } from "tailwind-merge";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={twJoin(
-        UbuntuFont.className,
+        PoppinsFont.className,
         "bg-black-1 overflow-x-hidden"
       )}>
         {/* <Header /> */}

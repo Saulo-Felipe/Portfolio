@@ -2,14 +2,14 @@ import Image from "next/image";
 import IconDownload from "@/assets/icon-download.svg";
 import IconLinkedin from "@/assets/icon-linkedin.svg";
 import IconGithub from "@/assets/icon-github.svg";
-import { AlfaSlabOneFont, UbuntuFont } from "@/Fonts";
+import { AlfaSlabOneFont } from "@/Fonts";
 
 
 export function Home() {
   return (
     <section className="bg-black-1 h-[100vh] flex items-center justify-center px-32 gap-40">
       <div className="flex flex-col">
-        <div className={"text-[#575757] text-opacity-50 text-2xl mb-2 " + UbuntuFont.className}>
+        <div className={"text-[#575757] text-opacity-50 text-2xl mb-2 "}>
           Olá 👋, eu me chamo
         </div>
         

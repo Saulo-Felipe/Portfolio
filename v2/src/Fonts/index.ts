@@ -1,11 +1,11 @@
-import { Alfa_Slab_One, Ubuntu, Anton } from "next/font/google";
+import { Alfa_Slab_One, Poppins, Anton } from "next/font/google";
 
 export const AlfaSlabOneFont = Alfa_Slab_One({ 
   weight: "400", 
   subsets: ["latin"]
 });
-export const UbuntuFont = Ubuntu({ 
-  weight: ["300", "400", "500", "700"] , 
+export const PoppinsFont = Poppins({ 
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] , 
   subsets: ["latin"] 
 });
 export const AntonFont = Anton({

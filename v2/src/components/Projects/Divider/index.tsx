@@ -1,10 +1,12 @@
 export function Divider() {
   return (
-    <section className="h-24 bg-black-1">
+    <section className="bg-black-1 relative">
       <div 
-        className="w-[110vw] h-full bg-black-1 rotate-3 relative -top-10 -left-[5vw]
-        shadow-[inset_0px_20px_20px_2px_#000]" 
+        className="h-24 w-[110vw] bg-black-1 rotate-3 -top-10 -left-[5vw]
+        shadow-[inset_0px_20px_20px_2px_#000] absolute" 
       />
+
+      <div className="h-20 shadow-[inset_0px_20px_20px_2px_#000] w-full relative top-16" /> 
     </section>
   );
 }
