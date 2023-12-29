@@ -18,13 +18,13 @@ export function Header() {
     return setHeaderIsOn(false);
   });
 
-  console.log("headerIsOn");
-
   return (
     <div
-      className={twMerge(`w-[calc(100%-0.5rem*2)] m-1 h-16 bg-black bg-opacity-15 border border-[rgb(255,255,255,0.1)] rounded-full 
-      flex items-center justify-between px-5 fixed text-white backdrop-blur-2xl z-50 transition-all`, 
-      headerIsOn && "bg-opacity-0 m-0")}
+      className={twMerge(`w-[calc(100%-0.5rem*2)] m-1 h-16 bg-black bg-opacity-15 border 
+        border-[rgb(255,255,255,0.1)] rounded-full flex items-center justify-between px-5 fixed 
+        text-white backdrop-blur-2xl z-50 transition-all`, 
+        headerIsOn && "bg-opacity-0 m-0 rounded-none w-full border-b"
+      )}
     >
       <Image 
         className="h-1/2" 

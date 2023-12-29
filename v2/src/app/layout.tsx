@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import { Header } from "@/components/Header";
 import { PoppinsFont } from "@/Fonts";
 import { twJoin } from "tailwind-merge";
 
@@ -20,7 +19,6 @@ export default function RootLayout({
         PoppinsFont.className,
         "bg-black-1 overflow-x-hidden"
       )}>
-        {/* <Header /> */}
         {children}
       </body>
     </html>

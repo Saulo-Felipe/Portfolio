@@ -106,3 +106,142 @@ body {
     opacity: 1;
   }
 }
+
+
+
+.modal-title-animated::before {
+  animation: TitleCut ease 5s infinite;
+}
+
+@keyframes TitleCut {
+
+  0% { left: 0px; }
+  30% { left: 0px; }
+  32% {left: -10px;}
+  33% { left: -6px; }
+  34% { left: -10px; }
+  35% { left: -4px; }
+  36% { left: -10px; }
+  49% { left: -10px; }
+  50% {
+    left: 0px;
+    text-shadow:
+    0px 0px 5px #00538C,
+    0px 0px 10px #00538C,
+    0px 0px 10px #00538C,
+    0px 0px 20px #00538C;
+  }
+  80% { left: 0px; }
+  82% { left: 10px; }
+  83% { left: 6px; }
+  84% { left: 10px; }
+  85% { left: 4px; }
+  86% { left: 10px; }
+  89% { left: 10px; }
+  90% { left: 0px; }
+}
+
+
+
+
+.projects-ball {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #183367;
+  transition: all 1s;
+}
+
+.projects-ball-1 {
+  animation: Ball1 20s infinite linear 5s;
+}
+
+@keyframes Ball1 {
+  0% {
+    top: 0%;
+    left: 0%;
+  }
+  50% {
+    top: 90%;
+    left: 0%;
+  }
+  100% {
+    top: 0%;
+    left: 0%;
+  }
+}
+
+.projects-ball-2 {
+  animation: Ball2 20s infinite linear 2s;
+}
+
+@keyframes Ball2 {
+  0% {
+    bottom: 0%;
+    right: 0%;
+  }
+  50% {
+    bottom: 90%;
+    right: 0%;
+  }
+  100% {
+    bottom: 0%;
+    right: 0%;
+  }
+}
+
+
+.projects-ball-3 {
+  animation: Ball3 15s infinite linear 4s;
+}
+
+@keyframes Ball3 {
+  0% {
+    top: 0%;
+    left: 0%;
+  }
+  50% {
+    top: 90%;
+    left: 90%;
+  }
+  100% {
+    top: 0%;
+    left: 0%;
+  }
+}
+
+.projects-ball-4 {
+  animation: Ball4 15s infinite linear 1s;
+}
+
+@keyframes Ball4 {
+  0% {
+    bottom: 0%;
+    right: 0%;
+  }
+  50% {
+    bottom: 90%;
+    right: 90%;
+  }
+  100% {
+    bottom: 0%;
+    right: 0%;
+  }
+}
+
+.projects-ball-5 {
+  animation: Ball5 10s infinite linear 3s;
+  left: 0%;
+  top: 50%;
+  transform-origin: right;
+}
+
+@keyframes Ball5 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

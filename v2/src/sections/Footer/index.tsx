@@ -2,19 +2,20 @@ import Image from "next/image";
 
 import Logo from "@/assets/logotipo.svg";
 import Link from "next/link";
-import { Input } from "./Forms/Input";
-import { Textarea } from "./Forms/TextArea";
+import { Input } from "./components/Forms/Input";
+import { Textarea } from "./components/Forms/TextArea";
 
-import IconArrowTop from "@/assets/icon-arrow.svg";
-import IconGithub from "@/assets/icon-github.svg";
-import IconLinkedin from "@/assets/icon-linkedin-2.svg";
-import IconWhatsapp from "@/assets/icon-whatsapp.svg";
-import IconTelegram from "@/assets/icon-telegram.svg";
-import IconTelephone from "@/assets/icon-telephone.svg";
-import IconCopy from "@/assets/icon-copy.svg";
-import IconEmail from "@/assets/icon-email.svg";
+import { MdArrowOutward } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
+
+import { CopyText } from "./components/CopyText";
 
 export function Footer() {
+
+  
 
 
   return (
@@ -53,15 +54,12 @@ export function Footer() {
                 <a
                   key={item.name}
                   href={item.link}
-                  className="hover:text-slate-300 hover:brightness-125 flex items-center gap-2"
+                  className="hover:text-slate-300 hover:brightness-125 flex items-center gap-1"
                   target="_blank"
                 >
                   {item.name}
-                  <Image
-                    className="opacity-[0.65] w-[0.75rem]"
-                    src={IconArrowTop}
-                    alt="Ícone de link"
-                  />
+
+                  <MdArrowOutward />
                 </a>
               )
             }
@@ -90,39 +88,24 @@ export function Footer() {
 
           <div className="flex gap-4 mt-8">
             <div className="w-10 h-10 border group bg-[#30303028] rounded-full flex items-center justify-center shadow-[5px_5px_0px_black]">
-              <Image className="w-[45%]" src={IconGithub} alt="Ícone do Github" />
+              <FaGithub className="text-xl" />
             </div>
 
             <div className="w-10 h-10 border group bg-[#30303028] rounded-full flex items-center justify-center shadow-[5px_5px_0px_black]">
-              <Image className="w-[45%]" src={IconTelegram} alt="Ícone do telegram" />
+              <FaTelegramPlane className="text-xl" />
             </div>
 
             <div className="w-10 h-10 border group bg-[#30303028] rounded-full flex items-center justify-center shadow-[5px_5px_0px_black]">
-              <Image className="w-[45%]" src={IconLinkedin} alt="Ícone do Linkedin" />
+              <FaLinkedin className="text-xl" />
             </div>
 
             <div className="w-10 h-10 border group bg-[#30303028] rounded-full flex items-center justify-center shadow-[5px_5px_0px_black]">
-              <Image className="w-[45%]" src={IconWhatsapp} alt="Ícone do whatsapp" />
+              <FaWhatsapp className="text-xl" />
             </div>
           </div>
-
-          <div className="bg-black-3 bg-opacity-50 p-2 mt-4 max-w-[40vw] rounded-md flex gap-2 items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Image className="w-6" src={IconTelephone} alt="Ícone de telefone" />
-              <span>+55 (83) 991389085</span>
-            </div>
-
-            <Image src={IconCopy} alt="Ícone de copiar" />
-          </div>
-
-          <div className="bg-black-3 bg-opacity-50 p-2 mt-4 max-w-[40vw] rounded-md flex gap-2 items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Image className="w-6" src={IconEmail} alt="Ícone de telefone" />
-              <span>saulofelipe234567@gmail.com</span>
-            </div>
-
-            <Image src={IconCopy} alt="Ícone de copiar" />
-          </div>
+          
+          <CopyText type="email" text="saulofelipe234567@gmail.com" />
+          <CopyText type="phone" text="+55 (83) 991389085" />
 
         </div>
       </div>

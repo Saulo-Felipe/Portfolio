@@ -4,10 +4,9 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { BsGithub } from "react-icons/bs";
 import { v4 as uuid } from "uuid";
 import { motion } from "framer-motion";
-import { AiOutlineHeart } from "react-icons/ai";
 
 import "./styles.scss";
-import { CiBoxes, CiDatabase } from "react-icons/ci";
+import { CiBoxes } from "react-icons/ci";
 
 interface OptionBody {
   title: string;
@@ -220,14 +219,14 @@ export function Projects() {
                   </div>
 
                   <div className="btns-container">
-                    <a target="_blank" href={selectedProject.preview}>
+                    <a target="_blank" href={selectedProject.preview} rel="noreferrer">
                       <button className="view-project">
                         <span><FiArrowUpRight /></span>
                         Visualizar
                       </button>
                     </a>
 
-                    <a target="_blank" href={selectedProject.github}>
+                    <a target="_blank" href={selectedProject.github} rel="noreferrer">
                       <button className="btn-github">
                         <span><BsGithub /></span>
                         Github
@@ -254,7 +253,7 @@ export function Projects() {
       </h1>
 
 
-      <div className="container">
+      <div className="container"> 
         <div style={{position: "relative", marginLeft: "calc(-5vw + 2.5rem)"}}>
           <div className="section-halt" style={{ left: "-7rem" }}>
             <span className="before"></span>
