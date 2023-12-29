@@ -17,7 +17,7 @@ export function Links() {
   ];
 
   return (
-    <div className="text-xl h-full flex relative">
+    <div className="h-full flex relative">
       <div className="flex gap-6">
         {
           links.map((link, i) =>

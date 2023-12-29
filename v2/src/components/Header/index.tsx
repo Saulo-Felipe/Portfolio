@@ -1,22 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { Links } from "./Links";
 
-import Logotipo from "@/assets/logotipo.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 export function Header() {
   const [headerIsOn, setHeaderIsOn] = useState(false);
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY < 100) {
-      return setHeaderIsOn(true);
-    }
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 100) {
+        return setHeaderIsOn(true);
+      }
+  
+      return setHeaderIsOn(false);
+    });
+  }, []);
 
-    return setHeaderIsOn(false);
-  });
 
   return (
     <div
@@ -26,15 +27,13 @@ export function Header() {
         headerIsOn && "bg-opacity-0 m-0 rounded-none w-full border-b"
       )}
     >
-      <Image 
-        className="h-1/2" 
-        src={Logotipo} 
-        alt="logotipo" 
-      />
+      <div className="text-white font-bold text-xl ml-4">
+        {"{ Saulo Felipe }"}
+      </div>
 
       <Links />
       
-      <span className="w-8" />
+      <span className="w-20 h-2" />
     </div>
   );
 }

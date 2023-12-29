@@ -44,11 +44,10 @@ export function LanguagesClient({ type, setAnimation }: LanguagesClientProps) {
 
   const data = type === "primary" 
     ? [...Languages[type], ...Languages[type]]
-    : [...Languages[type], ...Languages[type], ...Languages[type], ...Languages[type], ...Languages[type]];
+    : [...Languages[type], ...Languages[type], ...Languages[type], ...Languages[type]];
 
   return (
-    <div className="flex items-center w-max h-48 skills-animated hover:animation-pause"      
-    >
+    <div className="flex items-center w-max h-48 skills-animated hover:animation-pause">
       {
         data.map((item, i) => 
           <div 
