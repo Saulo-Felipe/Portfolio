@@ -4,6 +4,8 @@ import { Links } from "./Links";
 
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 export function Header() {
   const [headerIsOn, setHeaderIsOn] = useState(false);
@@ -27,8 +29,17 @@ export function Header() {
         headerIsOn && "bg-opacity-0 m-0 rounded-none w-full border-b"
       )}
     >
-      <div className="text-white font-bold text-xl ml-4">
-        {"{ Saulo Felipe }"}
+      <div className="text-white font-bold text-xl ml-4 flex items-center overflow-hidden">
+        <span className="">
+          <IoIosArrowBack className="font-bold text-3xl" />
+        </span>
+
+        <span className={"relative transition-all"}>Saulo Felipe</span>
+
+        <span className="flex ml-2">
+          <span className="-mr-2">/</span>
+          <IoIosArrowForward className="text-3xl" />
+        </span>
       </div>
 
       <Links />

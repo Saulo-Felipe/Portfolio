@@ -13,7 +13,7 @@ export function SkillsDivider() {
     >
       <div className="rotate-3">
         <div 
-          className={`text-white text-opacity-10 text-4xl whitespace-nowrap mt-12 transition-all 
+          className={`text-white text-opacity-5 text-4xl whitespace-nowrap mt-12 transition-all 
           ${AntonFont.className} w-max`}
         >
           {stack.map(item => <span key={item}>{item} • </span>)}

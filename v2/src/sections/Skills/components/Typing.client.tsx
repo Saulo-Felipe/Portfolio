@@ -62,13 +62,5 @@ export function Typing({ words }: TypingProps) {
   }, [typing.isErasing]);
 
 
-  return (
-    <div className="flex items-center text-2xl px-6 bg-black-2 border border-[#333339] w-max py-2 border-">
-      <span className="text-[#87d441]">saulo@ubuntu:</span>
-      <span className="text-[#6d85a9]">~</span>
-      <span className="mr-2">$</span>
-      {typing.words[typing.wordIndex].slice(0, typing.letterIndex)}
-      <span className="w-[8px] h-[1.25rem] ml-2 bg-white transition-all animation-total-pulse" />
-    </div>
-    );
+  return typing.words[typing.wordIndex].slice(0, typing.letterIndex);
 }

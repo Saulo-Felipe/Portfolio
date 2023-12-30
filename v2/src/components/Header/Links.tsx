@@ -24,7 +24,8 @@ export function Links() {
     };
 
     const intersection = new IntersectionObserver(callback, {
-      threshold: 0.2
+      threshold: 0.2,
+      rootMargin: "10px"
     });
 
     intersection.observe(document.querySelector("#page_0") as Element);
