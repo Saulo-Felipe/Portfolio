@@ -7,8 +7,10 @@ import { FiDownload } from "react-icons/fi";
 export function Home() {
 
   return (
-    <section className="bg-black-1 h-[100vh] flex items-center justify-center px-32 gap-40
-      bg-no-repeat bg-contain"
+    <section 
+      id="page_0" 
+      className="bg-black-1 h-[100vh] flex items-center justify-center px-32 gap-40
+        bg-no-repeat bg-contain"
       style={{ 
         backgroundImage: "url('/bg-test.png'),url('/bg-test-2.png')", 
         backgroundPosition: "left, right" 

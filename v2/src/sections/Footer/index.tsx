@@ -15,11 +15,8 @@ import { CopyText } from "./components/CopyText";
 
 export function Footer() {
 
-  
-
-
   return (
-    <section className="text-white mt-72 bg-black-4 m-4 rounded-xl px-8 pt-10">
+    <section id="page_3" className="text-white mt-72 bg-black-4 m-4 rounded-xl px-8 pt-10">
 
       <div className="flex gap-8">
         <div className="flex-[0.4]">

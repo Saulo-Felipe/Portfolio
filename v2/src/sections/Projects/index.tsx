@@ -156,7 +156,7 @@ export function Projects() {
   };
 
   return (
-    <section className="relative pt-20"
+    <section id="page_2" className="relative pt-20"
       style={{ backgroundImage: "url(/bg-rectangles.png)", backgroundRepeat: "repeat-x" }}
     >
       <Modal {...modalInfo} closeModal={handleCloseModal} />

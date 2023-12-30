@@ -8,7 +8,7 @@ export function SkillsDivider() {
   ].map(item => item.name);
 
   return (
-    <section className="h-40 bg-gradient-to-b from-black-1 to-black-4 overflow-hidden 
+    <section id="page_1" className="h-40 bg-gradient-to-b from-black-1 to-black-4 overflow-hidden 
       transition-all"
     >
       <div className="rotate-3">
