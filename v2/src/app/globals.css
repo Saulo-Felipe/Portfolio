@@ -76,18 +76,6 @@ body {
   animation: 55s infinite linear SkillsAnimated;
 }
 
-@keyframes SkillsAnimated {
-  0% {
-    transform: translateX(0%);
-  }
-  50% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
 
 .animation-total-pulse {
   animation: infinite linear TotalPulse 1.5s;

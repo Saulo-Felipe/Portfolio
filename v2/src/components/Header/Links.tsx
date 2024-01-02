@@ -48,9 +48,10 @@ export function Links() {
         )
       }
 
-      <span
+      <div
         ref={borderBottomRef}
-        className="h-[4px] top-[calc(100%-4px/2)] bg-blue-1 absolute transition-all rounded-full"
+        className="h-[4px] top-[calc(100%-4px/2)] bg-gradient-to-r from-blue-500 to-blue-900
+          absolute transition-all rounded-full"
       />
     </div>
   );

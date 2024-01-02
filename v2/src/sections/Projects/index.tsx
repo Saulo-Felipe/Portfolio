@@ -155,6 +155,7 @@ export function Projects() {
     setModalInfo(prev => ({...prev, title: ""})); // if the title is empty, the modal is closed.
   };
 
+
   return (
     <section id="page_2" className="relative pt-20"
       style={{ backgroundImage: "url(/bg-rectangles.png)", backgroundRepeat: "repeat-x" }}
@@ -163,10 +164,9 @@ export function Projects() {
       
       <div className="flex justify-center">
         <div className={twJoin(`w-max flex bg-black border border-black-3 overflow-hidden
-            relative group rounded-3xl select-none transition-all`, 
-            hoverPosition !== -1 &&	"shadow-[0px_0px_20px_#183367]"
-          )}
-        >
+          relative group rounded-3xl select-none transition-all`, 
+          hoverPosition !== -1 &&	"shadow-[0px_0px_20px_#183367]"
+        )}>
           <div className="flex flex-col items-center justify-center backdrop-blur-[8px] 
             z-10 text-white p-2 pt-4 rounded-3xl gap-4 "
           >
@@ -178,9 +178,9 @@ export function Projects() {
           {[1, 2, 3, 4, 5].map(i => 
             <span 
               key={i} 
-              className={twJoin(`projects-ball projects-ball-${i} group-hover:animation-pause`, 
-                i%2 === 0 ? "group-hover:!translate-x-[8rem]" : "group-hover:!translate-y-[8rem]"
-              )} 
+              className={`projects-ball projects-ball-${i} group-hover:animation-pause 
+                group-hover:!translate-y-[8rem]`
+              }
             />
             
           )}

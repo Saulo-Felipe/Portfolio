@@ -1,4 +1,4 @@
-import { Alfa_Slab_One, Poppins, Anton } from "next/font/google";
+import { Alfa_Slab_One, Poppins, Anton, Archivo_Black } from "next/font/google";
 
 export const AlfaSlabOneFont = Alfa_Slab_One({ 
   weight: "400", 
@@ -10,5 +10,10 @@ export const PoppinsFont = Poppins({
 });
 export const AntonFont = Anton({
   weight: "400",
+  subsets: ["latin"]
+});
+
+export const JostFont = Archivo_Black({ 
+  weight: ["400"], 
   subsets: ["latin"]
 });

@@ -1,53 +1,68 @@
 "use client";
 
 import { Languages } from "@/Utils/Languages";
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface LanguagesClientProps {
   type: "primary" | "secondary";
-  setAnimation?: boolean;
 }
 
-export function LanguagesClient({ type, setAnimation }: LanguagesClientProps) {
+export function LanguagesClient({ type }: LanguagesClientProps) {
   const [hoverIndex, setHoverIndex] = useState(-99);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
 
   useEffect(() => {
-    const setCustomKeyframes = () => {
-      const style = `
-        @keyframes SkillsAnimated {
-          0% {
-            transform: translateX(-0%);
-          }
-  
-          50% {
-            transform: translateX(calc(-100% + ${window.innerWidth}px));
-          }
-  
-          100% {
-            transform: translateX(-0%);
-          }
-        }
-      `;
-      const styleElement = document.createElement('style');
-      document.head.appendChild(styleElement);
-  
-      const styleSheet = styleElement.sheet as CSSStyleSheet;
-  
-      styleSheet.insertRule(style, styleSheet.cssRules.length);
-    };
+    let oldMouseX = 0;
+    let isPressed = false;
+    let styleLeftValue = 0;
+    
+    function handleMouseMove(e: unknown) {
+      const event = e as MouseEvent;
 
-    if (setAnimation) {
-      setCustomKeyframes();
+      if (isPressed) {
+        const rightLimit = (containerRef.current as HTMLDivElement).getBoundingClientRect().width - window.innerWidth;
+        const isDragLeft = event.pageX < oldMouseX;
+
+        if ((styleLeftValue <= 0 || isDragLeft) && // Left limit conditions
+          (Math.abs(styleLeftValue) < rightLimit || !isDragLeft)) // Right limit conditions 
+        {
+          styleLeftValue += event.pageX - oldMouseX;
+          (containerRef.current as HTMLDivElement).style.left = styleLeftValue+"px"; 
+        }
+      }
+  
+      oldMouseX = event.pageX;
     }
-  }, [setAnimation]);
+  
+    function handleMouseUp() {
+      (containerRef.current as HTMLDivElement).style.cursor = "grab";
+      isPressed = false;
+    }
+  
+    function handleMouseDown() {
+      (containerRef.current as HTMLDivElement).style.cursor = "grabbing";
+      isPressed = true;
+    }
+
+    containerRef.current?.addEventListener("mousemove", handleMouseMove);
+    containerRef.current?.addEventListener("mousedown", handleMouseDown);
+    containerRef.current?.addEventListener("mouseup", handleMouseUp);
+  }, []);
+
+  
 
   const data = type === "primary" 
     ? [...Languages[type], ...Languages[type]]
     : [...Languages[type], ...Languages[type], ...Languages[type], ...Languages[type]];
 
   return (
-    <div className="flex items-center w-max h-48 skills-animated hover:animation-pause">
+    <div 
+      className="flex items-center w-max h-48 skills-animated hover:animation-pause 
+        relative -left-2 select-none cursor-grab"
+      ref={containerRef}
+    >
       {
         data.map((item, i) => 
           <div 

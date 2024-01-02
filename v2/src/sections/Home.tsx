@@ -7,57 +7,70 @@ import { FiDownload } from "react-icons/fi";
 export function Home() {
 
   return (
-    <section 
-      id="page_0" 
+    <section
+      id="page_0"
       className="bg-black-1 h-[100vh] flex items-center justify-center px-32 gap-40
         bg-no-repeat bg-contain"
-      style={{ 
-        backgroundImage: "url('/bg-test.png'),url('/bg-test-2.png')", 
-        backgroundPosition: "left, right" 
+      style={{
+        backgroundImage: "url('/bg-test.png'),url('/bg-test-2.png')",
+        backgroundPosition: "left, right"
       }}
     >
       <div className="flex flex-col relative">
-        <div className={"text-[#575757] text-opacity-70 text-2xl mb-2 "}>
+        <div className={"text-[#575757] text-opacity-70  mb-2 "}>
           Olá 👋, eu me chamo
         </div>
-        
-        <div className={"text-9xl text-white " + AlfaSlabOneFont.className}>
+
+        <div className={`text-9xl text-white font-bold ${AlfaSlabOneFont.className}`}>
           <div>Saulo</div>
           <div>&nbsp;&nbsp;Felipe</div>
+        </div>
+
+        <div className="bg-black-4 p-3 mt-8 border border-black-3 rounded-md hover:brightness-110">
+          <div className="flex items-center">
+            💻 <span className="text-white text-opacity-50">Cursando Ciência da Computação</span>
+          </div>
+
+          <div className="flex items-center mt-1">
+            🛠️ <span className="text-white text-opacity-50">FullStack Developer</span>
+          </div>
         </div>
 
         <div className="h-[2px] bg-gradient-to-r from-transparent via-black-3 to-transparent mt-5 bg-opacity-50" />
 
         <div className="flex text-white mt-6">
-          <button className="flex items-center justify-center px-5 gap-3 relative group">
-            <span className="z-20">Baixar CV</span>
-            <FiDownload className="text-xl z-20" />
 
-            <span className="absolute w-full h-full bg-blue-1 group-hover:h-0 group-hover:w-0 
-              transition-all z-10 rounded-md" />
-            <span className="absolute transition-all group-hover:w-full group-hover:h-full border-2 
-              border-black-3 w-0 h-0 rounded-md" />
+          <button className="relative inline-flex items-center justify-center p-0.5
+            overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br
+            from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600
+            hover:text-white text-white focus:ring-4 focus:outline-none transition-all duration-500
+            focus:ring-green-800 hover:shadow-blue-800/80 hover:shadow-lg">
+            <span className="relative px-5 py-2.5 h-full transition-all ease-in duration-75
+              bg-gray-900 rounded-md flex items-center justify-center gap-2">
+              <span className="z-20">Baixar CV</span>
+              <FiDownload className="text-xl z-20" />
+            </span>
           </button>
 
           <div className="flex items-center gap-6 ml-6">
             <a className="rounded-full" href="https://github.com/saulo-felipe" target="_blank">
               <div className="w-12 h-12 rounded-lg p-2 flex items-center justify-center
                 transition-all duration-300 relative after:border after:border-black-3
-                after:absolute after:w-full after:h-full after:rounded-md after:backdrop-blur-sm
+                after:absolute after:w-full after:h-full after:rounded-md hover:after:backdrop-blur-sm
                 before:w-full before:h-full before:absolute before:bg-black-2 before:rounded-md
                 hover:before:rotate-[30deg] before:origin-bottom before:transition-all"
               >
-              <FaGithub className="text-white text-3xl z-10" />
+                <FaGithub className="text-white text-3xl z-10" />
               </div>
             </a>
 
             <a className="rounded-full" href="https://www.linkedin.com/in/saulofelipe/" target="_blank">
               <div className="w-12 h-12 rounded-lg p-2 flex items-center justify-center
                 transition-all duration-300 relative after:border after:border-black-3
-                after:absolute after:w-full after:h-full after:rounded-md after:backdrop-blur-sm
+                after:absolute after:w-full after:h-full after:rounded-md hover:after:backdrop-blur-sm
                 before:w-full before:h-full before:absolute before:bg-[#0a66c2] before:rounded-md
-                hover:before:rotate-[30deg] before:origin-bottom before:transition-all">
-
+                hover:before:rotate-[30deg] before:origin-bottom before:transition-all"
+              >
                 <FaLinkedinIn className="text-white text-3xl z-10" />
               </div>
             </a>
@@ -72,11 +85,11 @@ export function Home() {
           {
             [1, 2, 3, 4].map(i => {
               return (
-                <div 
-                  key={i} 
-                  className="rounded-full w-full h-full border-2 border-blue-1 
-                  absolute transition-all pulse-animated" 
-                  style={{ 
+                <div
+                  key={i}
+                  className="rounded-full w-full h-full border-2 border-blue-1
+                  absolute transition-all pulse-animated"
+                  style={{
                     animationName: "PulseAnimated",
                     animationDelay: i+"s"
                   }}

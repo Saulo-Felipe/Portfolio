@@ -12,19 +12,22 @@ interface ModalProps extends ProjectType {
 }
 
 export function Modal({ title, closeModal, about, github, imgUrl, languages, preview }: ModalProps) {
-  // if the title is empty, the modal is closed.
 
   return (
-    <div className={twMerge(`fixed top-0 hidden left-0 w-[100vw] h-[100vh] items-center
-      justify-center z-50`, title && "flex"
-    )}>
+    <div 
+      className={twMerge(`fixed top-0 hidden left-0 w-[100vw] h-[100vh] items-center
+        justify-center z-50`, title && "flex")
+      }
+    >
       <span
         className="absolute top-0 left-0 w-[100vw] h-[100vh] backdrop-blur-md"
         onClick={closeModal}
       />
 
-      <div className="w-[80vw] h-max bg-black-2 rounded-lg border border-black-3 
-        p-12 pt-6 pb-16 relative"
+      <div 
+        className="w-[80vw] h-max bg-black-2 rounded-lg border border-black-3 
+          p-12 pt-6 pb-16 relative"
+        id="modal"
       >
 
         <div className="flex justify-end right-4 top-4 mb-2">
@@ -109,7 +112,8 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
               src={imgUrl}
               alt={about}
               sizes="100vw"
-              className="w-full rounded-md transition-all"
+              className="w-full rounded-md transition-all shadow-lg"
+              style={{ perspective: "1500px" }}
             />
 
           </div>
