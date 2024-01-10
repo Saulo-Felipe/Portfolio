@@ -33,7 +33,7 @@ export function CopyText({ type, text }:CopyTextProps) {
     <div 
       className="bg-[#30303028] bg-opacity-50 p-2 mt-4 max-w-[40vw] rounded-md flex gap-2 
         items-center justify-between cursor-pointer border-black-3 border border-[rgb(255,255,255,0.35)] 
-        hover:border-[rgb(255,255,255,0.5)]"
+        hover:border-[rgb(255,255,255,0.5)] sm:w-[100%] sm:max-w-none"
       onClick={handleCopy}
     >
       <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export function CopyText({ type, text }:CopyTextProps) {
             "phone": <BsTelephoneFill className="text-lg" />
           }[type]
         }
-        <span>{text}</span>
+        {text}
       </div> 
       
       {

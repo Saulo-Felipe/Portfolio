@@ -9,21 +9,20 @@ export function Home() {
   return (
     <section
       id="page_0"
-      className="bg-black-1 h-[100vh] flex items-center justify-center px-32 gap-40
-        bg-no-repeat bg-contain"
-      style={{
-        backgroundImage: "url('/bg-test.png'),url('/bg-test-2.png')",
-        backgroundPosition: "left, right"
-      }}
+      className="bg-black-1 h-[100vh] flex items-center justify-center px-32 gap-40 bg-home-x
+        sm:flex-col-reverse sm:gap-12 sm:pt-28 sm:px-6 sm:h-auto sm:min-[100vh] sm:bg-home-y sm:pb-12"
     >
-      <div className="flex flex-col relative">
-        <div className={"text-[#575757] text-opacity-70  mb-2 "}>
+      <div className="flex flex-col relative sm:w-full">
+        <div className={"text-[#575757] text-opacity-70 mb-2"}>
           Olá 👋, eu me chamo
         </div>
 
-        <div className={`text-9xl text-white font-bold ${AlfaSlabOneFont.className}`}>
+        <div className={`text-9xl text-white font-bold ${AlfaSlabOneFont.className}
+          sm:text-8xl `
+        }>
           <div>Saulo</div>
-          <div>&nbsp;&nbsp;Felipe</div>
+          <div className="sm:hidden">&nbsp;&nbsp;Felipe</div>
+          <div className="hidden sm:block">Felipe</div>
         </div>
 
         <div className="bg-black-4 p-3 mt-8 border border-black-3 rounded-md hover:brightness-110">
@@ -80,8 +79,10 @@ export function Home() {
 
       {/* profile picture */}
       <div className="h-full flex items-center justify-center">
-        <div className="w-80 h-80 rounded-full bg-black-2 relative flex items-center justify-center">
-          <img className="rounded-full z-10" src={"https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp"} />
+        <div className="w-80 h-80 rounded-full bg-black-2 relative flex items-center justify-center
+          sm:w-[65vw] sm:h-[65vw]"
+        >
+          <img className="rounded-full z-10" src={"https://picsd.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp"} />
           {
             [1, 2, 3, 4].map(i => {
               return (

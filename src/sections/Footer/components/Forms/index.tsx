@@ -67,7 +67,7 @@ export function Forms() {
   }, [message.message]);
 
   return (
-    <form onSubmit={sendEmailBridge} className="flex flex-col gap-4 mt-14">
+    <form onSubmit={sendEmailBridge} className="flex flex-col gap-4 mt-8">
       <Input placeholder="nome" name="user_name" />
 
       <Input placeholder="E-mail" name="user_email" />
@@ -77,7 +77,7 @@ export function Forms() {
       <button 
         className={twJoin(`py-2 px-5 border-2 rounded-md flex items-center justify-center
           w-max text-[rgb(255,255,255,0.55)] border-[rgb(255,255,255,0.55)] self-end
-        hover:text-[rgb(255,255,255,0.75)] hover:border-[rgb(255,255,255,0.75)] gap-2`,
+        hover:text-[rgb(255,255,255,0.75)] hover:border-[rgb(255,255,255,0.75)] gap-2 sm:w-full`,
           isLoading && "cursor-not-allowed"
         )}
         disabled={isLoading}

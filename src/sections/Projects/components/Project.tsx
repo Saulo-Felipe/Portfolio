@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ProjectType } from "../index";
 import React, { HtmlHTMLAttributes } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface ProjectProps extends HtmlHTMLAttributes<HTMLDivElement> {
   project: ProjectType;
@@ -15,23 +16,10 @@ export function Project({
 
   return (
     <div
-      className={`flex items-center ${isRight ? "justify-start" : "justify-end"} group/parent`}
+      className={`flex items-center justify-end ${isRight && "flex-row-reverse"} 
+      group/parent sm:flex-row-reverse`}
       {...props}
     >
-      {
-        isRight && ( // right line
-          <span
-            className={`h-[4px] w-40 ${isRight ? "bg-gradient-to-l" : "bg-gradient-to-r"}
-            from-transparent transition-all to-blue-1 relative`}
-          >
-            <span className="absolute left-0 delay-150 h-full w-0 bg-blue-1 transition-all
-              shadow-[0px_0px_20px_#183367] group-hover/parent:w-full group-hover/parent:border 
-              border-blue-700"
-            />
-          </span>
-        )
-      }
-
       <div className="relative flex items-center justify-center flex-col rounded-md">
 
         {/* bg gradient animation */}
@@ -70,24 +58,21 @@ export function Project({
             alt={project.about}
             width={0} height={0}
             sizes="100vw"
-            className="h-56 w-auto rounded-md cursor-pointer transition-all"
+            className="h-56 w-auto rounded-md cursor-pointer transition-all 
+              sm:h-auto sm:w-full"
           />
         </div>
       </div>
-
-      {
-        !isRight && ( // left line
-          <span
-            className="h-[4px] w-40 bg-gradient-to-r from-transparent transition-all
-            to-blue-1 relative"
-          >
-            <span className="absolute delay-150 right-0 h-full w-0 bg-blue-1
-            transition-all shadow-[0px_0px_20px_#183367] group-hover/parent:w-full group-hover/parent:border 
-            border-blue-700"
-            />
-          </span>
-        )
-      }
+      
+      {/* line */}
+      <span className={twMerge(`h-[4px] w-40 bg-gradient-to-l from-transparent transition-all
+        to-blue-1 relative sm:w-10 sm:bg-blue-1`, !isRight && "bg-gradient-to-r"
+      )}>
+        <span className="absolute delay-150 right-0 h-full w-0 bg-blue-1
+        transition-all shadow-[0px_0px_20px_#183367] group-hover/parent:w-full group-hover/parent:border 
+        border-blue-700"
+        />
+      </span>
     </div>
   );
 }

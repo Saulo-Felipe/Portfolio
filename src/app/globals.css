@@ -25,8 +25,18 @@ body {
   .animation-pause {
     animation-play-state: paused;
   }
-}
+  .bg-home-x {
+    background: 
+      url('/home-bg-left.png') left no-repeat, 
+      url('/home-bg-right.png') right no-repeat;
 
+    background-size: contain;
+  }
+  .bg-home-y {
+    background: url('/bg-mobile.png') no-repeat !important;
+    background-size: auto 100% !important;
+  }
+}
 
 
 /* animations */

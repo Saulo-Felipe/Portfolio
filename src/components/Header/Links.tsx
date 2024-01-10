@@ -24,8 +24,9 @@ export function Links() {
     };
 
     const intersection = new IntersectionObserver(callback, {
+      root: null,
       threshold: 0.2,
-      rootMargin: "10px"
+      rootMargin: "0px"
     });
 
     intersection.observe(document.querySelector("#page_0") as Element);
@@ -35,7 +36,7 @@ export function Links() {
   }, []);
 
   return (
-    <div className="h-full flex gap-4 relative">
+    <div className="h-full flex gap-4">
       {
         links.map((link, i) =>
           <a

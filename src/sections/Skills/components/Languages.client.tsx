@@ -12,28 +12,29 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
   const [hoverIndex, setHoverIndex] = useState(-99);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-
   useEffect(() => {
     let oldMouseX = 0;
     let isPressed = false;
     let styleLeftValue = 0;
-    
+
+    const rightLimit = (containerRef.current as HTMLDivElement).getBoundingClientRect().width - window?.innerWidth;
+    const leftLimit = 0;
+
     function handleMouseMove(e: unknown) {
-      const event = e as MouseEvent;
+      const mouseEvent = e as MouseEvent;
 
       if (isPressed) {
-        const rightLimit = (containerRef.current as HTMLDivElement).getBoundingClientRect().width - window.innerWidth;
-        const isDragLeft = event.pageX < oldMouseX;
+        const isDragLeft = mouseEvent.pageX < oldMouseX;
 
-        if ((styleLeftValue <= 0 || isDragLeft) && // Left limit conditions
+        if ((styleLeftValue <= leftLimit || isDragLeft) && // Left limit conditions
           (Math.abs(styleLeftValue) < rightLimit || !isDragLeft)) // Right limit conditions 
         {
-          styleLeftValue += event.pageX - oldMouseX;
+          styleLeftValue += mouseEvent.pageX - oldMouseX;
           (containerRef.current as HTMLDivElement).style.left = styleLeftValue+"px"; 
         }
       }
   
-      oldMouseX = event.pageX;
+      oldMouseX = mouseEvent.pageX;
     }
   
     function handleMouseUp() {
@@ -46,9 +47,51 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
       isPressed = true;
     }
 
+    function handleMouseEnter() {
+      console.log("[mouse enter]");
+      isHover = true;
+    }
+    
+    function handleMouseExit() {
+      console.log("[mouse exit]");
+      isHover = false;
+      animate(); // start the animation again
+    }
+    
+    // define events
     containerRef.current?.addEventListener("mousemove", handleMouseMove);
     containerRef.current?.addEventListener("mousedown", handleMouseDown);
     containerRef.current?.addEventListener("mouseup", handleMouseUp);
+    containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
+    containerRef.current?.addEventListener("mouseleave", handleMouseExit);
+
+
+    // automatic animation
+    let direction: "left" | "right" = "right";    
+    let isHover = false;
+
+    const animate = () => {
+      const element = containerRef.current as HTMLDivElement;
+
+      if (styleLeftValue > leftLimit) { // limit for left
+        console.log("[left]");
+        direction = "left";
+      }
+      else if ((styleLeftValue*-1) > rightLimit) { // limit for right
+        console.log("[right]");
+        direction = "right";
+      }
+
+      styleLeftValue += direction === "right" ? 1 : -1;
+      element.style.left = styleLeftValue+"px";
+
+      // this condition prevent unnecessary requestAnimationFrame
+      if (isHover) return; // stop animation
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
   }, []);
 
   
@@ -74,20 +117,21 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
             <div 
               className={twMerge(`w-32 h-32 bg-black bg-opacity-[0.29] p-2 flex items-center 
                 justify-center rounded-md transition-all relative overflow-hidden 
-                shadow-[0.5rem_0.5rem_0px_rgb(0,0,0,0.25)] border border-black`,
+                shadow-[0.5rem_0.5rem_0px_rgb(0,0,0,0.25)] border border-black 
+                sm:w-24 sm:h-24`,
                 String(hoverIndex === i-1 || hoverIndex === i+1 
-                  ? "w-36 h-36" 
-                  : hoverIndex === i && "w-40 h-40" 
+                  ? "w-36 h-36 sm:h-28 sm:w-28" 
+                  : hoverIndex === i && "w-40 h-40 sm:w-32 sm:h-32" 
                 )
               )}
             >
               <span
                 className="w-full h-full backdrop-blur-md bg-black bg-opacity-10
                 absolute opacity-0 group-hover:opacity-100 transition-all
-                flex items-center justify-center text-white font-bold"
+                flex items-center justify-center text-white font-bold sm:text-sm"
               >{item.name}</span>
               
-              <span className={"text-7xl"}>
+              <span className={"text-7xl sm:text-6xl"}>
                 {item.Element}
               </span>
             </div>

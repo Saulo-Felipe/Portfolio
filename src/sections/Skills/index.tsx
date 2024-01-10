@@ -6,7 +6,11 @@ import { FaCode } from "react-icons/fa";
 export function Skills() {
 
   return (
-    <section className="bg-black-4 h-[110vh] text-slate-200 pt-12">
+    <section 
+      id="page_1" 
+      className="bg-black-4 h-[110vh] text-slate-200 pt-8 sm:pt-1 sm:h-max sm:min-h-[90vh]"
+    >
+
       <Typing 
         words={["Principais Tecnologias"]} 
         Icon={<FaCrown className="text-yellow-500" />}
@@ -17,7 +21,7 @@ export function Skills() {
       </div>
 
       <Typing 
-        words={["Possuo conhecimento com as stacks: "]} 
+        words={["Possuo conhecimento: "]} 
         Icon={<FaCode />}
       />
 

@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import Logo from "@/assets/logotipo.svg";
 import Link from "next/link";
 
 import { MdArrowOutward } from "react-icons/md";
@@ -16,62 +15,73 @@ import { Forms } from "./components/Forms";
 export function Footer() {
 
   return (
-    <section id="page_3" className="text-white mt-72 bg-black-4 m-4 rounded-xl px-8 pt-10">
+    <footer id="page_3" className="text-white mt-72 bg-black-4 m-4 rounded-xl px-8 pt-10
+      sm:m-2 sm:mt-60 sm:p-5">
 
-      <div className="flex gap-8">
+      <div className="flex gap-8 sm:block">
         <div className="flex-[0.4]">
-          <Image src={Logo} alt="logotipo" />
+          <Image 
+            src={"/logotipo.png"} 
+            alt="logotipo" 
+            width={0} 
+            height={0} 
+            sizes="100vw" 
+            className="h-16 w-auto"
+          />
 
           <Forms />
         </div>
 
-        <div className="w-max flex-[0.15]">
-          <div className="flex gap-2">
-            <span className="w-[4px] bg-blue-1 rounded-xl" />
-            <span className="font-bold text-lg">Links Úteis</span>
+        
+        <div className="w-max flex justify-evenly flex-[0.3] sm:mt-12 sm:justify-between">
+          <div>
+            <div className="flex gap-2">
+              <span className="w-[4px] bg-blue-1 rounded-xl" />
+              <span className="font-bold text-lg">Links Úteis</span>
+            </div>
+
+            <div className="ml-3 flex flex-col text-white text-opacity-50 gap-4 mt-4">
+              {
+                [{name: "E-commerce", link: "/"},
+                  {name: "To-do list", link: "/"},
+                  {name: "Calculadora", link: "/"},
+                  {name: "Multiplayer Game", link: "/"},
+                  {name: "The Best Hero", link: "/"},
+                  {name: "Jogo da Velha", link: "/"},
+                  {name: "Rede Social", link: "/"},
+                  {name: "Sistema de Gestão", link: "/"}
+                ].map(item =>
+                  <a
+                    key={item.name}
+                    href={item.link}
+                    className="hover:text-slate-300 hover:brightness-125 flex items-center gap-1"
+                    target="_blank"
+                  >
+                    {item.name}
+
+                    <MdArrowOutward />
+                  </a>
+                )
+              }
+            </div>
           </div>
 
-          <div className="ml-3 flex flex-col text-white text-opacity-50 gap-4 mt-4">
-            {
-              [{name: "E-commerce", link: "/"},
-                {name: "To-do list", link: "/"},
-                {name: "Calculadora", link: "/"},
-                {name: "Multiplayer Game", link: "/"},
-                {name: "The Best Hero", link: "/"},
-                {name: "Jogo da Velha", link: "/"},
-                {name: "Rede Social", link: "/"},
-                {name: "Sistema de Gestão", link: "/"}
-              ].map(item =>
-                <a
-                  key={item.name}
-                  href={item.link}
-                  className="hover:text-slate-300 hover:brightness-125 flex items-center gap-1"
-                  target="_blank"
-                >
-                  {item.name}
+          <div>
+            <div className="flex gap-2">
+              <span className="w-[4px] bg-blue-1 rounded-xl" />
+              <span className="font-bold text-lg">Navegação</span>
+            </div>
 
-                  <MdArrowOutward />
-                </a>
-              )
-            }
+            <div className="ml-3 flex flex-col text-white text-opacity-50 gap-4 mt-4">
+              <Link className="hover:text-slate-300" href="/">Ínicio</Link>
+              <Link className="hover:text-slate-300" href="/">Habilidades</Link>
+              <Link className="hover:text-slate-300" href="/">Projetos</Link>
+              <Link className="hover:text-slate-300" href="/">Contato</Link>
+            </div>
           </div>
         </div>
 
-        <div className="w-max flex-[0.15]">
-          <div className="flex gap-2">
-            <span className="w-[4px] bg-blue-1 rounded-xl" />
-            <span className="font-bold text-lg">Navegação</span>
-          </div>
-
-          <div className="ml-3 flex flex-col text-white text-opacity-50 gap-4 mt-4">
-            <Link className="hover:text-slate-300" href="/">Ínicio</Link>
-            <Link className="hover:text-slate-300" href="/">Habilidades</Link>
-            <Link className="hover:text-slate-300" href="/">Projetos</Link>
-            <Link className="hover:text-slate-300" href="/">Contato</Link>
-          </div>
-        </div>
-
-        <div className="flex-[0.3]">
+        <div className="flex-[0.3] sm:mt-12">
           <div className="flex gap-2">
             <span className="w-[4px] bg-blue-1 rounded-xl" />
             <span className="font-bold text-lg">Contato</span>
@@ -108,6 +118,6 @@ export function Footer() {
       <div className="text-center text-sm py-4 border-t border-black-3 mt-10 opacity-30">
         © Copyright 2023 - Saulo Felipe
       </div>
-    </section>
+    </footer>
   );
 }

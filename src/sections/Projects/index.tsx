@@ -7,7 +7,7 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { twJoin } from "tailwind-merge";
 
 
-type Stack = "Javascript" | "Typescript" | "CSS3" | "HTML5" | "React" | "NextJS" | "NestJS" | "NodeJS" | 
+type Stack = "Javascript" | "Typescript" | "CSS3" | "HTML5" | "React" | "NextJS" | "NestJS" | "NodeJS" |
   "Tailwind" | "Python" | "Socket.io" | "Bootstrap" | "PrismaJS" | "MySQL" | "PostgreSQL";
 
 export interface ProjectType {
@@ -38,25 +38,14 @@ export function Projects() {
       ]
     },
     {
-      title: "To-do List",
-      about: "Salve e organize sua tarefas localmente ou na nuvem. Acesse suas tasks atualizadas em tempo real por qualquer dispositivo. Possui sistema de autenticação, categorias e sub-tarefas.",
-      github: "https://github.com/Saulo-Felipe/to-do-list",
-      preview: "https://todolist-saulo.herokuapp.com/categories",
-      imgUrl: "/to-do-list.png",
-      languages: ["HTML5", "CSS3", "Typescript", "PostgreSQL", "NodeJS", "React"],
+      title: "TechNews",
+      imgUrl: "/technews.png",
+      about: "Esse site de notícias recupera e exibe notícias da CNN",
+      languages: ["HTML5", "CSS3", "Typescript", "NodeJS", "NextJS", "PostgreSQL", "Tailwind", "Socket.io", ],
+      preview: "https://technews-saulofelipe.vercel.app",
+      github: "https://github.com/Saulo-Felipe/technews",
       tags: [
         { content: "Full Stack", color: "#007a4d" }
-      ]
-    },
-    {
-      title: "Landing Page",
-      imgUrl: "/futebol.png",
-      about: "Uma simples Landing Page/template com o tema focado em banca de apostas para times de Futebol." ,
-      languages: ["Bootstrap", "HTML5", "CSS3", "Javascript"],
-      preview: "https://saulo-felipe.github.io/Futebol-One-Page/",
-      github: "https://github.com/Saulo-Felipe/Futebol-One-Page",
-      tags: [
-        { content: "Frontend", color: "#0265dc" }
       ]
     },
     {
@@ -65,7 +54,7 @@ export function Projects() {
       about: "O sistema de gestão consiste em auxiliar as lojas/empresas na organização de compras, vendas e clientes. É possível realizar cadastros para clientes e produtos e, posteriormente, realizar vendas relacionando ambos. (senha: 123)" ,
       languages: ["Bootstrap", "HTML5", "CSS3", "Javascript", "NodeJS", "React", "PostgreSQL"],
       github: "https://github.com/Saulo-Felipe/Sistema-de-Gestao",
-      preview: "https://sistema-gestao-frontend.herokuapp.com/login",
+      preview: "https://sistema-gestao-saulo.vercel.app/login",
       tags: [
         { content: "Full Stack", color: "#007a4d" }
       ]
@@ -82,25 +71,27 @@ export function Projects() {
       ]
     },
     {
-      title: "Calculadora",
-      imgUrl: "/calculadora.png",
-      about: "Essa é um simples calculadora comúm que realiza as 4 (quatro) operações fundamentais da matemática, a adição, subtração, multiplicação e divisão. É possível escolher entre o tema Dark ou Light.",
-      languages: ["React", "HTML5", "CSS3", "Javascript"],
-      preview: "https://calculadora-react-saulo.herokuapp.com/",
-      github: "https://github.com/Saulo-Felipe/Calculadora-Com-React",
-      tags: [
-        { content: "Frontend", color: "#0265dc" }
-      ]
-    },
-    {
       title: "Jogo da Velha",
       imgUrl: "/tictactoe.png",
       about: "O clássico jogo da velha desenvolvido com Javascript. É possível jogar contra um amigo (em um único dispositivo) ou jogar contra a maquina. A maquina realizará jogadas inteligentes, e não deixará você vencer facilmente.",
       languages: ["React", "HTML5", "CSS3", "Javascript"],
-      preview: "https://jogo-da-velha-saulo.herokuapp.com/",
+      preview: "https://tictactoe-saulofelipe.vercel.app",
       github: "https://github.com/Saulo-Felipe/TicTacToe",
       tags: [
         { content: "Frontend", color: "#0265dc" }
+      ]
+    },
+  
+    // ------------
+    {
+      title: "To-do List",
+      about: "Salve e organize sua tarefas localmente ou na nuvem. Acesse suas tasks atualizadas em tempo real por qualquer dispositivo. Possui sistema de autenticação, categorias e sub-tarefas.",
+      github: "https://github.com/Saulo-Felipe/to-do-list",
+      preview: "https://todolist-saulofelipe.vercel.app",
+      imgUrl: "/to-do-list.png",
+      languages: ["HTML5", "CSS3", "Typescript", "PostgreSQL", "NodeJS", "React"],
+      tags: [
+        { content: "Full Stack", color: "#007a4d" }
       ]
     },
     {
@@ -108,7 +99,7 @@ export function Projects() {
       imgUrl: "/multiplayer-game.png",
       about: "Um jogo de batalha 2D entre tanques de guerra. O Game possui um sistema multiplayer, onde é possível batalhar em tempo real contra qualquer usuário. Atráves do ranking baseado em mortes, é possível deixar o game mais competitivo.",
       languages: ["NodeJS", "HTML5", "CSS3", "Javascript"],
-      preview: "https://multiplayer-game-saulo.herokuapp.com/",
+      preview: "https://tanksfight-server.saulofelipe.tech",
       github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
       tags: [
         { content: "Full Stack", color: "#007a4d" }
@@ -119,10 +110,32 @@ export function Projects() {
       imgUrl: "/ecommerce.png",
       about: "Loja virtual com layout totalmente responsivo. O ecommerce possui a maioria das funcionalidades, como: criar, editar e remover produtos, sistema de autenticação, comentários e avaliações, pesquisar produtos, acesso privado para admins e etc.",
       languages: ["Bootstrap", "HTML5", "CSS3", "Javascript", "NodeJS", "React", "PostgreSQL"],
-      preview: "https://e-commerce-frontend-saulo.herokuapp.com/",
+      preview: "https://e-commerce-frontend-olive.vercel.app/",
       github: "https://github.com/Saulo-Felipe/eCommerce-ReactJS-NodeJS",
       tags: [
         { content: "Full Stack", color: "#007a4d" }
+      ]
+    },
+    {
+      title: "Landing Page",
+      imgUrl: "/futebol.png",
+      about: "Uma simples Landing Page/template com o tema focado em banca de apostas para times de Futebol." ,
+      languages: ["Bootstrap", "HTML5", "CSS3", "Javascript"],
+      preview: "https://saulo-felipe.github.io/Futebol-One-Page/",
+      github: "https://github.com/Saulo-Felipe/Futebol-One-Page",
+      tags: [
+        { content: "Frontend", color: "#0265dc" }
+      ]
+    },
+    {
+      title: "Calculadora",
+      imgUrl: "/calculadora.png",
+      about: "Essa é um simples calculadora comúm que realiza as 4 (quatro) operações fundamentais da matemática, a adição, subtração, multiplicação e divisão. É possível escolher entre o tema Dark ou Light.",
+      languages: ["React", "HTML5", "CSS3", "Javascript"],
+      preview: "https://calculadora-saulofelipe.vercel.app",
+      github: "https://github.com/Saulo-Felipe/Calculadora-Com-React",
+      tags: [
+        { content: "Frontend", color: "#0265dc" }
       ]
     },
   ];
@@ -155,19 +168,23 @@ export function Projects() {
     setModalInfo(prev => ({...prev, title: ""})); // if the title is empty, the modal is closed.
   };
 
+  const isMobile = 
+    typeof window !== "undefined" 
+      ? window.matchMedia("(min-width: 0px) and (max-width: 767px)").matches
+      : false;
 
   return (
-    <section id="page_2" className="relative pt-20"
+    <section id="page_2" className="relative pt-20 "
       style={{ backgroundImage: "url(/bg-rectangles.png)", backgroundRepeat: "repeat-x" }}
     >
       <Modal {...modalInfo} closeModal={handleCloseModal} />
-      
-      <div className="flex justify-center">
+
+      <div className="flex justify-center sm:justify-start sm:pl-4">
         <div className={twJoin(`w-max flex bg-black border border-black-3 overflow-hidden
-          relative group rounded-3xl select-none transition-all`, 
+          relative group rounded-3xl select-none transition-all`,
           hoverPosition !== -1 &&	"shadow-[0px_0px_20px_#183367]"
         )}>
-          <div className="flex flex-col items-center justify-center backdrop-blur-[8px] 
+          <div className="flex flex-col items-center justify-center backdrop-blur-[8px]
             z-10 text-white p-2 pt-4 rounded-3xl gap-4 "
           >
             <span style={{ writingMode: "vertical-lr" }}>Projetos</span>
@@ -175,64 +192,89 @@ export function Projects() {
             <MdKeyboardDoubleArrowDown className="text-opacity-60 text-xl group-hover:animate-bounce" />
           </div>
 
-          {[1, 2, 3, 4, 5].map(i => 
-            <span 
-              key={i} 
-              className={`projects-ball projects-ball-${i} group-hover:animation-pause 
+          {[1, 2, 3, 4, 5].map(i =>
+            <span
+              key={i}
+              className={`projects-ball projects-ball-${i} group-hover:animation-pause
                 group-hover:!translate-y-[8rem]`
               }
             />
-            
+
           )}
 
           <span className={twJoin(`left-1/2 top-1/2 w-4 h-4 absolute rounded-full
-            transition-all duration-1000`, hoverPosition !== -1 && "scale-[9] bg-blue-1")} 
+            transition-all duration-1000`, hoverPosition !== -1 && "scale-[9] bg-blue-1")}
           />
         </div>
 
       </div>
 
-      <div className="flex justify-center relative">
-        {/* Left Projects */}
-        <div className="flex flex-col gap-28 mt-32">
-          {projects.slice(0, Math.ceil(projects.length/2)).map((project, i) =>
-            <Project
-              key={i}
-              onMouseEnter={({currentTarget}) => handleProjectMouseEnter(currentTarget)}
-              onMouseLeave={handleProjectMouseExit}
-              onClick={() => handleOpenModal(i)}
-              project={project}
-            />
-          )}
-        </div>
-
-        {/* vertical line */}
-        <div
-          className={"bg-gradient-to-t from-transparent via-blue-1 to-transparent w-[4px] relative z-10"}
+      <div className="sm:flex">
+        {/* vertical mobile line */}
+        <div className="bg-gradient-to-b from-blue-1 from-90% to-transparent w-[4px] 
+          relative z-10 ml-9 hidden sm:block"
         >
           <span
-            className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367] 
+            className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367]
             transition-all`, hoverPosition !== -1 && "border")}
             style={{
               height: `calc(${hoverPosition+"px"} + ${
-                hoverPosition !== -1 ? "8rem" : "0rem"
+                hoverPosition !== -1 
+                  ? isMobile 
+                    ? "6rem" 
+                    : "8rem" 
+                  : "0rem"
               })`
             }}
           />
         </div>
-           
-        {/* Right Projects */}
-        <div className="flex flex-col gap-28 mt-64">
-          {projects.slice(Math.ceil(projects.length/2), projects.length).map((project, i) =>
-            <Project
-              key={i}
-              onMouseEnter={({currentTarget}) => handleProjectMouseEnter(currentTarget)}
-              onMouseLeave={handleProjectMouseExit}
-              onClick={() => handleOpenModal(Math.ceil(projects.length/2+i))}
-              project={project}
-              isRight
+
+        <div className="flex justify-center relative sm:flex-col sm:pr-2">
+          {/* Left Projects */}
+          <div className="flex flex-col gap-28 mt-32">
+            {projects.slice(0, Math.ceil(projects.length/2)).map((project, i) =>
+              <Project
+                key={i}
+                onMouseEnter={({currentTarget}) => handleProjectMouseEnter(currentTarget)}
+                onMouseLeave={handleProjectMouseExit}
+                onClick={() => handleOpenModal(i)}
+                project={project}
+              />
+            )}
+          </div>
+
+          {/* vertical line */}
+          <div className="bg-gradient-to-t from-transparent via-blue-1 to-transparent 
+            w-[4px] relative z-10 sm:hidden"
+          >
+            <span
+              className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367]
+              transition-all`, hoverPosition !== -1 && "border")}
+              style={{
+                height: `calc(${hoverPosition+"px"} + ${
+                  hoverPosition !== -1 
+                  ? isMobile 
+                    ? "6rem" 
+                    : "8rem" 
+                  : "0rem"
+                })`
+              }}
             />
-          )}
+          </div>
+
+          {/* Right Projects */}
+          <div className="flex flex-col gap-28 mt-64 sm:mt-28">
+            {projects.slice(Math.ceil(projects.length/2), projects.length).map((project, i) =>
+              <Project
+                key={i}
+                onMouseEnter={({currentTarget}) => handleProjectMouseEnter(currentTarget)}
+                onMouseLeave={handleProjectMouseExit}
+                onClick={() => handleOpenModal(Math.ceil(projects.length/2+i))}
+                project={project}
+                isRight
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>
