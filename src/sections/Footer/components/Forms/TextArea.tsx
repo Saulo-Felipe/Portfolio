@@ -14,7 +14,7 @@ export function Textarea({ placeholder, name }: TextareaProps) {
     const element = event.target;
 
     element.setAttribute(
-      "data-placeholder", 
+      "data-placeholder",
       String(element.value.length > 0)
     );
   };
@@ -40,7 +40,7 @@ export function Textarea({ placeholder, name }: TextareaProps) {
       <span
         ref={placeholderRef}
         className="absolute ml-4 transition-all top-[calc(1rem)] peer-data-[placeholder=true]:font-semibold
-        peer-data-[placeholder=true]:top-[5px] peer-data-[placeholder=true]:text-sm 
+        peer-data-[placeholder=true]:top-[5px] peer-data-[placeholder=true]:text-sm
         peer-data-[placeholder=true]:text-blue-900 text-[rgb(255,255,255,0.4)] bg-[#181819]"
       >
         {placeholder}

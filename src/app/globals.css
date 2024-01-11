@@ -26,8 +26,8 @@ body {
     animation-play-state: paused;
   }
   .bg-home-x {
-    background: 
-      url('/home-bg-left.png') left no-repeat, 
+    background:
+      url('/home-bg-left.png') left no-repeat,
       url('/home-bg-right.png') right no-repeat;
 
     background-size: contain;

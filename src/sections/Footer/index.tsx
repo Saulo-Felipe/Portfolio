@@ -20,19 +20,19 @@ export function Footer() {
 
       <div className="flex gap-8 sm:block">
         <div className="flex-[0.4]">
-          <Image 
-            src={"/logotipo.png"} 
-            alt="logotipo" 
-            width={0} 
-            height={0} 
-            sizes="100vw" 
+          <Image
+            src={"/logotipo.png"}
+            alt="Logotipo do rodapé do meu portfolio"
+            width={0}
+            height={0}
+            sizes="100vw"
             className="h-16 w-auto"
           />
 
           <Forms />
         </div>
 
-        
+
         <div className="w-max flex justify-evenly flex-[0.3] sm:mt-12 sm:justify-between">
           <div>
             <div className="flex gap-2">
@@ -94,13 +94,13 @@ export function Footer() {
                 ["https://t.me/5583991389085", <FaTelegramPlane key={1} className="text-xl" />],
                 ["https://www.linkedin.com/in/saulofelipe", <FaLinkedin key={2} className="text-xl" />],
                 ["https://api.whatsapp.com/send?phone=5583991389085&text=Ol%C3%A1", <FaWhatsapp key={3} className="text-xl" />]
-              ].map(item => 
-                <a 
+              ].map(item =>
+                <a
                   target="_blank"
                   key={item[0] as string}
-                  href={item[0] as string} 
-                  className="w-10 h-10 border border-[rgb(255,255,255,0.35)] hover:border-[rgb(255,255,255,0.5)] 
-                    group bg-[#30303028] rounded-full flex items-center justify-center 
+                  href={item[0] as string}
+                  className="w-10 h-10 border border-[rgb(255,255,255,0.35)] hover:border-[rgb(255,255,255,0.5)]
+                    group bg-[#30303028] rounded-full flex items-center justify-center
                     shadow-[5px_5px_0px_black] hover:brightness-125"
                 >
                   {item[1] as ReactNode}
@@ -108,7 +108,7 @@ export function Footer() {
                 )
             }
           </div>
-          
+
           <CopyText type="email" text="saulofelipe234567@gmail.com" />
           <CopyText type="phone" text="+55 (83) 991389085" />
 

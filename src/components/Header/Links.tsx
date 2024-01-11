@@ -18,7 +18,7 @@ export function Links() {
     const callback = ([entry]: IntersectionObserverEntry[]) => {
       const id = entry.target.id.split("_")[1];
 
-      if (entry.isIntersecting) {  
+      if (entry.isIntersecting) {
         handleNavigate(Number(id));
       }
     };
@@ -36,7 +36,7 @@ export function Links() {
   }, []);
 
   return (
-    <div className="h-full flex gap-4">
+    <nav className="h-full flex gap-4">
       {
         links.map((link, i) =>
           <a
@@ -54,6 +54,6 @@ export function Links() {
         className="h-[4px] top-[calc(100%-4px/2)] bg-gradient-to-r from-blue-500 to-blue-900
           absolute transition-all rounded-full"
       />
-    </div>
+    </nav>
   );
 }

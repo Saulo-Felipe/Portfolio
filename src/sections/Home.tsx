@@ -20,9 +20,9 @@ export function Home() {
         <div className={`text-9xl text-white font-bold ${AlfaSlabOneFont.className}
           sm:text-8xl `
         }>
-          <div>Saulo</div>
-          <div className="sm:hidden">&nbsp;&nbsp;Felipe</div>
-          <div className="hidden sm:block">Felipe</div>
+          <h1>Saulo</h1>
+          <h1 className="sm:hidden">&nbsp;&nbsp;Felipe</h1>
+          <h1 className="hidden sm:block">Felipe</h1>
         </div>
 
         <div className="bg-black-4 p-3 mt-8 border border-black-3 rounded-md hover:brightness-110">

@@ -30,30 +30,30 @@ export function CopyText({ type, text }:CopyTextProps) {
   }, [copied]);
 
   return (
-    <div 
-      className="bg-[#30303028] bg-opacity-50 p-2 mt-4 max-w-[40vw] rounded-md flex gap-2 
-        items-center justify-between cursor-pointer border-black-3 border border-[rgb(255,255,255,0.35)] 
+    <div
+      className="bg-[#30303028] bg-opacity-50 p-2 mt-4 max-w-[40vw] rounded-md flex gap-2
+        items-center justify-between cursor-pointer border-black-3 border border-[rgb(255,255,255,0.35)]
         hover:border-[rgb(255,255,255,0.5)] sm:w-[100%] sm:max-w-none"
       onClick={handleCopy}
     >
       <div className="flex items-center gap-2">
         {
           {
-            "email": <MdOutlineEmail className="text-2xl" />, 
+            "email": <MdOutlineEmail className="text-2xl" />,
             "phone": <BsTelephoneFill className="text-lg" />
           }[type]
         }
         {text}
-      </div> 
-      
+      </div>
+
       {
         copied ? (
-          <span className="text-[0.7rem] bg-black-3 px-1 h-full rounded-md">Copiado</span> 
+          <span className="text-[0.7rem] bg-black-3 px-1 h-full rounded-md">Copiado</span>
         ) : (
           <FaRegCopy className="hover:scale-110 transition-all" />
         )
       }
-      
+
     </div>
   );
 }

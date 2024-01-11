@@ -16,7 +16,7 @@ export function MobileMenu({ handleChangeMenuState, className }: MobileMenuProps
 
 
   return (
-    <nav className={twMerge(`fixed w-[100vw] h-[100vh] top-0 left-0 bg-[rgb(0,0,0,0.5)]
+    <aside className={twMerge(`fixed w-[100vw] h-[100vh] top-0 left-0 bg-[rgb(0,0,0,0.5)]
       z-[101] backdrop-blur-md transition-[left]`, className)}
     >
       <div className="bg-black-1 backdrop-blur-sm w-[60%] h-[calc(100%-0.5rem*2)] m-2 rounded-md
@@ -28,7 +28,7 @@ export function MobileMenu({ handleChangeMenuState, className }: MobileMenuProps
             src={"/logotipo.png"}
             sizes="100vw"
             width={0} height={0}
-            alt="logotipo"
+            alt="Logotipo do menu mobile do meu portfolio"
             className="w-max h-10"
           />
 
@@ -40,7 +40,7 @@ export function MobileMenu({ handleChangeMenuState, className }: MobileMenuProps
 
         <hr className="opacity-10 mt-2" />
 
-        <div className="flex flex-col mt-8 gap-4">
+        <nav className="flex flex-col mt-8 gap-4">
           {
             [<><TbHome className="text-xl"/> Inicio</>,
             <><PiCodeDuotone className="text-xl"/> Tecnologias</>,
@@ -57,8 +57,8 @@ export function MobileMenu({ handleChangeMenuState, className }: MobileMenuProps
               >{item}</a>
             )
           }
-        </div>
+        </nav>
       </div>
-    </nav>
+    </aside>
   );
 }

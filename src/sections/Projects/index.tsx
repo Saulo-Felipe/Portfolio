@@ -81,7 +81,7 @@ export function Projects() {
         { content: "Frontend", color: "#0265dc" }
       ]
     },
-  
+
     // ------------
     {
       title: "To-do List",
@@ -168,8 +168,8 @@ export function Projects() {
     setModalInfo(prev => ({...prev, title: ""})); // if the title is empty, the modal is closed.
   };
 
-  const isMobile = 
-    typeof window !== "undefined" 
+  const isMobile =
+    typeof window !== "undefined"
       ? window.matchMedia("(min-width: 0px) and (max-width: 767px)").matches
       : false;
 
@@ -184,13 +184,13 @@ export function Projects() {
           relative group rounded-3xl select-none transition-all`,
           hoverPosition !== -1 &&	"shadow-[0px_0px_20px_#183367]"
         )}>
-          <div className="flex flex-col items-center justify-center backdrop-blur-[8px]
+          <h1 className="flex flex-col items-center justify-center backdrop-blur-[8px]
             z-10 text-white p-2 pt-4 rounded-3xl gap-4 "
           >
             <span style={{ writingMode: "vertical-lr" }}>Projetos</span>
 
             <MdKeyboardDoubleArrowDown className="text-opacity-60 text-xl group-hover:animate-bounce" />
-          </div>
+          </h1>
 
           {[1, 2, 3, 4, 5].map(i =>
             <span
@@ -211,7 +211,7 @@ export function Projects() {
 
       <div className="sm:flex">
         {/* vertical mobile line */}
-        <div className="bg-gradient-to-b from-blue-1 from-90% to-transparent w-[4px] 
+        <div className="bg-gradient-to-b from-blue-1 from-90% to-transparent w-[4px]
           relative z-10 ml-9 hidden sm:block"
         >
           <span
@@ -219,10 +219,10 @@ export function Projects() {
             transition-all`, hoverPosition !== -1 && "border")}
             style={{
               height: `calc(${hoverPosition+"px"} + ${
-                hoverPosition !== -1 
-                  ? isMobile 
-                    ? "6rem" 
-                    : "8rem" 
+                hoverPosition !== -1
+                  ? isMobile
+                    ? "6rem"
+                    : "8rem"
                   : "0rem"
               })`
             }}
@@ -244,7 +244,7 @@ export function Projects() {
           </div>
 
           {/* vertical line */}
-          <div className="bg-gradient-to-t from-transparent via-blue-1 to-transparent 
+          <div className="bg-gradient-to-t from-transparent via-blue-1 to-transparent
             w-[4px] relative z-10 sm:hidden"
           >
             <span
@@ -252,10 +252,10 @@ export function Projects() {
               transition-all`, hoverPosition !== -1 && "border")}
               style={{
                 height: `calc(${hoverPosition+"px"} + ${
-                  hoverPosition !== -1 
-                  ? isMobile 
-                    ? "6rem" 
-                    : "8rem" 
+                  hoverPosition !== -1
+                  ? isMobile
+                    ? "6rem"
+                    : "8rem"
                   : "0rem"
                 })`
               }}

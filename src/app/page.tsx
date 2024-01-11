@@ -9,7 +9,6 @@ import { Header } from "@/components/Header";
 export default function Page(): React.JSX.Element {
   return (
     <>
-    {/* lembrar de arrumar o overflow x bugado */}
       <Header />
       <Home />
       <SkillsDivider />

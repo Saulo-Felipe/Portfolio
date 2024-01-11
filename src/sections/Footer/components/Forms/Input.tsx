@@ -14,7 +14,7 @@ export function Input({ placeholder, name }: InputProps) {
     const element = event.target;
 
     element.setAttribute(
-      "data-placeholder", 
+      "data-placeholder",
       String(element.value.length > 0)
     );
   };
@@ -40,7 +40,7 @@ export function Input({ placeholder, name }: InputProps) {
       <span
         ref={placeholderRef}
         className="absolute ml-4 transition-all top-[calc(1rem)] peer-data-[placeholder=true]:font-semibold
-        peer-data-[placeholder=true]:top-[5px] peer-data-[placeholder=true]:text-sm 
+        peer-data-[placeholder=true]:top-[5px] peer-data-[placeholder=true]:text-sm
         peer-data-[placeholder=true]:text-blue-900 text-[rgb(255,255,255,0.4)]"
       >
 

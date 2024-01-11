@@ -22,7 +22,7 @@ export function Forms() {
 
   async function sendEmailBridge(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    
+
     if (isLoading) return;
 
     const formData = new FormData(e.target as HTMLFormElement);
@@ -74,7 +74,7 @@ export function Forms() {
 
       <Textarea placeholder="Mensagem" name="message" />
 
-      <button 
+      <button
         className={twJoin(`py-2 px-5 border-2 rounded-md flex items-center justify-center
           w-max text-[rgb(255,255,255,0.55)] border-[rgb(255,255,255,0.55)] self-end
         hover:text-[rgb(255,255,255,0.75)] hover:border-[rgb(255,255,255,0.75)] gap-2 sm:w-full`,

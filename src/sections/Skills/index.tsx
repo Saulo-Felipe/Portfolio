@@ -6,13 +6,13 @@ import { FaCode } from "react-icons/fa";
 export function Skills() {
 
   return (
-    <section 
-      id="page_1" 
+    <section
+      id="page_1"
       className="bg-black-4 h-[110vh] text-slate-200 pt-8 sm:pt-1 sm:h-max sm:min-h-[90vh]"
     >
 
-      <Typing 
-        words={["Principais Tecnologias"]} 
+      <Typing
+        words={["Principais Tecnologias"]}
         Icon={<FaCrown className="text-yellow-500" />}
       />
 
@@ -20,8 +20,8 @@ export function Skills() {
         <LanguagesClient type="primary" />
       </div>
 
-      <Typing 
-        words={["Possuo conhecimento: "]} 
+      <Typing
+        words={["Possuo conhecimento: "]}
         Icon={<FaCode />}
       />
 

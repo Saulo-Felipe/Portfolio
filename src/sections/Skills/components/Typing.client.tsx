@@ -56,10 +56,10 @@ export function Typing({ words, Icon }: TypingProps) {
   }, [typing.isErasing]);
 
   return (
-    <div className="ml-20 pr-4 flex items-center bg-black-1 bg-opacity-75 w-max p-2 rounded-full 
+    <div className="ml-20 pr-4 flex items-center bg-black-1 bg-opacity-75 w-max p-2 rounded-full
       mt-12 sm:ml-4"
     >
-      <div className="w-10 h-10 bg-black-2 rounded-full flex items-center 
+      <div className="w-10 h-10 bg-black-2 rounded-full flex items-center
         justify-center mr-2 border border-black-3"
       >
         {Icon}
@@ -69,6 +69,6 @@ export function Typing({ words, Icon }: TypingProps) {
         {typing.words[typing.wordIndex].slice(0, typing.letterIndex)}
       </span>
       <span className="w-[8px] h-[1.25rem] ml-2 bg-white transition-all animation-total-pulse" />
-    </div>    
+    </div>
   );
 }

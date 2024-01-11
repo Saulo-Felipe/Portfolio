@@ -13,7 +13,7 @@ interface ModalProps extends ProjectType {
 export function Modal({ title, closeModal, about, github, imgUrl, languages, preview }: ModalProps) {
 
   return (
-    <div 
+    <div
       className={twMerge(`fixed top-0 hidden left-0 w-[100vw] h-[100vh] items-center
         justify-center z-50`, title && "flex")
       }
@@ -24,15 +24,15 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
         onClick={closeModal}
       />
 
-      <div className="w-[80vw] h-max bg-black-2 rounded-lg border border-black-3 
+      <div className="w-[80vw] h-max bg-black-2 rounded-lg border border-black-3
         p-12 pt-6 pb-16 relative sm:w-[96%] sm:mx-[2%] sm:p-6"
         id="modal"
       >
 
         <div className="flex justify-end right-4 top-4 mb-2 ">
-          <IoClose 
-            className="text-3xl text-white cursor-pointer" 
-            onClick={closeModal} 
+          <IoClose
+            className="text-3xl text-white cursor-pointer"
+            onClick={closeModal}
           />
         </div>
 
@@ -108,12 +108,14 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
 
           <div className="flex-[0.65] flex items-start justify-center">
             <Image
-              width={0} height={0}
-              src={imgUrl}
-              alt={about}
+              src={!imgUrl ? "/not-found.png" : imgUrl}
+              width={!imgUrl ? 400 : 0}
+              height={!imgUrl ? 400 : 0}
+              alt={`Imagem do projeto ${title}.`}
               sizes="100vw"
-              className="w-full rounded-md transition-all shadow-lg"
-              style={{ perspective: "1500px" }}
+              className={twMerge("w-full rounded-md transition-all shadow-lg",
+                !imgUrl && "w-auto"
+              )}
             />
 
           </div>
