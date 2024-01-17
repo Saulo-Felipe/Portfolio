@@ -19,7 +19,7 @@ export interface ProjectType {
   github: string;
   tags?: {
     content: string;
-    color: string;
+    class: string;
   }[];
 }
 
@@ -34,7 +34,7 @@ export function Projects() {
       imgUrl: "/rede-social.png",
       languages: ["HTML5", "CSS3", "Typescript", "NodeJS", "NextJS", "PostgreSQL", "Socket.io", "PrismaJS"],
       tags: [
-        { content: "Full Stack", color: "#007a4d" }
+        { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
@@ -45,7 +45,7 @@ export function Projects() {
       preview: "https://technews-saulofelipe.vercel.app",
       github: "https://github.com/Saulo-Felipe/technews",
       tags: [
-        { content: "Full Stack", color: "#007a4d" }
+        { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
@@ -56,7 +56,7 @@ export function Projects() {
       github: "https://github.com/Saulo-Felipe/Sistema-de-Gestao",
       preview: "https://sistema-gestao-saulo.vercel.app/login",
       tags: [
-        { content: "Full Stack", color: "#007a4d" }
+        { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
@@ -67,7 +67,7 @@ export function Projects() {
       preview: "https://github.com/Saulo-Felipe/The-Best-Hero",
       github: "https://github.com/Saulo-Felipe/The-Best-Hero",
       tags: [
-        { content: "Desktop Game", color: "#411b98" }
+        { content: "Desktop Game", class: "bg-yellow-900 text-yellow-300" }
       ]
     },
     {
@@ -78,7 +78,7 @@ export function Projects() {
       preview: "https://tictactoe-saulofelipe.vercel.app",
       github: "https://github.com/Saulo-Felipe/TicTacToe",
       tags: [
-        { content: "Frontend", color: "#0265dc" }
+        { content: "Frontend", class: "bg-green-900 text-green-300" }
       ]
     },
 
@@ -91,7 +91,7 @@ export function Projects() {
       imgUrl: "/to-do-list.png",
       languages: ["HTML5", "CSS3", "Typescript", "PostgreSQL", "NodeJS", "React"],
       tags: [
-        { content: "Full Stack", color: "#007a4d" }
+        { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
@@ -102,7 +102,7 @@ export function Projects() {
       preview: "https://tanksfight-server.saulofelipe.tech",
       github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
       tags: [
-        { content: "Full Stack", color: "#007a4d" }
+        { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
@@ -113,7 +113,7 @@ export function Projects() {
       preview: "https://e-commerce-frontend-olive.vercel.app/",
       github: "https://github.com/Saulo-Felipe/eCommerce-ReactJS-NodeJS",
       tags: [
-        { content: "Full Stack", color: "#007a4d" }
+        { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
@@ -124,7 +124,7 @@ export function Projects() {
       preview: "https://saulo-felipe.github.io/Futebol-One-Page/",
       github: "https://github.com/Saulo-Felipe/Futebol-One-Page",
       tags: [
-        { content: "Frontend", color: "#0265dc" }
+        { content: "Frontend", class: "bg-green-900 text-green-300" }
       ]
     },
     {
@@ -135,7 +135,7 @@ export function Projects() {
       preview: "https://calculadora-saulofelipe.vercel.app",
       github: "https://github.com/Saulo-Felipe/Calculadora-Com-React",
       tags: [
-        { content: "Frontend", color: "#0265dc" }
+        { content: "Frontend", class: "bg-green-900 text-green-300" }
       ]
     },
   ];

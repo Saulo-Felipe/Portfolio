@@ -5,7 +5,6 @@ import { FiDownload } from "react-icons/fi";
 
 
 export function Home() {
-
   return (
     <section
       id="page_0"

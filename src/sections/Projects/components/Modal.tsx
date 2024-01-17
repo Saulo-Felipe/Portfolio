@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { twJoin, twMerge } from "tailwind-merge";
 import { ProjectType } from "../index";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
@@ -10,22 +10,22 @@ interface ModalProps extends ProjectType {
   closeModal: () => void;
 }
 
+// the "title" is the condition if the modal is open
 export function Modal({ title, closeModal, about, github, imgUrl, languages, preview }: ModalProps) {
 
   return (
-    <div
-      className={twMerge(`fixed top-0 hidden left-0 w-[100vw] h-[100vh] items-center
-        justify-center z-50`, title && "flex")
-      }
-    >
+    <div className={twMerge(`fixed left-0 flex -top-[140%] w-[100vw] h-[100vh] items-center
+      justify-center z-50 transition-all`, title && "top-0")
+    }>
       {/* bg blur */}
       <span
         className="absolute top-0 left-0 w-[100vw] h-[100vh] backdrop-blur-md"
         onClick={closeModal}
       />
 
-      <div className="w-[80vw] h-max bg-black-2 rounded-lg border border-black-3
-        p-12 pt-6 pb-16 relative sm:w-[96%] sm:mx-[2%] sm:p-6"
+      <div className={twJoin(`w-[80vw] h-max bg-black-2 rounded-lg border border-black-3
+        p-12 pt-6 pb-16 relative sm:w-[96%] sm:mx-[2%] sm:p-6 transition-all`, 
+        title ? "top-0" : "-top-full")}
         id="modal"
       >
 
@@ -113,7 +113,7 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
               height={!imgUrl ? 400 : 0}
               alt={`Imagem do projeto ${title}.`}
               sizes="100vw"
-              className={twMerge("w-full rounded-md transition-all shadow-lg",
+              className={twMerge("w-full rounded-md transition-all shadow-lg hover:scale-95",
                 !imgUrl && "w-auto"
               )}
             />

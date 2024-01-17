@@ -23,10 +23,14 @@ export function Header() {
     });
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuIsOpen) window.document.body.style.overflow = "hidden";
+    else window.document.body.style.overflow = "auto";
+  }, [mobileMenuIsOpen]);
+
   const handleChangeMenuState = () => {
     setMobileMenuIsOpen(prev => !prev);
   };
-
 
   return (
     <>

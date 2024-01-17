@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import Link from "next/link";
-
 import { MdArrowOutward } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
@@ -73,10 +71,10 @@ export function Footer() {
             </div>
 
             <div className="ml-3 flex flex-col text-white text-opacity-50 gap-4 mt-4">
-              <Link className="hover:text-slate-300" href="/">Ínicio</Link>
-              <Link className="hover:text-slate-300" href="/">Habilidades</Link>
-              <Link className="hover:text-slate-300" href="/">Projetos</Link>
-              <Link className="hover:text-slate-300" href="/">Contato</Link>
+              <a className="hover:text-slate-300" href="/#page_0">Ínicio</a>
+              <a className="hover:text-slate-300" href="/#page_1">Habilidades</a>
+              <a className="hover:text-slate-300" href="/#page_2">Projetos</a>
+              <a className="hover:text-slate-300" href="/#page_3">Contato</a>
             </div>
           </div>
         </div>
