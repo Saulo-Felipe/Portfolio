@@ -100,19 +100,18 @@ export function Home() {
             className="w-full h-full rounded-full z-10"
           />
           
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => {
-            return (
-              <div 
-                className="bg-blue-800 h-full z-20 absolute opacity-0 sm:!opacity-0 hover:opacity-100 hover:transition-all 
-                duration-[1300ms] ease-in-out bg-[url('/profile-picture-bg.png')] bg-cover bg-left" 
-                style={{ 
-                  left: (e*100/11)+"%", 
-                  width: 100/11+"%", 
-                  backgroundPositionX: (e*100/11)+"%"
-                }}
-              />
-            )
-          })}
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => 
+            <div 
+              key={e}
+              className="bg-blue-800 h-full z-20 absolute opacity-0 sm:!opacity-0 hover:opacity-100 hover:transition-all 
+              duration-[1300ms] ease-in-out bg-[url('/profile-picture-bg.png')] bg-cover bg-left" 
+              style={{ 
+                left: (e*100/11)+"%", 
+                width: 100/11+"%", 
+                backgroundPositionX: (e*100/11)+"%"
+              }}
+            />)
+          }
         </div>
       </div>
     </section>
