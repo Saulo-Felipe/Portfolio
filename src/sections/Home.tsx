@@ -1,4 +1,5 @@
 import { AlfaSlabOneFont } from "@/Fonts";
+import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FiDownload } from "react-icons/fi";
@@ -30,7 +31,7 @@ export function Home() {
           </div>
 
           <div className="flex items-center mt-1">
-            🛠️ <span className="text-white text-opacity-50">FullStack Developer</span>
+            🛠️ <span className="text-white text-opacity-50">Full Stack Developer</span>
           </div>
         </div>
 
@@ -38,17 +39,23 @@ export function Home() {
 
         <div className="flex text-white mt-6">
 
-          <button className="relative inline-flex items-center justify-center p-0.5
-            overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br
-            from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600
-            hover:text-white text-white focus:ring-4 focus:outline-none transition-all duration-500
-            focus:ring-green-800 hover:shadow-blue-800/80 hover:shadow-lg">
-            <span className="relative px-5 py-2.5 h-full transition-all ease-in duration-75
-              bg-gray-900 rounded-md flex items-center justify-center gap-2">
-              <span className="z-20">Baixar CV</span>
-              <FiDownload className="text-xl z-20" />
-            </span>
-          </button>
+          <a href="/cv.pdf" 
+            target="_blank"
+            className="rounded-md"
+            download
+          >
+            <button className="relative inline-flex items-center justify-center p-0.5
+              overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br
+              from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600
+              hover:text-white text-white focus:ring-4 focus:outline-none transition-all duration-500
+              focus:ring-green-800 hover:shadow-blue-800/80 hover:shadow-lg">
+              <span className="relative px-5 py-2.5 h-full transition-all ease-in duration-75
+                bg-gray-900 rounded-md flex items-center justify-center gap-2">
+                <span className="z-20">Baixar CV</span>
+                <FiDownload className="text-xl z-20" />
+              </span>
+            </button>
+          </a>
 
           <div className="flex items-center gap-6 ml-6">
             <a className="rounded-full" href="https://github.com/saulo-felipe" target="_blank">
@@ -79,24 +86,33 @@ export function Home() {
       {/* profile picture */}
       <div className="h-full flex items-center justify-center">
         <div className="w-80 h-80 rounded-full bg-black-2 relative flex items-center justify-center
-          sm:w-[65vw] sm:h-[65vw]"
+          sm:w-[65vw] sm:h-[65vw] overflow-hidden p-[2px] group shadow-md sm:p-[1px]"
         >
-          <img className="rounded-full z-10" src={"https://picsd.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp"} />
-          {
-            [1, 2, 3, 4].map(i => {
-              return (
-                <div
-                  key={i}
-                  className="rounded-full w-full h-full border-2 border-blue-1
-                  absolute transition-all pulse-animated"
-                  style={{
-                    animationName: "PulseAnimated",
-                    animationDelay: i+"s"
-                  }}
-                />
-              );
-            })
-          }
+          <span className="absolute w-full h-full bg-gradient-to-b from-[rgb(255,255,255,0.35)] via-transparent 
+            to-[rgb(255,255,255,0.35)] group-hover:rotate-[120deg] transition-all duration-1000 rotate-45" 
+          />
+
+          <Image 
+            src={"/profile-picture.png"}
+            alt="Foto de perfil de Saulo Felipe"
+            sizes="100vw"
+            width={0} height={0}
+            className="w-full h-full rounded-full z-10"
+          />
+          
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => {
+            return (
+              <div 
+                className="bg-blue-800 h-full z-20 absolute opacity-0 sm:!opacity-0 hover:opacity-100 hover:transition-all 
+                duration-[1300ms] ease-in-out bg-[url('/profile-picture-bg.png')] bg-cover bg-left" 
+                style={{ 
+                  left: (e*100/11)+"%", 
+                  width: 100/11+"%", 
+                  backgroundPositionX: (e*100/11)+"%"
+                }}
+              />
+            )
+          })}
         </div>
       </div>
     </section>

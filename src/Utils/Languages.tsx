@@ -14,7 +14,12 @@ import Postgres from "react-devicons/postgresql/original";
 import Mysql from "react-devicons/mysql/original";
 import Java from "react-devicons/java/original";
 import Docker from "react-devicons/docker/original";
+import Sass from "react-devicons/sass/original";
+import Git from "react-devicons/git/original";
+import MongoDb from "react-devicons/mongodb/original";
+import C from "react-devicons/c/original";
 import { SiPrisma } from "react-icons/si";
+import { FaAws } from "react-icons/fa";
 
 import { ReactElement } from "react";
 
@@ -37,17 +42,22 @@ export const Languages: LanguagesType = {
     { name: "CSS3", Element: <CSS /> },
     { name: "PostgreSQL", Element: <Postgres /> },
     { name: "NodeJS", Element: <Node /> },
-    { name: "Bootstrap", Element: <Bootstrap /> },
+    { name: "Python", Element: <Python /> },
     { name: "NextJS", Element: <Next color="white" /> },
     { name: "NestJS", Element: <Nest /> },
     { name: "Tailwind", Element: <Tailwind />},
     { name: "Socket.io", Element: <Socketio color="white" /> },
     { name: "Docker", Element: <Docker /> },
     { name: "PrismaJS", Element: <SiPrisma /> },
+    { name: "Sass", Element: <Sass /> },
+    { name: "Git", Element: <Git /> }
   ],
   secondary: [
-    { name: "Python", Element: <Python /> },
     { name: "MySQL", Element: <Mysql /> },
-    { name: "Java", Element: <Java /> }
+    { name: "Java", Element: <Java /> },
+    { name: "MongoDb", Element: <MongoDb /> },
+    { name: "Bootstrap", Element: <Bootstrap /> },
+    { name: "AWS", Element: <FaAws />},
+    { name: "C", Element: <C />}
   ]
 };

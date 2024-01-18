@@ -24,8 +24,8 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (mobileMenuIsOpen) window.document.body.style.overflow = "hidden";
-    else window.document.body.style.overflow = "auto";
+    if (mobileMenuIsOpen) window.document.body.style.overflowY = "hidden";
+    else window.document.body.style.overflowY = "auto";
   }, [mobileMenuIsOpen]);
 
   const handleChangeMenuState = () => {

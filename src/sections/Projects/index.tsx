@@ -8,7 +8,7 @@ import { twJoin } from "tailwind-merge";
 
 
 type Stack = "Javascript" | "Typescript" | "CSS3" | "HTML5" | "React" | "NextJS" | "NestJS" | "NodeJS" |
-  "Tailwind" | "Python" | "Socket.io" | "Bootstrap" | "PrismaJS" | "MySQL" | "PostgreSQL";
+  "Tailwind" | "Python" | "Socket.io" | "Bootstrap" | "PrismaJS" | "MySQL" | "PostgreSQL" | "Sass";
 
 export interface ProjectType {
   title: string;
@@ -32,18 +32,18 @@ export function Projects() {
       github: "https://github.com/Saulo-Felipe/rede-social",
       preview: "https://rede-social-saulo-felipe.vercel.app/",
       imgUrl: "/rede-social.png",
-      languages: ["HTML5", "CSS3", "Typescript", "NodeJS", "NextJS", "PostgreSQL", "Socket.io", "PrismaJS"],
+      languages: ["HTML5", "Typescript", "NodeJS", "NextJS", "PostgreSQL", "Socket.io", "PrismaJS", "Sass"],
       tags: [
         { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
     },
     {
-      title: "TechNews",
-      imgUrl: "/technews.png",
-      about: "Esse site de notícias recupera e exibe notícias da CNN",
-      languages: ["HTML5", "CSS3", "Typescript", "NodeJS", "NextJS", "PostgreSQL", "Tailwind", "Socket.io", ],
-      preview: "https://technews-saulofelipe.vercel.app",
-      github: "https://github.com/Saulo-Felipe/technews",
+      title: "Tank Fight",
+      imgUrl: "/multiplayer-game.png",
+      about: "Um jogo de batalha 2D entre tanques de guerra. O Game possui um sistema multiplayer, onde é possível batalhar em tempo real contra qualquer usuário. Atráves do ranking baseado em mortes, é possível deixar o game mais competitivo.",
+      languages: ["NodeJS", "HTML5", "CSS3", "Javascript"],
+      preview: "https://tanksfight-server.saulofelipe.tech",
+      github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
       tags: [
         { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]
@@ -95,12 +95,12 @@ export function Projects() {
       ]
     },
     {
-      title: "Multiplayer Game",
-      imgUrl: "/multiplayer-game.png",
-      about: "Um jogo de batalha 2D entre tanques de guerra. O Game possui um sistema multiplayer, onde é possível batalhar em tempo real contra qualquer usuário. Atráves do ranking baseado em mortes, é possível deixar o game mais competitivo.",
-      languages: ["NodeJS", "HTML5", "CSS3", "Javascript"],
-      preview: "https://tanksfight-server.saulofelipe.tech",
-      github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
+      title: "TechNews",
+      imgUrl: "/technews.png",
+      about: "Esse site de notícias recupera e exibe notícias da CNN",
+      languages: ["HTML5", "CSS3", "Typescript", "NodeJS", "NextJS", "PostgreSQL", "Tailwind", "Socket.io", ],
+      preview: "https://technews-saulofelipe.vercel.app",
+      github: "https://github.com/Saulo-Felipe/technews",
       tags: [
         { content: "Full Stack", class: "bg-blue-900 text-blue-300" }
       ]

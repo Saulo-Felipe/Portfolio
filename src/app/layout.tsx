@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="scroll-smooth w-[100vw]" lang="pt-br">
+    <html className="scroll-smooth w-full" lang="pt-br">
       <body className={twJoin(PoppinsFont.className, "bg-black-1 overflow-x-hidden")}>
         {children}
       </body>
