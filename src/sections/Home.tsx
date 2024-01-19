@@ -25,7 +25,7 @@ export function Home() {
           <h1 className="hidden sm:block">Felipe</h1>
         </div>
 
-        <div className="bg-black-4 p-3 mt-8 border border-black-3 rounded-md hover:brightness-110">
+        <div className="bg-black-4 p-3 mt-8 border border-black-3 rounded-md hover:brightness-125">
           <div className="flex items-center">
             💻 <span className="text-white text-opacity-50">Cursando Ciência da Computação</span>
           </div>
@@ -84,7 +84,9 @@ export function Home() {
       </div>
 
       {/* profile picture */}
-      <div className="h-full flex items-center justify-center">
+      <div className="flex items-center justify-center border-r-2 border-b-2 border-blue-1 hover:border-blue-800 
+        h-max p-4 rounded-full select-none transition-all"
+      >
         <div className="w-80 h-80 rounded-full bg-black-2 relative flex items-center justify-center
           sm:w-[65vw] sm:h-[65vw] overflow-hidden p-[2px] group shadow-md sm:p-[1px]"
         >
@@ -100,17 +102,21 @@ export function Home() {
             className="w-full h-full rounded-full z-10"
           />
           
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => 
-            <div 
-              key={e}
-              className="bg-blue-800 h-full z-20 absolute opacity-0 sm:!opacity-0 hover:opacity-100 hover:transition-all 
-              duration-[1300ms] ease-in-out bg-[url('/profile-picture-bg.png')] bg-cover bg-left" 
-              style={{ 
-                left: (e*100/11)+"%", 
-                width: 100/11+"%", 
-                backgroundPositionX: (e*100/11)+"%"
-              }}
-            />)
+          {[0, 1, 2, 3, 4, 5, 6, 7].map(e => {
+            return [0, 1, 2, 3, 4, 5, 6, 7].map(i => 
+              <div 
+                key={e}
+                className="bg-blue-800 h-[calc(100%/8)] w-[calc(100%/8)] top-0 z-20 absolute opacity-0 sm:!opacity-0 
+                hover:opacity-100 hover:transition-none transition-all duration-[2000ms] ease-in-out 
+                bg-[url('/profile-picture-bg.png')] bg-[length:20rem]" 
+                style={{ 
+                  left: (i*100/8)+"%", 
+                  top: (e*100/8)+"%",
+                  backgroundPositionX: (i*100/8)+"%",
+                  backgroundPositionY: (e*100/8)+"%",
+                }}
+              />)
+            })
           }
         </div>
       </div>

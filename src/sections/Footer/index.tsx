@@ -9,6 +9,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { CopyText } from "./components/CopyText";
 import { ReactNode } from "react";
 import { Forms } from "./components/Forms";
+import { projects } from "@/Utils/Projects";
 
 export function Footer() {
 
@@ -40,22 +41,14 @@ export function Footer() {
 
             <div className="ml-3 flex flex-col text-white text-opacity-50 gap-4 mt-4">
               {
-                [{name: "E-commerce", link: "/"},
-                  {name: "To-do list", link: "/"},
-                  {name: "Calculadora", link: "/"},
-                  {name: "Multiplayer Game", link: "/"},
-                  {name: "The Best Hero", link: "/"},
-                  {name: "Jogo da Velha", link: "/"},
-                  {name: "Rede Social", link: "/"},
-                  {name: "Sistema de Gestão", link: "/"}
-                ].map(item =>
+                projects.map(item =>
                   <a
-                    key={item.name}
-                    href={item.link}
+                    key={item.title}
+                    href={item.preview}
                     className="hover:text-slate-300 hover:brightness-125 flex items-center gap-1"
                     target="_blank"
                   >
-                    {item.name}
+                    {item.title}
 
                     <MdArrowOutward />
                   </a>
