@@ -102,8 +102,8 @@ export function Home() {
             className="w-full h-full rounded-full z-10"
           />
           
-          {[0, 1, 2, 3, 4, 5, 6, 7].map(e => {
-            return [0, 1, 2, 3, 4, 5, 6, 7].map(i => 
+          {[0, 1, 2, 3, 4, 5, 6, 7].map(e =>
+            [0, 1, 2, 3, 4, 5, 6, 7].map(i => 
               <div 
                 key={e}
                 className="bg-blue-800 h-[calc(100%/8)] w-[calc(100%/8)] top-0 z-20 absolute opacity-0 sm:!opacity-0 
@@ -116,7 +116,7 @@ export function Home() {
                   backgroundPositionY: (e*100/8)+"%",
                 }}
               />)
-            })
+            )
           }
         </div>
       </div>
