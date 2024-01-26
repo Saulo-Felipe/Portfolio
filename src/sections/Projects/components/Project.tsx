@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ProjectType } from "../index";
 import React, { HtmlHTMLAttributes } from "react";
-import { twJoin, twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
 interface ProjectProps extends HtmlHTMLAttributes<HTMLDivElement> {
   project: ProjectType;
@@ -34,11 +34,14 @@ export function Project({
             {
               project.tags?.map((tag, i) =>
                 <span
-                  className={twJoin("text-white text-xs px-2.5 py-0.5 rounded w-max", 
-                    tag.class
+                  className={twMerge("text-xs px-2.5 py-0.5 rounded w-max", 
+                    tag.content === "Full Stack" 
+                      ? "bg-blue-900 text-blue-300" 
+                      : tag.content === "Frontend" 
+                        ? "bg-green-600 text-green-300" 
+                        : "bg-yellow-900 text-yellow-300"
                   )}
                   key={i}
-                  // style={{ backgroundColor: tag.color }}
                 >{tag.content}</span>
               )
             }

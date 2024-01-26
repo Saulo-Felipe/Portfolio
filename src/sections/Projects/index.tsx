@@ -19,8 +19,7 @@ export interface ProjectType {
   preview: string;
   github: string;
   tags?: {
-    content: string;
-    class: string;
+    content: "Frontend" | "Full Stack" | "Desktop Game";
   }[];
 }
 
