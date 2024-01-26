@@ -20,6 +20,7 @@ import MongoDb from "react-devicons/mongodb/original";
 import C from "react-devicons/c/original";
 import { SiPrisma } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
+import SpringBoot from "react-devicons/spring/original";
 
 import { ReactElement } from "react";
 
@@ -50,14 +51,15 @@ export const Languages: LanguagesType = {
     { name: "Docker", Element: <Docker /> },
     { name: "PrismaJS", Element: <SiPrisma /> },
     { name: "Sass", Element: <Sass /> },
-    { name: "Git", Element: <Git /> }
+    { name: "Git", Element: <Git /> },
+    { name: "Java", Element: <Java /> }
   ],
   secondary: [
     { name: "MySQL", Element: <Mysql /> },
-    { name: "Java", Element: <Java /> },
     { name: "MongoDb", Element: <MongoDb /> },
     { name: "Bootstrap", Element: <Bootstrap /> },
     { name: "AWS", Element: <FaAws />},
-    { name: "C", Element: <C />}
+    { name: "C", Element: <C />},
+    { name: "Spring Boot", Element: <SpringBoot />}
   ]
 };
