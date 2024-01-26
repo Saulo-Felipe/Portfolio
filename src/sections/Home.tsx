@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FiDownload } from "react-icons/fi";
+import { randomUUID } from "crypto";
 
 
 export function Home() {
@@ -105,7 +106,7 @@ export function Home() {
           {[0, 1, 2, 3, 4, 5, 6, 7].map(e =>
             [0, 1, 2, 3, 4, 5, 6, 7].map(i => 
               <div 
-                key={e}
+                key={randomUUID()}
                 className="bg-blue-800 h-[calc(100%/8)] w-[calc(100%/8)] top-0 z-20 absolute opacity-0 sm:!opacity-0 
                 hover:opacity-100 hover:transition-none transition-all duration-[2000ms] ease-in-out 
                 bg-[url('/profile-picture-bg.png')] bg-[length:20rem]" 
