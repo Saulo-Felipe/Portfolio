@@ -57,7 +57,9 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
     }
 
     // define events
-    containerRef.current?.addEventListener("mousemove", handleMouseMove);
+    window?.addEventListener("mousemove", handleMouseMove);
+    window?.addEventListener("mouseup", handleMouseUp);
+
     containerRef.current?.addEventListener("mousedown", handleMouseDown);
     containerRef.current?.addEventListener("mouseup", handleMouseUp);
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
@@ -106,7 +108,7 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
         data.map((item, i) =>
           <div
             key={i}
-            className={"p-2 group"}
+            className="p-2 group"
             onMouseEnter={() => setHoverIndex(i)}
             onMouseLeave={() => setHoverIndex(-99)}
           >
@@ -114,7 +116,7 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
               className={twMerge(`w-32 h-32 bg-black bg-opacity-[0.29] p-2 flex items-center
                 justify-center rounded-md transition-all relative overflow-hidden
                 shadow-[0.5rem_0.5rem_0px_rgb(0,0,0,0.25)] border border-black
-                sm:w-24 sm:h-24`,
+                sm:w-24 sm:h-24 `,
                 String(hoverIndex === i-1 || hoverIndex === i+1
                   ? "w-36 h-36 sm:h-28 sm:w-28"
                   : hoverIndex === i && "w-40 h-40 sm:w-32 sm:h-32"
@@ -122,7 +124,7 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
               )}
             >
               <span
-                className="w-full h-full backdrop-blur-md bg-black bg-opacity-10
+                className="w-full h-full backdrop-blur-md bg-white bg-opacity-[0.01]
                 absolute opacity-0 group-hover:opacity-100 transition-all
                 flex items-center justify-center text-white font-bold sm:text-sm"
               >{item.name}</span>

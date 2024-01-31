@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Project } from "./components/Project";
 import { Modal } from "./components/Modal";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
@@ -25,6 +25,7 @@ export interface ProjectType {
 
 export function Projects() {
   const [hoverPosition, setHoverPosition] = useState(-1);
+  const [activedProjectIndex, setActivedProjectIndex] = useState(-1);
   const [modalInfo, setModalInfo] = useState<ProjectType>({
     about: "",
     github: "",
@@ -34,13 +35,19 @@ export function Projects() {
     title: ""
   });
 
+  const isMobile =
+    typeof window !== "undefined"
+      ? window.matchMedia("(min-width: 0px) and (max-width: 767px)").matches
+      : false;
+
   const handleProjectMouseEnter = (element: EventTarget) => {
     const containerDivElement = element as HTMLDivElement;
-
+    console.log("chamei enter");
     setHoverPosition(containerDivElement.offsetTop-14);
   };
 
   const handleProjectMouseExit = () => {
+    console.log("chamei exit");
     setHoverPosition(-1);
   };
 
@@ -52,10 +59,28 @@ export function Projects() {
     setModalInfo(prev => ({...prev, title: ""})); // if the title is empty, the modal is closed.
   };
 
-  const isMobile =
-    typeof window !== "undefined"
-      ? window.matchMedia("(min-width: 0px) and (max-width: 767px)").matches
-      : false;
+  useEffect(() => {
+    if (isMobile) {
+      const elements = [
+        ...Array.from(document.querySelectorAll(".project-container-1")),
+        ...Array.from(document.querySelectorAll(".project-container-2"))
+      ];
+
+      window.addEventListener("scroll", () => {
+        for (let i in elements) {
+          const currentElement = elements[i] as HTMLDivElement;
+          const distanceFromTop = currentElement.getBoundingClientRect().top;
+          const distanceFromCenter = distanceFromTop-window.innerHeight/2;
+
+          if (distanceFromTop < window.innerHeight/2 && distanceFromCenter > -200) {
+            setHoverPosition(currentElement.offsetTop-9);
+            setActivedProjectIndex(Number(i));
+            break;
+          }
+        }
+      });
+    }
+  }, []);
 
   return (
     <section id="page_2" className="relative pt-20 "
@@ -119,8 +144,10 @@ export function Projects() {
             {projects.slice(0, Math.ceil(projects.length/2)).map((project, i) =>
               <Project
                 key={i}
-                onMouseEnter={({currentTarget}) => handleProjectMouseEnter(currentTarget)}
-                onMouseLeave={handleProjectMouseExit}
+                isActived={activedProjectIndex === i && isMobile}
+                className="project-container-1"
+                onMouseEnter={({currentTarget}) => !isMobile && handleProjectMouseEnter(currentTarget)}
+                onMouseLeave={!isMobile ? handleProjectMouseExit : () => {}}
                 onClick={() => handleOpenModal(i)}
                 project={project}
               />
@@ -151,8 +178,10 @@ export function Projects() {
             {projects.slice(Math.ceil(projects.length/2), projects.length).map((project, i) =>
               <Project
                 key={i}
-                onMouseEnter={({currentTarget}) => handleProjectMouseEnter(currentTarget)}
-                onMouseLeave={handleProjectMouseExit}
+                isActived={activedProjectIndex === Math.ceil(projects.length/2+i) && isMobile}
+                className="project-container-2"
+                onMouseEnter={({currentTarget}) => !isMobile && handleProjectMouseEnter(currentTarget)}
+                onMouseLeave={!isMobile ? handleProjectMouseExit : () => {}}
                 onClick={() => handleOpenModal(Math.ceil(projects.length/2+i))}
                 project={project}
                 isRight

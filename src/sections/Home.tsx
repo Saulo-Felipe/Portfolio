@@ -40,7 +40,7 @@ export function Home() {
 
         <div className="flex text-white mt-6">
 
-          <a href="/cv.pdf" 
+          <a href="/CV-Saulo-Felipe-Fullstack.pdf" 
             target="_blank"
             className="rounded-md"
             download

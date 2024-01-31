@@ -1,31 +1,34 @@
 import Image from "next/image";
 import type { ProjectType } from "../index";
 import React, { HtmlHTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin, twMerge } from "tailwind-merge";
 
 interface ProjectProps extends HtmlHTMLAttributes<HTMLDivElement> {
   project: ProjectType;
+  isActived: boolean;
   isRight?: boolean;
 }
 
 export function Project({
   project,
   isRight=false,
+  isActived,
   ...props
 }: ProjectProps) {
 
   return (
     <div
-      className={`flex items-center justify-end ${isRight && "flex-row-reverse"}
-      group/parent sm:flex-row-reverse`}
       {...props}
+      className={twJoin(`flex items-center justify-end ${isRight && "flex-row-reverse"}
+      group/parent sm:flex-row-reverse`, props.className)}
     >
       <div className="relative flex items-center justify-center flex-col rounded-md">
 
         {/* bg gradient animation */}
-        <span className="w-0 h-0 transition-all duration-500 bg-gradient-radial
-          from-[#183367] via-[#183367] to-transparent rounded-full absolute blur-[100px] -z-10
-          group-hover/parent:w-64 group-hover/parent:h-64 cursor-pointer"
+        <span className={twMerge(`w-0 h-0 transition-all duration-500 bg-gradient-radial
+          from-[#183367] via-[#183367] to-transparent rounded-full absolute blur-[100px] -z-10 
+          desk:group-hover/parent:w-64 group-hover/parent:h-64
+          cursor-pointer`, isActived && "w-64 h-64")}
         />
 
         <div className="overflow-hidden relative flex items-end justify-center">
@@ -47,14 +50,15 @@ export function Project({
             }
           </div>
 
-          <span className=" w-full h-0
-            group-hover/parent:h-[40%] transition-all absolute
-            bg-gradient-to-t from-[rgb(0,0,0,0.65)] to-transparent"
-          />
+          <span className={twMerge(`w-full h-0 transition-all absolute
+            bg-gradient-to-t from-[rgb(0,0,0,0.65)] to-transparent desk:group-hover/parent:h-[40%]`, 
+            isActived && "h-[40%]"
+          )}/>
 
-          <button className="absolute text-white z-10 bg-black border-2 border-black-2
-            group-hover/parent:mb-[5%] py-1 px-4 rounded-lg text-xs -mb-[100%] transition-all"
-          >
+          <button className={twMerge(`absolute text-white z-10 bg-black border-2 border-black-2
+            py-1 px-4 rounded-lg text-xs -mb-[100%] transition-all desk:group-hover/parent:mb-[5%]`, 
+            isActived && "mb-[5%]"
+          )}>
             Saiba mais
           </button>
 
@@ -73,10 +77,11 @@ export function Project({
       <span className={twMerge(`h-[4px] w-40 bg-gradient-to-l from-transparent transition-all
         to-blue-1 relative sm:w-10 sm:bg-blue-1`, !isRight && "bg-gradient-to-r"
       )}>
-        <span className="absolute delay-150 right-0 h-full w-0 bg-blue-1
-        transition-all shadow-[0px_0px_20px_#183367] group-hover/parent:w-full group-hover/parent:border
-        border-blue-700"
-        />
+        <span className={twMerge(`absolute delay-150 right-0 h-full w-0 bg-blue-1
+          transition-all shadow-[0px_0px_20px_#183367] border-blue-700 
+          desk:group-hover/parent:w-full group-hover/parent:border`, 
+          isActived && "w-full border"
+        )}/>
       </span>
     </div>
   );
