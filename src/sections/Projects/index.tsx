@@ -67,7 +67,7 @@ export function Projects() {
       ];
 
       window.addEventListener("scroll", () => {
-        for (let i in elements) {
+        for (const i in elements) {
           const currentElement = elements[i] as HTMLDivElement;
           const distanceFromTop = currentElement.getBoundingClientRect().top;
           const distanceFromCenter = distanceFromTop-window.innerHeight/2;
