@@ -101,16 +101,5 @@ export const projects: ProjectType[] = [
       tags: [
         { content: "Frontend" }
       ]
-    },
-    {
-      title: "Calculadora",
-      imgUrl: "/calculadora.png",
-      about: "Essa é um simples calculadora comúm que realiza as 4 (quatro) operações fundamentais da matemática, a adição, subtração, multiplicação e divisão. É possível escolher entre o tema Dark ou Light.",
-      languages: ["React", "HTML5", "CSS3", "Javascript"],
-      preview: "https://calculadora-saulofelipe.vercel.app",
-      github: "https://github.com/Saulo-Felipe/Calculadora-Com-React",
-      tags: [
-        { content: "Frontend" }
-      ]
-    },
+    }
   ];
