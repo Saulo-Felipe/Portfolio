@@ -1,9 +1,9 @@
 import { AlfaSlabOneFont } from "@/Fonts";
+import { randomUUID } from "crypto";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FiDownload } from "react-icons/fi";
-import { randomUUID } from "crypto";
 
 
 export function Home() {
@@ -40,7 +40,7 @@ export function Home() {
 
         <div className="flex text-white mt-6">
 
-          <a href="/CV-Saulo-Felipe-Fullstack.pdf" 
+          <a href="#" 
             target="_blank"
             className="rounded-md"
             download
