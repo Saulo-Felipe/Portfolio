@@ -1,11 +1,11 @@
 "use client";
 
+import { projects } from "@/Utils/Projects";
 import { useEffect, useState } from "react";
-import { Project } from "./components/Project";
-import { Modal } from "./components/Modal";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { twJoin } from "tailwind-merge";
-import { projects } from "@/Utils/Projects";
+import { Modal } from "./components/Modal";
+import { Project } from "./components/Project";
 
 
 type Stack = "Javascript" | "Typescript" | "CSS3" | "HTML5" | "React" | "NextJS" | "NestJS" | "NodeJS" |
