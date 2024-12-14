@@ -100,7 +100,7 @@ export function Footer() {
             }
           </div>
 
-          <CopyText type="email" text="saulofelipe234567@gmail.com" />
+          <CopyText type="email" text="saulofelipe.dev@gmail.com" />
           <CopyText type="phone" text="+55 (83) 991389085" />
 
         </div>
