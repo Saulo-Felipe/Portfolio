@@ -1,20 +1,18 @@
 import Image from "next/image";
 
-import { MdArrowOutward } from "react-icons/md";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { MdArrowOutward } from "react-icons/md";
 
-import { CopyText } from "./components/CopyText";
-import { ReactNode } from "react";
-import { Forms } from "./components/Forms";
 import { projects } from "@/Utils/Projects";
+import { ReactNode } from "react";
+import { CopyText } from "./components/CopyText";
+import { Forms } from "./components/Forms";
 
 export function Footer() {
 
   return (
-    <footer id="page_3" className="text-white mt-72 bg-black-4 m-4 rounded-xl px-8 pt-10
+    <footer id="page_3" className="text-white mt-72 bg-black-4 border border-black-3 m-4 rounded-xl px-8 pt-10
       sm:m-2 sm:mt-60 sm:p-5">
 
       <div className="flex gap-8 sm:block">
@@ -96,7 +94,7 @@ export function Footer() {
                 >
                   {item[1] as ReactNode}
                 </a>
-                )
+              )
             }
           </div>
 

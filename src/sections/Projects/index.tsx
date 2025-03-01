@@ -43,7 +43,7 @@ export function Projects() {
   const handleProjectMouseEnter = (element: EventTarget) => {
     const containerDivElement = element as HTMLDivElement;
     console.log("chamei enter");
-    setHoverPosition(containerDivElement.offsetTop-14);
+    setHoverPosition(containerDivElement.offsetTop - 14);
   };
 
   const handleProjectMouseExit = () => {
@@ -56,7 +56,7 @@ export function Projects() {
   };
 
   const handleCloseModal = () => {
-    setModalInfo(prev => ({...prev, title: ""})); // if the title is empty, the modal is closed.
+    setModalInfo(prev => ({ ...prev, title: "" })); // if the title is empty, the modal is closed.
   };
 
   useEffect(() => {
@@ -70,10 +70,10 @@ export function Projects() {
         for (const i in elements) {
           const currentElement = elements[i] as HTMLDivElement;
           const distanceFromTop = currentElement.getBoundingClientRect().top;
-          const distanceFromCenter = distanceFromTop-window.innerHeight/2;
+          const distanceFromCenter = distanceFromTop - window.innerHeight / 2;
 
-          if (distanceFromTop < window.innerHeight/2 && distanceFromCenter > -200) {
-            setHoverPosition(currentElement.offsetTop-9);
+          if (distanceFromTop < window.innerHeight / 2 && distanceFromCenter > -200) {
+            setHoverPosition(currentElement.offsetTop - 9);
             setActivedProjectIndex(Number(i));
             break;
           }
@@ -91,7 +91,7 @@ export function Projects() {
       <div className="flex justify-center sm:justify-start sm:pl-4">
         <div className={twJoin(`w-max flex bg-black border border-black-3 overflow-hidden
           relative group rounded-3xl select-none transition-all`,
-          hoverPosition !== -1 &&	"shadow-[0px_0px_20px_#183367]"
+          hoverPosition !== -1 && "shadow-[0px_0px_50px_#183367]"
         )}>
           <h1 className="flex flex-col items-center justify-center backdrop-blur-[8px]
             z-10 text-white p-2 pt-4 rounded-3xl gap-4 "
@@ -127,13 +127,12 @@ export function Projects() {
             className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367]
             transition-all`, hoverPosition !== -1 && "border")}
             style={{
-              height: `calc(${hoverPosition+"px"} + ${
-                hoverPosition !== -1
-                  ? isMobile
-                    ? "6rem"
-                    : "8rem"
-                  : "0rem"
-              })`
+              height: `calc(${hoverPosition + "px"} + ${hoverPosition !== -1
+                ? isMobile
+                  ? "6rem"
+                  : "8rem"
+                : "0rem"
+                })`
             }}
           />
         </div>
@@ -141,13 +140,13 @@ export function Projects() {
         <div className="flex justify-center relative sm:flex-col sm:pr-2">
           {/* Left Projects */}
           <div className="flex flex-col gap-28 mt-32">
-            {projects.slice(0, Math.ceil(projects.length/2)).map((project, i) =>
+            {projects.slice(0, Math.ceil(projects.length / 2)).map((project, i) =>
               <Project
                 key={i}
                 isActived={activedProjectIndex === i && isMobile}
                 className="project-container-1"
-                onMouseEnter={({currentTarget}) => !isMobile && handleProjectMouseEnter(currentTarget)}
-                onMouseLeave={!isMobile ? handleProjectMouseExit : () => {}}
+                onMouseEnter={({ currentTarget }) => !isMobile && handleProjectMouseEnter(currentTarget)}
+                onMouseLeave={!isMobile ? handleProjectMouseExit : () => { }}
                 onClick={() => handleOpenModal(i)}
                 project={project}
               />
@@ -162,27 +161,26 @@ export function Projects() {
               className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367]
               transition-all`, hoverPosition !== -1 && "border")}
               style={{
-                height: `calc(${hoverPosition+"px"} + ${
-                  hoverPosition !== -1
+                height: `calc(${hoverPosition + "px"} + ${hoverPosition !== -1
                   ? isMobile
                     ? "6rem"
                     : "8rem"
                   : "0rem"
-                })`
+                  })`
               }}
             />
           </div>
 
           {/* Right Projects */}
           <div className="flex flex-col gap-28 mt-64 sm:mt-28">
-            {projects.slice(Math.ceil(projects.length/2), projects.length).map((project, i) =>
+            {projects.slice(Math.ceil(projects.length / 2), projects.length).map((project, i) =>
               <Project
                 key={i}
-                isActived={activedProjectIndex === Math.ceil(projects.length/2+i) && isMobile}
+                isActived={activedProjectIndex === Math.ceil(projects.length / 2 + i) && isMobile}
                 className="project-container-2"
-                onMouseEnter={({currentTarget}) => !isMobile && handleProjectMouseEnter(currentTarget)}
-                onMouseLeave={!isMobile ? handleProjectMouseExit : () => {}}
-                onClick={() => handleOpenModal(Math.ceil(projects.length/2+i))}
+                onMouseEnter={({ currentTarget }) => !isMobile && handleProjectMouseEnter(currentTarget)}
+                onMouseLeave={!isMobile ? handleProjectMouseExit : () => { }}
+                onClick={() => handleOpenModal(Math.ceil(projects.length / 2 + i))}
                 project={project}
                 isRight
               />

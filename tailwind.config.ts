@@ -16,7 +16,7 @@ const config: Config = {
       },
 
       colors: {
-        'black-1': '#09090A',
+        'black-1': '#141416',
         'black-2': '#121214',
         'black-3': '#333339',
         'black-4': '#111111',
@@ -25,12 +25,12 @@ const config: Config = {
       },
 
       screens: {
-        'sm': {'min': '0px', 'max': '767px'},    
-        'md': {'min': '768px', 'max': '1023px'},    
-        'lg': {'min': '1024px', 'max': '1279px'},
-        'xl': {'min': '1280px', 'max': '1535px'},    
-        '2xl': {'min': '1536px'},
-        "desk": {'min': "1024px"}
+        'sm': { 'min': '0px', 'max': '767px' },
+        'md': { 'min': '768px', 'max': '1023px' },
+        'lg': { 'min': '1024px', 'max': '1279px' },
+        'xl': { 'min': '1280px', 'max': '1535px' },
+        '2xl': { 'min': '1536px' },
+        "desk": { 'min': "1024px" }
       }
     },
   },

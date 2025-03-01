@@ -40,30 +40,30 @@ export function Home() {
 
         <div className="flex text-white mt-6">
 
-          <a href="#" 
+          {/* <a href="#"
             target="_blank"
             className="rounded-md"
             download
-          >
-            <button className="relative inline-flex items-center justify-center p-0.5
+          > */}
+          <button className="relative inline-flex items-center justify-center p-0.5
               overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br
               from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600
               hover:text-white text-white focus:ring-4 focus:outline-none transition-all duration-500
               focus:ring-green-800 hover:shadow-blue-800/80 hover:shadow-lg">
-              <span className="relative px-5 py-2.5 h-full transition-all ease-in duration-75
+            <span className="relative px-5 py-2.5 h-full transition-all ease-in duration-75
                 bg-gray-900 rounded-md flex items-center justify-center gap-2">
-                <span className="z-20">Baixar CV</span>
-                <FiDownload className="text-xl z-20" />
-              </span>
-            </button>
-          </a>
+              <span className="z-20">Baixar CV</span>
+              <FiDownload className="text-xl z-20" />
+            </span>
+          </button>
+          {/* </a> */}
 
           <div className="flex items-center gap-6 ml-6">
             <a className="rounded-full" href="https://github.com/saulo-felipe" target="_blank">
               <div className="w-12 h-12 rounded-lg p-2 flex items-center justify-center
                 transition-all duration-300 relative after:border after:border-black-3
                 after:absolute after:w-full after:h-full after:rounded-md hover:after:backdrop-blur-sm
-                before:w-full before:h-full before:absolute before:bg-black-2 before:rounded-md
+                before:w-full before:h-full before:absolute before:bg-black-1 before:border before:border-white before:border-opacity-15 before:rounded-md
                 hover:before:rotate-[30deg] before:origin-bottom before:transition-all"
               >
                 <FaGithub className="text-white text-3xl z-10" />
@@ -92,32 +92,32 @@ export function Home() {
           sm:w-[65vw] sm:h-[65vw] overflow-hidden p-[2px] group shadow-md sm:p-[1px]"
         >
           <span className="absolute w-full h-full bg-gradient-to-b from-[rgb(255,255,255,0.35)] via-transparent 
-            to-[rgb(255,255,255,0.35)] group-hover:rotate-[120deg] transition-all duration-1000 rotate-45" 
+            to-[rgb(255,255,255,0.35)] group-hover:rotate-[120deg] transition-all duration-1000 rotate-45"
           />
 
-          <Image 
+          <Image
             src={"/profile-picture.png"}
             alt="Foto de perfil de Saulo Felipe"
             sizes="100vw"
             width={0} height={0}
             className="w-full h-full rounded-full z-10"
           />
-          
+
           {[0, 1, 2, 3, 4, 5, 6, 7].map(e =>
-            [0, 1, 2, 3, 4, 5, 6, 7].map(i => 
-              <div 
+            [0, 1, 2, 3, 4, 5, 6, 7].map(i =>
+              <div
                 key={randomUUID()}
                 className="bg-blue-800 h-[calc(100%/8)] w-[calc(100%/8)] top-0 z-20 absolute opacity-0 sm:!opacity-0 
                 hover:opacity-100 hover:transition-none transition-all duration-[2000ms] ease-in-out 
-                bg-[url('/profile-picture-bg.png')] bg-[length:20rem]" 
-                style={{ 
-                  left: (i*100/8)+"%", 
-                  top: (e*100/8)+"%",
-                  backgroundPositionX: (i*100/8)+"%",
-                  backgroundPositionY: (e*100/8)+"%",
+                bg-[url('/profile-picture-bg.png')] bg-[length:20rem]"
+                style={{
+                  left: (i * 100 / 8) + "%",
+                  top: (e * 100 / 8) + "%",
+                  backgroundPositionX: (i * 100 / 8) + "%",
+                  backgroundPositionY: (e * 100 / 8) + "%",
                 }}
               />)
-            )
+          )
           }
         </div>
       </div>

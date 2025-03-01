@@ -17,7 +17,7 @@ export function Typing({ words, Icon }: TypingProps) {
 
   const startTyping = async (currentWord: string) => {
 
-    for (let i = 0; i < currentWord.length+1; i++) {
+    for (let i = 0; i < currentWord.length + 1; i++) {
       await new Promise(resolve => setTimeout(resolve, 100));
 
       setTyping(prev => {
@@ -35,7 +35,7 @@ export function Typing({ words, Icon }: TypingProps) {
           ...prev,
           isErasing: !isErasing,
           wordIndex: isErasing
-            ? wordIndex === words.length-1
+            ? wordIndex === words.length - 1
               ? 0
               : wordIndex + 1
             : wordIndex
@@ -56,7 +56,7 @@ export function Typing({ words, Icon }: TypingProps) {
   }, [typing.isErasing]);
 
   return (
-    <div className="ml-20 pr-4 flex items-center bg-black-1 bg-opacity-75 w-max p-2 rounded-full
+    <div className="ml-20 pr-4 select-none flex items-center bg-black-1 border border-black-3 border-opacity-40 w-max p-2 rounded-full
       mt-12 sm:ml-4"
     >
       <div className="w-10 h-10 bg-black-2 rounded-full flex items-center

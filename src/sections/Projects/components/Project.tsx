@@ -1,7 +1,7 @@
 import Image from "next/image";
-import type { ProjectType } from "../index";
-import React, { HtmlHTMLAttributes } from "react";
+import { HtmlHTMLAttributes } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
+import type { ProjectType } from "../index";
 
 interface ProjectProps extends HtmlHTMLAttributes<HTMLDivElement> {
   project: ProjectType;
@@ -11,7 +11,7 @@ interface ProjectProps extends HtmlHTMLAttributes<HTMLDivElement> {
 
 export function Project({
   project,
-  isRight=false,
+  isRight = false,
   isActived,
   ...props
 }: ProjectProps) {
@@ -37,11 +37,11 @@ export function Project({
             {
               project.tags?.map((tag, i) =>
                 <span
-                  className={twMerge("text-xs px-2.5 py-0.5 rounded w-max", 
-                    tag.content === "Full Stack" 
-                      ? "bg-blue-900 text-blue-300" 
-                      : tag.content === "Frontend" 
-                        ? "bg-green-600 text-green-300" 
+                  className={twMerge("text-xs px-2.5 py-0.5 rounded w-max",
+                    tag.content === "Full Stack"
+                      ? "bg-blue-900 text-blue-300"
+                      : tag.content === "Frontend"
+                        ? "bg-green-600 text-green-300"
                         : "bg-yellow-900 text-yellow-300"
                   )}
                   key={i}
@@ -51,12 +51,12 @@ export function Project({
           </div>
 
           <span className={twMerge(`w-full h-0 transition-all absolute
-            bg-gradient-to-t from-[rgb(0,0,0,0.65)] to-transparent desk:group-hover/parent:h-[40%]`, 
+            bg-gradient-to-t from-[rgb(0,0,0,0.65)] to-transparent desk:group-hover/parent:h-[40%]`,
             isActived && "h-[40%]"
-          )}/>
+          )} />
 
-          <button className={twMerge(`absolute text-white z-10 bg-black border-2 border-black-2
-            py-1 px-4 rounded-lg text-xs -mb-[100%] transition-all desk:group-hover/parent:mb-[5%]`, 
+          <button className={twMerge(`absolute text-white z-10 bg-black border border-white border-opacity-50
+            py-1 px-4 rounded-lg text-xs -mb-[100%] transition-all desk:group-hover/parent:mb-[5%]`,
             isActived && "mb-[5%]"
           )}>
             Saiba mais
@@ -79,9 +79,9 @@ export function Project({
       )}>
         <span className={twMerge(`absolute delay-150 right-0 h-full w-0 bg-blue-1
           transition-all shadow-[0px_0px_20px_#183367] border-blue-700 
-          desk:group-hover/parent:w-full group-hover/parent:border`, 
+          desk:group-hover/parent:w-full group-hover/parent:border`,
           isActived && "w-full border"
-        )}/>
+        )} />
       </span>
     </div>
   );

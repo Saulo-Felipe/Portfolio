@@ -30,7 +30,7 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
           (Math.abs(styleLeftValue) < rightLimit || !isDragLeft)) // Right limit conditions
         {
           styleLeftValue += mouseEvent.pageX - oldMouseX;
-          (containerRef.current as HTMLDivElement).style.left = styleLeftValue+"px";
+          (containerRef.current as HTMLDivElement).style.left = styleLeftValue + "px";
         }
       }
 
@@ -76,12 +76,12 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
       if (styleLeftValue > leftLimit) { // limit for left
         direction = "left";
       }
-      else if ((styleLeftValue*-1) > rightLimit) { // limit for right
+      else if ((styleLeftValue * -1) > rightLimit) { // limit for right
         direction = "right";
       }
 
       styleLeftValue += direction === "right" ? 1 : -1;
-      element.style.left = styleLeftValue+"px";
+      element.style.left = styleLeftValue + "px";
 
       // this condition prevent unnecessary requestAnimationFrame
       if (isHover) return; // stop animation
@@ -113,18 +113,21 @@ export function LanguagesClient({ type }: LanguagesClientProps) {
             onMouseLeave={() => setHoverIndex(-99)}
           >
             <div
-              className={twMerge(`w-32 h-32 bg-black bg-opacity-[0.29] p-2 flex items-center
+              className={twMerge(`w-32 h-32 bg-black-1 p-2 flex items-center
                 justify-center rounded-md transition-all relative overflow-hidden
-                shadow-[0.5rem_0.5rem_0px_rgb(0,0,0,0.25)] border border-black
+                shadow-[0.5rem_0.5rem_0px_rgb(0,0,0,0.25)] border border-black-3 border-opacity-40
                 sm:w-24 sm:h-24 `,
-                String(hoverIndex === i-1 || hoverIndex === i+1
+                String(hoverIndex === i - 1 || hoverIndex === i + 1
                   ? "w-36 h-36 sm:h-28 sm:w-28"
                   : hoverIndex === i && "w-40 h-40 sm:w-32 sm:h-32"
                 )
               )}
             >
+              <span className={twMerge("w-[0%] h-[0%] rounded-md border-2 border-black-3 border-opacity-40 absolute z-20 transition-all",
+                hoverIndex === i && "w-[90%] h-[90%]"
+              )} />
               <span
-                className="w-full h-full backdrop-blur-md bg-white bg-opacity-[0.01]
+                className="w-full h-full backdrop-blur-md bg-white bg-opacity-[0.02]
                 absolute opacity-0 group-hover:opacity-100 transition-all
                 flex items-center justify-center text-white font-bold sm:text-sm"
               >{item.name}</span>

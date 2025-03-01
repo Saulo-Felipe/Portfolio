@@ -1,10 +1,10 @@
+import { Languages } from "@/Utils/Languages";
+import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { MdOutlineArrowOutward } from "react-icons/md";
 import { twJoin, twMerge } from "tailwind-merge";
 import { ProjectType } from "../index";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { FaGithub } from "react-icons/fa";
-import { Languages } from "@/Utils/Languages";
-import { IoClose } from "react-icons/io5";
-import Image from "next/image";
 
 interface ModalProps extends ProjectType {
   closeModal: () => void;
@@ -24,7 +24,7 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
       />
 
       <div className={twJoin(`w-[80vw] h-max bg-black-2 rounded-lg border border-black-3
-        p-12 pt-6 pb-16 relative sm:w-[96%] sm:mx-[2%] sm:p-6 transition-all`, 
+        p-12 pt-6 pb-16 relative sm:w-[96%] sm:mx-[2%] sm:p-6 transition-all`,
         title ? "top-0" : "-top-full")}
         id="modal"
       >
@@ -37,7 +37,7 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
         </div>
 
         <div className="flex h-full w-full gap-10 sm:flex-col">
-          <div className="flex-[0.35] text-white">
+          <div className="flex-[0.3] text-white">
             <div
               className="text-5xl relative before:content-[attr(data-title)] w-max before:w-max
                 before:absolute before:text-5xl before:bg-black-2 font-bold before:px-3 before:-ml-3
@@ -57,10 +57,10 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
                     rounded-xl flex items-center justify-center bg-transparent
                     cursor-pointer relative group sm:w-14 sm:h-14"
                   >
-                    <span className="bg-neutral-950 rounded-xl w-full h-full absolute transition-all
+                    <span className="bg-black-1 border border-white border-opacity-15 rounded-xl w-full h-full absolute transition-all
                       group-hover:rotate-[30deg] origin-bottom" />
                     <span className="bg-transparent rounded-xl w-full h-full
-                      absolute backdrop-blur-sm border-gray-700 border"
+                      absolute backdrop-blur-sm border-gray-700 border group-hover:border-gray-600"
                     />
                     <span className="z-10">{
                       Languages.primary.concat(Languages.secondary)
@@ -75,12 +75,12 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
 
               <a href={preview} target="_blank">
                 <button className="flex items-center h-12 rounded-full gap-2 pr-4 relative transition-all
-                  group bg-gradient-to-br from-black via-transparent to-black border border-black-3
+                  group bg-gradient-to-br from-black-3 via-transparent to-black border border-black-3
                   hover:border-gray-500">
 
                   <span className="h-[calc(100%-10px)] w-[calc(3rem-10px)] ml-[calc(10px/2)] bg-white
                     rounded-full flex items-center justify-center backdrop-blur-md border border-black-3"
-                    >
+                  >
                     <MdOutlineArrowOutward className="text-xl text-black group-hover:rotate-0 rotate-45 transition-all" />
                   </span>
 
@@ -90,12 +90,12 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
 
               <a href={github} target="_blank">
                 <button className="flex items-center h-12 rounded-full gap-2 pr-4 relative transition-all
-                  group bg-gradient-to-br from-black via-transparent to-black border border-black-3
+                  group bg-gradient-to-br from-black-3 via-transparent to-black border border-black-3
                   hover:border-gray-500">
 
                   <span className="h-[calc(100%-10px)] w-[calc(3rem-10px)] ml-[calc(10px/2)] bg-white
                     rounded-full flex items-center justify-center"
-                    >
+                  >
                     <FaGithub className="text-black text-xl group-hover:scale-150 transition-all" />
                   </span>
 
@@ -106,7 +106,7 @@ export function Modal({ title, closeModal, about, github, imgUrl, languages, pre
 
           </div>
 
-          <div className="flex-[0.65] flex items-start justify-center">
+          <div className="flex-[0.70] flex items-start justify-center">
             <Image
               src={!imgUrl ? "/not-found.png" : imgUrl}
               width={!imgUrl ? 400 : 0}
