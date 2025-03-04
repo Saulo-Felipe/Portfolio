@@ -28,7 +28,7 @@ export const projects: ProjectType[] = [
     imgUrl: "/multiplayer-game.png",
     about: "Um jogo de batalha 2D entre tanques de guerra. O Game possui um sistema multiplayer, onde é possível batalhar em tempo real contra qualquer usuário. Atráves do ranking baseado em mortes, é possível deixar o game mais competitivo.",
     languages: ["NodeJS", "HTML5", "CSS3", "Javascript"],
-    preview: "https://tanksfight-server.saulofelipe.tech",
+    preview: "https://tanksfight-server.saulofelipe.com.br",
     github: "https://github.com/Saulo-Felipe/Multiplayer-Game",
     tags: [
       { content: "Full Stack" }
