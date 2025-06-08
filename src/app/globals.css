@@ -25,6 +25,7 @@ body {
   .animation-pause {
     animation-play-state: paused;
   }
+
   .bg-home-x {
     background:
       url('/home-bg-left.png') left no-repeat,
@@ -32,6 +33,7 @@ body {
 
     background-size: contain;
   }
+
   .bg-home-y {
     background: url('/bg-mobile.png') no-repeat !important;
     background-size: auto 100% !important;
@@ -41,7 +43,8 @@ body {
 
 /* animations */
 
-.pulse-animation-btn::before, .pulse-animation-btn::after {
+.pulse-animation-btn::before,
+.pulse-animation-btn::after {
   content: '';
   width: 100%;
   height: 100%;
@@ -55,6 +58,7 @@ body {
     height: 100%;
     opacity: 1;
   }
+
   100% {
     width: 120%;
     height: 150%;
@@ -93,34 +97,79 @@ body {
 
 @keyframes TitleCut {
 
-  0% { left: 0px; }
-  30% { left: 0px; }
-  32% {left: -10px;}
-  33% { left: -6px; }
-  34% { left: -10px; }
-  35% { left: -4px; }
-  36% { left: -10px; }
-  49% { left: -10px; }
+  0% {
+    left: 0px;
+  }
+
+  30% {
+    left: 0px;
+  }
+
+  32% {
+    left: -10px;
+  }
+
+  33% {
+    left: -6px;
+  }
+
+  34% {
+    left: -10px;
+  }
+
+  35% {
+    left: -4px;
+  }
+
+  36% {
+    left: -10px;
+  }
+
+  49% {
+    left: -10px;
+  }
+
   50% {
     left: 0px;
     text-shadow:
-    0px 0px 5px #00538C,
-    0px 0px 10px #00538C,
-    0px 0px 10px #00538C,
-    0px 0px 20px #00538C;
+      0px 0px 5px #00538C,
+      0px 0px 10px #00538C,
+      0px 0px 10px #00538C,
+      0px 0px 20px #00538C;
   }
-  80% { left: 0px; }
-  82% { left: 10px; }
-  83% { left: 6px; }
-  84% { left: 10px; }
-  85% { left: 4px; }
-  86% { left: 10px; }
-  89% { left: 10px; }
-  90% { left: 0px; }
+
+  80% {
+    left: 0px;
+  }
+
+  82% {
+    left: 10px;
+  }
+
+  83% {
+    left: 6px;
+  }
+
+  84% {
+    left: 10px;
+  }
+
+  85% {
+    left: 4px;
+  }
+
+  86% {
+    left: 10px;
+  }
+
+  89% {
+    left: 10px;
+  }
+
+  90% {
+    left: 0px;
+  }
 }
-
-
-
 
 .projects-ball {
   width: 1.25rem;
@@ -140,10 +189,12 @@ body {
     top: 0%;
     left: 0%;
   }
+
   50% {
     top: 90%;
     left: 0%;
   }
+
   100% {
     top: 0%;
     left: 0%;
@@ -159,10 +210,12 @@ body {
     bottom: 0%;
     right: 0%;
   }
+
   50% {
     bottom: 90%;
     right: 0%;
   }
+
   100% {
     bottom: 0%;
     right: 0%;
@@ -179,10 +232,12 @@ body {
     top: 0%;
     left: 0%;
   }
+
   50% {
     top: 90%;
     left: 90%;
   }
+
   100% {
     top: 0%;
     left: 0%;
@@ -198,10 +253,12 @@ body {
     bottom: 0%;
     right: 0%;
   }
+
   50% {
     bottom: 90%;
     right: 90%;
   }
+
   100% {
     bottom: 0%;
     right: 0%;
@@ -219,7 +276,22 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
   }
 }

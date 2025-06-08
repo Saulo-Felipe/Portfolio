@@ -77,9 +77,10 @@ export function Project({
       <span className={twMerge(`h-[4px] w-40 bg-gradient-to-l from-transparent transition-all
         to-blue-1 relative sm:w-10 sm:bg-blue-1`, !isRight && "bg-gradient-to-r"
       )}>
-        <span className={twMerge(`absolute delay-150 right-0 h-full w-0 bg-blue-1
-          transition-all shadow-[0px_0px_20px_#183367] border-blue-700 
-          desk:group-hover/parent:w-full group-hover/parent:border`,
+        <span className={twMerge(`absolute delay-150 right-0 h-full w-0 border-blue-700
+            transition-all shadow-[0px_0px_15px_#183367,0px_0px_30px_#183367,0px_0px_45px_#183367]
+            bg-gradient-to-b from-[rgba(37,99,235,0.1)] via-[rgba(37,99,235,0.5)] to-blue-600 bg-[length:100%_200%] animate-[gradient_3s_ease-in-out_infinite]
+                                    desk:group-hover/parent:w-full group-hover/parent:border`,
           isActived && "w-full border"
         )} />
       </span>
