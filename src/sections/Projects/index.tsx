@@ -124,17 +124,15 @@ export function Projects() {
           relative z-10 ml-9 hidden sm:block"
         >
           <span
-            className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367]
-            transition-all`, hoverPosition !== -1 && "border")}
+            className={twJoin(`absolute w-[4px] border-blue-700 
+              shadow-[0px_0px_15px_#183367,0px_0px_30px_#183367,0px_0px_45px_#183367]
+              transition-all bg-gradient-to-b from-blue-1 via-blue-400 to-blue-1 
+              bg-[length:100%_200%] animate-[gradient_3s_ease-in-out_infinite]`,
+              hoverPosition !== -1 && "border")}
             style={{
-              height: `calc(${hoverPosition + "px"} + ${hoverPosition !== -1
-                ? isMobile
-                  ? "6rem"
-                  : "8rem"
-                : "0rem"
-                })`
+              height: `calc(${hoverPosition}px + ${hoverPosition !== -1 ? (isMobile ? "6rem" : "8rem") : "0rem"})`
             }}
-          />
+          ></span>
         </div>
 
         <div className="flex justify-center relative sm:flex-col sm:pr-2">
@@ -158,8 +156,11 @@ export function Projects() {
             w-[4px] relative z-10 sm:hidden"
           >
             <span
-              className={twJoin(`absolute w-[4px] bg-blue-1 border-blue-700 shadow-[0px_0px_20px_#183367]
-              transition-all`, hoverPosition !== -1 && "border")}
+              className={twJoin(`absolute w-[4px] border-blue-700
+                shadow-[0px_0px_15px_#183367,0px_0px_30px_#183367,0px_0px_45px_#183367]
+                transition-all bg-gradient-to-b from-[rgba(37,99,235,0.1)] via-[rgba(37,99,235,0.5)] to-blue-600
+                bg-[length:100%_200%] animate-[gradient_3s_ease-in-out_infinite]`,
+                hoverPosition !== -1 && "border")}
               style={{
                 height: `calc(${hoverPosition + "px"} + ${hoverPosition !== -1
                   ? isMobile
